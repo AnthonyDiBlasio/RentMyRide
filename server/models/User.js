@@ -3,13 +3,19 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
     {
-        name: {type: String, required: true},
-        email: {type: String , required: true},
-        unique: true, 
-        match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-        Password: {},
-        isOwner: {type: boolean, required: true},
-        location: {type: String , required: true}    
+        name: { type: String, 
+          required: true, 
+          unique: true, 
+          trim: true },
+        email: {
+            type: String,
+            unique: true,
+            required: 'Email address is required',
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+        },
+        Password: {type: String, required: true},
+        isOwner: {type: Boolean, required: true},
+        location: {type: String , required: true}
     },
     {
         toJSON: {
