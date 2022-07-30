@@ -1,6 +1,7 @@
+const { ObjectId } = require('mongodb');
 const { Schema, model } = require('mongoose');
 
-const carSchema = (
+const carSchema = new Schema(
     {
         carType: { type: String, trim: true, required: true },
         carMake: { type: String, trim: true, required: true },

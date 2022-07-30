@@ -1,6 +1,7 @@
+const { ObjectId } = require('mongodb');
 const { Schema, model } = require('mongoose');
 
-const locationSchema = (
+const locationSchema = new Schema(
     {
         locLong: { type: Number },
         locLang: { type: Number },
