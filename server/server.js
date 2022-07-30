@@ -1,9 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 
+
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -11,7 +14,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-
+const { Tech } = require('./models');
+const techData = require('./seeds/techData.json')
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -28,15 +32,23 @@ app.get('/', (req, res) => {
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
-  
+
   db.once('open', () => {
+    app.post('/seedDatabase', async (req, res) => {
+      SEEDPASS=DB_PASSWORD;
+      if(req.body.SEEDPASS === process.env.SEEDPASS){ await Tech.deleteMany({});
+      const technologies = await Tech.insertMany(techData);
+      res.json(technologies)
+      }
+    });
+
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     })
   })
-  };
-  
+};
+
 // Call the async function to start the server
-  startApolloServer(typeDefs, resolvers);
- 
+startApolloServer(typeDefs, resolvers);
+
