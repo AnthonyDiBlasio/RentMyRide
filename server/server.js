@@ -12,8 +12,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-const { Tech } = require("./models");
-// const techData = require('./seeds/techData.json')
+const { User } = require("./models");
+// const seedData = require('./seeds/seedData.json')
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -34,9 +34,9 @@ const startApolloServer = async (typeDefs, resolvers) => {
     app.post("/seedDatabase", async (req, res) => {
       SEEDPASS = DB_PASSWORD;
       if (req.body.SEEDPASS === process.env.SEEDPASS) {
-        await Tech.deleteMany({});
-        const technologies = await Tech.insertMany(techData);
-        res.json(technologies);
+        await User.deleteMany({});
+        const users = await User.insertMany(seedData);
+        res.json(users);
       }
     });
 
