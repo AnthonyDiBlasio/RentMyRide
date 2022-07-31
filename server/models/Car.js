@@ -10,8 +10,8 @@ const carSchema = new Schema(
         color: {type: String},
         price: { type: Number, required: true },
         isAvailable: { type: Boolean, default: false },
-        reserveDate: { type: Date, required: true },
-        returnDate: { type: Date, required: true },
+        // reserveDate: { type: Date, required: true },
+        // returnDate: { type: Date, required: true },
         locationAvail: [
             {
                 type: Schema.Types.ObjectId,
