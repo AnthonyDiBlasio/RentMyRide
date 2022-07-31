@@ -1,35 +1,22 @@
 [
   {
-    "name": "JavaScript"
+    "firstName": "John",
+    "lastName": "Smith"
   },
   {
-    "name": "HTML"
+    "firstName": "Larry",
+    "lastName": "Davis"
   },
   {
-    "name": "CSS"
+    "firstName": "George",
+    "lastName": "Handerly"
   },
   {
-    "name": "Node.js"
+    "firstName": "Tina",
+    "lastName": "Thompson"
   },
   {
-    "name": "Express.js"
-  },
-  {
-    "name": "MySQL"
-  },
-  {
-    "name": "MongoDB"
-  },
-  {
-    "name": "React"
-  },
-  {
-    "name": "GraphQL"
-  },
-  {
-    "name": "Sequelize"
-  },
-  {
-    "name": "Handlebars.js"
+    "firstName": "Leslie",
+    "lastName": "Warner"
   }
 ]
