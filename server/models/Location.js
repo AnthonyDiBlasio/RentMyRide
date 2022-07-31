@@ -9,7 +9,7 @@ const locationSchema = new Schema(
         isAvailable: { type: Boolean, default: false },
         carAvail: [
             {
-                type: Schema.Types.ObjecctId,
+                type: Schema.Types.ObjectId,
                 ref: 'Car'
             }
         ]
@@ -23,9 +23,9 @@ const locationSchema = new Schema(
     }
 )
 
-locationSchema.virtual('').get(function () {
-    return 
-});
+// locationSchema.virtual('').get(function () {
+//     return 
+// });
 
 const Location = model('Location', locationSchema);
 

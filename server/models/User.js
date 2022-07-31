@@ -25,9 +25,9 @@ const userSchema = new Schema(
     }
 )
 
-userSchema.virtual('').get(function () {
-    return 
-});
+// userSchema.virtual('').get(function () {
+//     return 
+// });
 
 const User = model('User', userSchema);
 
