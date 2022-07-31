@@ -15,7 +15,7 @@ const server = new ApolloServer({
   resolvers,
 });
 const { Tech } = require('./models');
-const techData = require('./seeds/techData.json')
+// const techData = require('./seeds/techData.json')
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
