@@ -16,7 +16,7 @@ const bookingSchema = new Schema(
         ],
         car: [
             {
-                type: Schema.Type.ObjectId,
+                type: Schema.Types.ObjectId,
                 ref: 'Car',
             },
         ],
