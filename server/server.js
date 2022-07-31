@@ -13,7 +13,7 @@ const server = new ApolloServer({
   resolvers,
 });
 const { User } = require("./models");
-// const seedData = require('./seeds/seedData.json')
+const seedData = require('./seeds/seedData.json')
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
