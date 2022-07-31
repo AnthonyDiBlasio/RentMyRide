@@ -33,9 +33,9 @@ const carSchema = new Schema(
     }
 )
 
-carSchema.virtual('').get(function () {
-    return 
-});
+// carSchema.virtual('').get(function () {
+//     return 
+// });
 
 const Car = model('Car', carSchema);
 
