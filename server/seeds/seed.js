@@ -8,6 +8,7 @@ db.once('open', async () => {
 
   const users = await User.insertMany(seedData);
 
+  console.log(users);
   console.log('seeded!');
   process.exit(0);
 });
