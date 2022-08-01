@@ -32,11 +32,13 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
   db.once("open", () => {
     app.post("/seedDatabase", async (req, res) => {
-      SEEDPASS = DB_PASSWORD;
       if (req.body.SEEDPASS === process.env.SEEDPASS) {
         await User.deleteMany({});
         const users = await User.insertMany(seedData);
         res.json(users);
+      }
+      else {
+        res.json("this is not working")
       }
     });
 

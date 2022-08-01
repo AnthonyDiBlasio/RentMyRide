@@ -1,26 +1,15 @@
 [
+ 
   {
-    "firstName": "John",
-    "lastName": "Smith"
+    "firstName": "charles",
+    "lastName": "welton",
+    "password": "dd1d234",
+    "email": "usedr@email.com"
   },
   {
-    "firstName": "Larry",
-    "lastName": "Davis"
-  },
-  {
-    "firstName": "George",
-    "lastName": "Handerly"
-  },
-  {
-    "firstName": "Tina",
-    "lastName": "Thompson"
-  },
-  {
-    "firstName": "Leslie",
-    "lastName": "Warner"
-  },
-  {
-    "firstName": "Andrew",
-    "lastName": "Borlo"
+    "firstName": "Kyle",
+    "lastName": "Earner",
+    "password": "dd12ds34",
+    "email": "userE@email.com"
   }
 ]
