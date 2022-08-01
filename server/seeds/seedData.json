@@ -1,26 +1,9 @@
 [
-  {
-    "firstName": "John",
-    "lastName": "Smith"
-  },
-  {
-    "firstName": "Larry",
-    "lastName": "Davis"
-  },
-  {
-    "firstName": "George",
-    "lastName": "Handerly"
-  },
-  {
-    "firstName": "Tina",
-    "lastName": "Thompson"
-  },
+ 
   {
     "firstName": "Leslie",
-    "lastName": "Warner"
-  },
-  {
-    "firstName": "Andrew",
-    "lastName": "Borlo"
+    "lastName": "Warner",
+    "password": "dd1234",
+    "email": "user@email.com"
   }
 ]
