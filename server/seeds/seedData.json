@@ -1,9 +1,15 @@
 [
  
   {
-    "firstName": "Leslie",
-    "lastName": "Warner",
-    "password": "dd1234",
-    "email": "user@email.com"
+    "firstName": "charles",
+    "lastName": "welton",
+    "password": "dd1d234",
+    "email": "usedr@email.com"
+  },
+  {
+    "firstName": "Kyle",
+    "lastName": "Earner",
+    "password": "dd12ds34",
+    "email": "userE@email.com"
   }
 ]
