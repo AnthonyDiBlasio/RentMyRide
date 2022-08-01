@@ -12,13 +12,13 @@ const carSchema = new Schema(
         isAvailable: { type: Boolean, default: false },
         // reserveDate: { type: Date, required: true },
         // returnDate: { type: Date, required: true },
-        locationAvail: [
+        location_avail: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Location'
             },
         ],
-        userRented: [
+        user_rented: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User',

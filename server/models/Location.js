@@ -6,8 +6,8 @@ const locationSchema = new Schema(
         locLong: { type: Number },
         locLang: { type: Number },
         address: { type: String, required: true },
-        isAvailable: { type: Boolean, default: false },
-        carAvail: [
+        is_available: { type: Boolean, default: false },
+        car_avail: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Car'
