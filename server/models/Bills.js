@@ -4,7 +4,7 @@ const { ObjectId } = require('mongodb');
 // manages user's bills and count calculate late fees purpose
 const billsSchema = new Schema(
     {
-        bookingId: [
+        booking_id: [
             {
                 type: Schema.Types.ObjectId,
                 ref : 'Booking',
@@ -14,11 +14,11 @@ const billsSchema = new Schema(
             type: Number,
             min: 0,
         },
-        billingDate: {
+        billing_date: {
             type: Date,
             default: Date.now,
         },
-        lateFees: {
+        late_fee: {
             type: Number,
             min: 0,
         },
