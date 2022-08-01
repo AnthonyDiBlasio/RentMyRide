@@ -1,5 +1,4 @@
-const Tech = require('./Tech');
-const Matchup = require('./Matchup');
+
 
 const User = require('./User');
 const Car = require('./Car');
@@ -7,4 +6,4 @@ const Location = require('./Location');
 const Booking = require('./Booking');
 const Bills = require('./Bills');
 
-module.exports = { Tech, Matchup, User, Car, Location, Booking, Bills };
+module.exports = { User, Car, Location, Booking, Bills };
