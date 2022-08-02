@@ -9,6 +9,9 @@ const resolvers = {
       const params = _id ? { _id } : {};
       return Matchup.find(params);
     },
+    userTest: async () => {
+      return UserTest.find({});
+    }
   },
   Mutation: {
     createMatchup: async (parent, args) => {

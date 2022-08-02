@@ -1,6 +1,7 @@
 const { ObjectId } = require('mongodb');
 const { Schema, model } = require('mongoose');
 const { schema } = require('./User');
+// const bcrypt = require('bcrypt')
 
 
 const userTestSchema = new Schema(
@@ -25,18 +26,21 @@ const userTestSchema = new Schema(
         // is_owner: {type: Boolean, required: false, default: false},
         // location: {type: String , required: false}
     },
-    {
-        toJSON: {
-            virtuals: true,
-        }
-    }
+    // {
+    //     toJSON: {
+    //         virtuals: true,
+    //     }
+    // }
 )
 
 // TODO hooks for password updates
-userTestSchema.pre('save', (...args) => {
-    console.log(args);
-    next();
-})
+// add bcrypt password hashing
+// ref Um turtle vacation ideas in UPENN repo
+// userTestSchema.pre('save', (...args) => {
+//     console.log(args);
+
+//     next();
+// })
 
 const UserTest = model('UserTest', userTestSchema);
 
