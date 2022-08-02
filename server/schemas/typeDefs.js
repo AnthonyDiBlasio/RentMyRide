@@ -19,9 +19,18 @@ const typeDefs = gql`
     matchups(_id: String): [Matchup]
   }
 
+  type UserTest {
+    _id: ID!
+    first_name: String!
+    last_name: String!
+    email: String!
+  }
+
   type Mutation {
     createMatchup(tech1: String!, tech2: String!): Matchup
     createVote(_id: String!, techNum: Int!): Matchup
+
+    createUserTest(first_name: String!, last_name: String!, email: String!, password: String!): UserTest
   }
 `;
 
