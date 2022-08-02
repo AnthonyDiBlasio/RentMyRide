@@ -1,4 +1,4 @@
-const { Tech, Matchup } = require('../models');
+const { UserTest, Tech, Matchup } = require('../models');
 
 const resolvers = {
   Query: {
@@ -9,6 +9,9 @@ const resolvers = {
       const params = _id ? { _id } : {};
       return Matchup.find(params);
     },
+    userTest: async () => {
+      return UserTest.find({});
+    }
   },
   Mutation: {
     createMatchup: async (parent, args) => {
@@ -23,6 +26,11 @@ const resolvers = {
       );
       return vote;
     },
+    createUserTest: async(parent, {first_name, Last_name, email, password}) => {
+      const userTest = await UserTest.create({first_name, Last_name, email, password});
+
+      return userTest;
+    }
   },
 };
 
