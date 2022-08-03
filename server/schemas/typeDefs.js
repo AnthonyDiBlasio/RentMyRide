@@ -14,7 +14,7 @@ const typeDefs = gql`
     tech2_votes: Int
   }
 
-  type UserTest {
+  type User {
     _id: ID!
     first_name: String!
     last_name: String!

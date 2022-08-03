@@ -1,10 +1,10 @@
 const { ObjectId } = require('mongodb');
 const { Schema, model } = require('mongoose');
 const { schema } = require('./User');
-// const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const SALT_WORK_FACTOR = 7;
 
-
-const userTestSchema = new Schema(
+const userSchema = new Schema(
     {
         first_name: { type: String, 
           required: true,  
@@ -15,22 +15,18 @@ const userTestSchema = new Schema(
         email: {
             type: String,
             unique: true,
-            required: true,
-            // match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+            required: 'Email address is required',
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
         },
-        password: {
-            type: String, 
-            required: true,
-
-        }
-        // is_owner: {type: Boolean, required: false, default: false},
-        // location: {type: String , required: false}
+        password: {type: String, required: true},
+        is_owner: {type: Boolean, required: false, default: false},
+        location: {type: String , required: false}
     },
-    // {
-    //     toJSON: {
-    //         virtuals: true,
-    //     }
-    // }
+    {
+        toJSON: {
+            virtuals: true,
+        }
+    }
 )
 
 // TODO hooks for password updates
