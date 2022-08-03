@@ -9,7 +9,7 @@ const resolvers = {
       const params = _id ? { _id } : {};
       return Matchup.find(params);
     },
-    userTest: async () => {
+    user: async () => {
       return User.find({});
     }
   },
@@ -26,7 +26,7 @@ const resolvers = {
       );
       return vote;
     },
-    createUserTest: async(parent, {first_name, Last_name, email, password}) => {
+    createUser: async(parent, {first_name, Last_name, email, password}) => {
       const user = await User.create({first_name, Last_name, email, password});
 
       return user;
