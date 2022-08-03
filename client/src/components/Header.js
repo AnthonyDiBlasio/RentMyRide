@@ -14,7 +14,7 @@ function Header() {
             <Nav.Link class = 'home' href="#home" to ="/">Home</Nav.Link>
             <Nav.Link class = 'search' href="#search" to ="/search">Search</Nav.Link>
             <Nav.Link class = "rent" href="#rent" to = "/rent">Rent and Earn</Nav.Link>
-            <Nav.Link class = "signup" href="#signup" to ="signup">SignUp/SignIn</Nav.Link>
+            <Nav.Link class = "signup" href="#signup" to ="/signup">SignUp/SignIn</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
