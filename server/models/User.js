@@ -1,5 +1,8 @@
 const { ObjectId } = require('mongodb');
 const { Schema, model } = require('mongoose');
+const { schema } = require('./User');
+const bcrypt = require('bcrypt');
+const SALT_WORK_FACTOR = 7;
 
 const userSchema = new Schema(
     {
@@ -24,7 +27,31 @@ const userSchema = new Schema(
             virtuals: true,
         }
     }
-)
+);
+
+userSchema.pre('save', function(next) {
+    var user = this;
+    console.log({hookThis: user});
+  
+    if (!user.isModified('password')) return next();
+  
+    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+        if (err) return next(err);
+  
+        bcrypt.hash(user.password, salt, function(err, hash) {
+            if (err) return next(err);
+            user.password = hash;
+            next();
+        });
+    });
+  });
+  
+  userSchema.methods.comparePassword = function(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
+  };
 
 // userSchema.virtual('').get(function () {
 //     return 
