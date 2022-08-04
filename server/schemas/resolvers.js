@@ -1,4 +1,5 @@
 const { User, Tech, Matchup } = require('../models');
+const { ObjectId } = require("mongoose").Types;
 
 const resolvers = {
   Query: {
@@ -9,9 +10,17 @@ const resolvers = {
       const params = _id ? { _id } : {};
       return Matchup.find(params);
     },
-    user: async () => {
+    // user: async () => {
+    //   return User.find({});
+    // },
+    users: async () => {
       return User.find({});
+    },
+    user: async (parent, { _id }) => {
+      return User.findOne({_id: ObjectId(_id)});
     }
+
+    
   },
   Mutation: {
     createMatchup: async (parent, args) => {
