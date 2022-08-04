@@ -24,7 +24,8 @@ const typeDefs = gql`
   type Query {
     tech: [Tech]
     matchups(_id: String): [Matchup]
-    user: [User]
+    users: [User]
+    user(_id: String!): User
   }
 
   
