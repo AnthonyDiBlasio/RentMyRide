@@ -6,11 +6,16 @@ const path = require("path");
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 
+const { User } = require('./models');
+
+const  { authMiddleware } = require('./utils/auth')
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: authMiddleware
 });
 const { User } = require("./models");
 const seedData = require('./seeds/seedData.json')
