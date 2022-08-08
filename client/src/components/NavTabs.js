@@ -35,7 +35,7 @@ function NavTabs({ currentPage, handlePageChange }) {
 
           className={currentPage === 'Signup' ? 'nav-link active' : 'nav-link'}
         >
-          Projects
+        Signup
         </a>
       </li>
       <li className="nav-item">
@@ -46,7 +46,7 @@ function NavTabs({ currentPage, handlePageChange }) {
           onClick={() => handlePageChange('Search')}
           className={currentPage === 'Search' ? 'nav-link active' : 'nav-link'}
         >
-          Contact
+          Search
         </a>
       </li>
     </ul>
