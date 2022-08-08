@@ -28,13 +28,17 @@ const typeDefs = gql`
     user(_id: String!): User
   }
 
-  
+  type TokenUser {
+    token: String
+    user: User
+  }
 
   type Mutation {
     createMatchup(tech1: String!, tech2: String!): Matchup
     createVote(_id: String!, techNum: Int!): Matchup
 
     createUser(first_name: String!, last_name: String!, email: String!, password: String!): User
+    login(email: String!, password: String!): TokenUser
   }
 `;
 

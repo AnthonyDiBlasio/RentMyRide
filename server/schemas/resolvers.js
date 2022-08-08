@@ -1,5 +1,9 @@
-const { User, Tech, Matchup } = require('../models');
+const { User } = require('../models');
 const { ObjectId } = require("mongoose").Types;
+
+const { AuthenticationError } = require('apollo-server-express');
+
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -39,6 +43,26 @@ const resolvers = {
       const user = await User.create({first_name, Last_name, email, password});
 
       return user;
+    },
+
+    //TODO Login
+    login: async(parent, {email, password}) => {
+      // make sure user exists
+      const user = await User.findOne({ email });
+      if(!user) {
+        throw new AuthenticationError('No user with such email');
+      }
+
+      // check password
+      const correctPw = await User.comparePassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('incorrect password!');
+      }
+
+      // get the user token
+      const token = signToken(user);
+      return {token, user};
     }
   },
 };
