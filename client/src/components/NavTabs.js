@@ -49,6 +49,17 @@ function NavTabs({ currentPage, handlePageChange }) {
           Search
         </a>
       </li>
+      <li className="nav-item">
+        <a
+          href="#users"
+          onClick={() => handlePageChange('Users')}
+          
+
+          className={currentPage === 'Users' ? 'nav-link active' : 'nav-link'}
+        >
+          Users
+        </a>
+      </li>
     </ul>
   );
 }
