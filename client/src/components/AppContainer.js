@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Search from './pages/Search';
 import Signup from './pages/Signup';
+import Users from './pages/Users';
 
 export default function AppContainer() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -18,7 +19,11 @@ export default function AppContainer() {
     if (currentPage === 'Search') {
       return <Search />;
     }
-    return <Signup />;
+    if (currentPage === 'Users') {
+        return <Users />;
+      }
+    return <Signup/>
+    
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
