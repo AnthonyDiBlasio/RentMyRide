@@ -1,14 +1,6 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { Link } from "react-router-dom";
 
-
-
-import React from 'react';
-
-// TODO: Add a comment explaining how we are able to extract the key value pairs from props
+// returns the navbar on everypage
 
 function NavTabs({ currentPage, handlePageChange }) {
   return (
@@ -17,7 +9,7 @@ function NavTabs({ currentPage, handlePageChange }) {
         <a
           href="#home"
           onClick={() => handlePageChange('Home')}
-          //*  TODO: BONUS: Add a comment explaining what kind of operator this is and what it is checking for
+          
 
           className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}
         >
@@ -28,7 +20,7 @@ function NavTabs({ currentPage, handlePageChange }) {
         <a
           href="#about"
           onClick={() => handlePageChange('About')}
-          //  TODO: Add a comment explaining what this logic is doing
+          
 
           className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}
         >
@@ -39,7 +31,7 @@ function NavTabs({ currentPage, handlePageChange }) {
         <a
           href="#signup"
           onClick={() => handlePageChange('Signup')}
-          //  TODO: Add a comment explaining what this logic is doing
+          
 
           className={currentPage === 'Signup' ? 'nav-link active' : 'nav-link'}
         >
@@ -49,7 +41,7 @@ function NavTabs({ currentPage, handlePageChange }) {
       <li className="nav-item">
         <a
           href="#Search"
-          //  TODO: Add a comment explaining what this logic is doing
+        
 
           onClick={() => handlePageChange('Search')}
           className={currentPage === 'Search' ? 'nav-link active' : 'nav-link'}
