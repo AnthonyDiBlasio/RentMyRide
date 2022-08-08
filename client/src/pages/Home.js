@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Homepage() {
+function Home() {
   return (
     <div>
       <h1>Rent My Ride</h1>
@@ -9,4 +9,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Home;
