@@ -17,7 +17,7 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware
 });
-const { User } = require("./models");
+
 const seedData = require('./seeds/seedData.json')
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
