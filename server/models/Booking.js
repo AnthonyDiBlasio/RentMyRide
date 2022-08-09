@@ -31,8 +31,20 @@ const bookingSchema = new Schema(
             default: Date.now,
         },
         total_bill: {
-            type: Schema.Types.ObjectId,
-            ref : 'Bills',
+            type: Number,
+            required: true
+        },
+        amount: {
+            type: Number,
+            min: 0,
+        },
+        billing_date: {
+            type: Date,
+            default: Date.now,
+        },
+        late_fee: {
+            type: Number,
+            min: 0,
         },
         // have an optional message field for extra details of the, exact location, etc.
         message: {
@@ -49,6 +61,10 @@ const bookingSchema = new Schema(
         pick_up: {
             type: Boolean,
             required: true,
+        },
+        address: {
+            type: String,
+                equired: true,
         },
     },
     {
