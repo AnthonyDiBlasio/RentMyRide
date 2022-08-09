@@ -12,12 +12,10 @@ const carSchema = new Schema(
         isAvailable: { type: Boolean, default: false },
         // reserveDate: { type: Date, required: true },
         // returnDate: { type: Date, required: true },
-        location_avail: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Location'
-            },
-        ],
+        // How are we using this field?  Sort Cars by area?
+        location_avail: {
+                type: String,
+        },
         user_rented: [
             {
                 type: Schema.Types.ObjectId,
