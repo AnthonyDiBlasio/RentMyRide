@@ -8,19 +8,19 @@ const { ObjectId } = require('mongodb');
 // maybe have a delivery fees that goes to set whether 'willPickUp' be true or false? that could be added to final 'totalBill'
 const bookingSchema = new Schema(
     {
-        user: [
+        users: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User'
             }
         ],
-        car: [
+        cars: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Car',
             },
         ],
-        reserveDate: {
+        reservDate: {
             type: Date,
             default: Date.now,
             required: true,
@@ -31,8 +31,20 @@ const bookingSchema = new Schema(
             default: Date.now,
         },
         totalBill: {
-            type: Schema.Types.ObjectId,
-            ref : 'Bills',
+            type: Number,
+            required: true
+        },
+        amount: {
+            type: Number,
+            min: 0,
+        },
+        billingDate: {
+            type: Date,
+            default: Date.now,
+        },
+        lateFee: {
+            type: Number,
+            min: 0,
         },
         // have an optional message field for extra details of the, exact location, etc.
         message: {
@@ -46,17 +58,15 @@ const bookingSchema = new Schema(
             type: Date,
             default: Date.now,
         },
-        willPickUp: {
+        pickUp: {
             type: Boolean,
             required: true,
         },
-    },
-    {
-        toJSON: {
-            getters: true,
+        address: {
+            type: String,
+                equired: true,
         },
-        id: false
-    }
+    },
 );
 
 const Booking = model('Booking', bookingSchema);

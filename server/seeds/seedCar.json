@@ -1,0 +1,122 @@
+[
+    {
+        "carId": "lam01",
+        "carType": "Convertible",
+        "carMake": "Lamborghini",
+        "carModel": "Aventador S",
+        "carYear": 2020,
+        "color": "Red",
+        "price": 550,
+        "isAvailable": true,
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "userRented": null
+    },
+    {
+        "carId": "ben01",
+        "carType": "Coupe",
+        "carMake": "Bentley",
+        "carModel": "Continental GT",
+        "carYear": 2022,
+        "color": "Silver",
+        "price": 350,
+        "isAvailable": true,
+        "locationAvail": "2 Bala Plaza, Bala Cynwyd, PA 19004",
+        "userRented": null
+    },
+    {
+        "carId": "aa01",
+        "carType": "Convertible",
+        "carMake": "Porshe",
+        "carModel": "911",
+        "carYear": 2017,
+        "color": "Black",
+        "price": 400,
+        "isAvailable": true,
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "userRented": null
+    },
+    {
+        "carId": "aa01",
+        "carType": "Convertible",
+        "carMake": "Lamborghini",
+        "carModel": "Aventador S",
+        "carYear": 2020,
+        "color": "Red",
+        "price": 550,
+        "isAvailable": true,
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "userRented": null
+    },
+    {
+        "carId": "aa01",
+        "carType": "Convertible",
+        "carMake": "Lamborghini",
+        "carModel": "Aventador S",
+        "carYear": 2020,
+        "color": "Red",
+        "price": 550,
+        "isAvailable": true,
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "userRented": null
+    },
+    {
+        "carId": "aa01",
+        "carType": "Convertible",
+        "carMake": "Lamborghini",
+        "carModel": "Aventador S",
+        "carYear": 2020,
+        "color": "Red",
+        "price": 550,
+        "isAvailable": true,
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "userRented": null
+    },
+    {
+        "carId": "aa01",
+        "carType": "Convertible",
+        "carMake": "Lamborghini",
+        "carModel": "Aventador S",
+        "carYear": 2020,
+        "color": "Red",
+        "price": 550,
+        "isAvailable": true,
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "userRented": null
+    },
+    {
+        "carId": "aa01",
+        "carType": "Convertible",
+        "carMake": "Lamborghini",
+        "carModel": "Aventador S",
+        "carYear": 2020,
+        "color": "Red",
+        "price": 550,
+        "isAvailable": true,
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "userRented": null
+    },
+    {
+        "carId": "aa01",
+        "carType": "Convertible",
+        "carMake": "Lamborghini",
+        "carModel": "Aventador S",
+        "carYear": 2020,
+        "color": "Red",
+        "price": 550,
+        "isAvailable": true,
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "userRented": null
+    },
+    {
+        "carId": "aa01",
+        "carType": "Convertible",
+        "carMake": "Lamborghini",
+        "carModel": "Aventador S",
+        "carYear": 2020,
+        "color": "Red",
+        "price": 550,
+        "isAvailable": true,
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "userRented": null
+    }
+]

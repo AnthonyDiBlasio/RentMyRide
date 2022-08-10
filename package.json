@@ -16,6 +16,6 @@
     "concurrently": "^5.3.0"
   },
   "dependencies": {
-    "dotenv": "^16.0.1"
+    "bcrypt": "^5.0.1"
   }
 }
