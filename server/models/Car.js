@@ -3,7 +3,6 @@ const { Schema, model } = require('mongoose');
 
 const carSchema = new Schema(
     {
-        carId: { Type: String, required: true},
         carType: { type: String, trim: true, required: true },
         carMake: { type: String, trim: true, required: true },
         carModel: {type: String, trim: true, required: true },
