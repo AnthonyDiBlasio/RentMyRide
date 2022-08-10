@@ -17,8 +17,13 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware
 });
+<<<<<<< HEAD
+const { Tech } = require('./models');
+// const techData = require('./seeds/techData.json')
+=======
 
 const seedData = require('./seeds/seedData.json')
+>>>>>>> dbbdb840837fa0ef9c607f72b73ca03062014bef
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

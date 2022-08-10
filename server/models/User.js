@@ -24,14 +24,9 @@ const userSchema = new Schema(
             minLength: 6,
             match: [/[a-zA-Z0-9!-]+/i, "Must use a-z or 0-9 or ! or -"],
         },
-        is_owner: {type: Boolean, required: false, default: false},
+        // is_owner: {type: Boolean, required: false, default: false},
         location: {type: String , required: false}
     },
-    {
-        toJSON: {
-            virtuals: true,
-        }
-    }
 );
 
 userSchema.pre('save', function(next) {

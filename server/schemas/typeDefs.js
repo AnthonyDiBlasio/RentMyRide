@@ -14,11 +14,41 @@ const typeDefs = gql`
     tech2_votes: Int
   }
 
+  type Car {
+    carId: String!
+    carType: String!
+    CarMake: String!
+    carModel: String!
+    carYear: Number!
+    color: String
+    price: Number!
+    isAvailable: Boolean!
+    locationAvail: String
+    userRented: [String]
+    ownedBy: String
+  }
+
   type User {
     _id: ID!
     first_name: String!
     last_name: String!
     email: String!
+    location: String
+  }
+
+  type Booking {
+    users: [User]
+    cars: [Car]
+    reserveDate: Date
+    returnDate: Date
+    totalBill: Number
+    amount: Number
+    billingDate: Date
+    lateFee: Number
+    message: String
+    bookingCreated: Date
+    pickUp: Boolean
+    address: String
   }
   
   type Query {
@@ -26,6 +56,8 @@ const typeDefs = gql`
     matchups(_id: String): [Matchup]
     users: [User]
     user(_id: String!): User
+    car: [Car]
+    booking: [Booking]
   }
 
   type TokenUser {
@@ -36,7 +68,6 @@ const typeDefs = gql`
   type Mutation {
     createMatchup(tech1: String!, tech2: String!): Matchup
     createVote(_id: String!, techNum: Int!): Matchup
-
     createUser(first_name: String!, last_name: String!, email: String!, password: String!): User
     login(email: String!, password: String!): TokenUser
   }

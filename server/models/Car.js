@@ -3,6 +3,7 @@ const { Schema, model } = require('mongoose');
 
 const carSchema = new Schema(
     {
+        carId: { Type: String, required: true},
         carType: { type: String, trim: true, required: true },
         carMake: { type: String, trim: true, required: true },
         carModel: {type: String, trim: true, required: true },
@@ -13,22 +14,20 @@ const carSchema = new Schema(
         // reserveDate: { type: Date, required: true },
         // returnDate: { type: Date, required: true },
         // How are we using this field?  Sort Cars by area?
-        location_avail: {
+        locationAvail: {
                 type: String,
         },
-        user_rented: [
+        userRented: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'User',
+                ref: 'User'
             }
-        ]
+        ],
+        ownedBy: {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+        }
     },
-    {
-        toJSON: {
-            virtuals: true,
-        },
-        id: false
-    }
 )
 
 // carSchema.virtual('').get(function () {

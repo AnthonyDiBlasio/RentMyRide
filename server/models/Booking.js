@@ -20,17 +20,17 @@ const bookingSchema = new Schema(
                 ref: 'Car',
             },
         ],
-        reserve_date: {
+        reservDate: {
             type: Date,
             default: Date.now,
             required: true,
         },
-        return_date: {
+        returnDate: {
             type: Date,
             required: true,
             default: Date.now,
         },
-        total_bill: {
+        totalBill: {
             type: Number,
             required: true
         },
@@ -38,11 +38,11 @@ const bookingSchema = new Schema(
             type: Number,
             min: 0,
         },
-        billing_date: {
+        billingDate: {
             type: Date,
             default: Date.now,
         },
-        late_fee: {
+        lateFee: {
             type: Number,
             min: 0,
         },
@@ -54,11 +54,11 @@ const bookingSchema = new Schema(
             maxLength : 280,
         },
         // when was this transaction made
-        booking_created: {
+        bookingCreated: {
             type: Date,
             default: Date.now,
         },
-        pick_up: {
+        pickUp: {
             type: Boolean,
             required: true,
         },
@@ -67,12 +67,6 @@ const bookingSchema = new Schema(
                 equired: true,
         },
     },
-    {
-        toJSON: {
-            getters: true,
-        },
-        id: false
-    }
 );
 
 const Booking = model('Booking', bookingSchema);
