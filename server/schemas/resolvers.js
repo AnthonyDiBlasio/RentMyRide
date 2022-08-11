@@ -45,6 +45,8 @@ const resolvers = {
       return user;
     },
 
+    // createCar: async(parent, {})
+
     //TODO Login
     login: async(parent, {email, password}) => {
       // make sure user exists

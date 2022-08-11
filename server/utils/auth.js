@@ -1,52 +1,39 @@
-const { decode } = require('jwt-decode');
+const jwt = require('jsonwebtoken');
 
-class AuthService {
-  getProfile() {
-    return decode(this.getToken());
-  }
+// set token secret and expiration date
+const secret = 'mysecretsshhhhh';
+const expiration = '2h';
 
-  loggedIn() {
-    const token = this.getToken();
-    return token && !this.isTokenExpired(token) ? true : false;
-  }
+module.exports = {
+  // function for our authenticated routes
+  authMiddleware: function (req, res, next) {
+    // allows token to be sent via  req.query or headers
+    let token = req.query.token || req.headers.authorization;
 
-  isTokenExpired(token) {
-    const decoded = decode(token);
-    if (decoded.exp < Date.now() / 1000) {
-      localStorage.removeItem('id_token');
-      return true;
+    // ["Bearer", "<tokenvalue>"]
+    if (req.headers.authorization) {
+      token = token.split(' ').pop().trim();
     }
-    return false;
-  }
 
-  getToken() {
-    return localStorage.getItem('id_token');
-  }
+    if (!token) {
+      return res.status(400).json({ message: 'You have no token!' });
+    }
 
-  login(appState, setAppState, idToken, formData, navigate) {
-    setAppState({
-      ...appState,
-      user: {...formData.login.user},
-      logged_in: true
-    });
-    localStorage.setItem('id_token', idToken);
-    
-    // prevents a complete refresh of the site
-    // allows react state to stay intact
-    // it hooks in to react router provider to change the page
-    navigate("/", {replace: true}) 
-    // window.location.assign('/');
-  }
+    // verify token and get user data out of it
+    try {
+      const { data } = jwt.verify(token, secret, { maxAge: expiration });
+      req.user = data;
+    } catch {
+      console.log('Invalid token');
+      return res.status(400).json({ message: 'invalid token!' });
+    }
 
-  logout(appState, setAppState) {
-    setAppState({
-      ...appState,
-      user: null,
-      logged_in: false
-    });
-    localStorage.removeItem('id_token');
-    window.location.reload();
-  }
-}
+    // send to next endpoint
+    next();
+  },
+  signToken: function ({ username, email, _id }) {
+    const payload = { username, email, _id };
 
-// export default new AuthService();
+    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+  },
+};
