@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const jwt = require('jsonwebtoken');
 
 // set token secret and expiration date
@@ -38,5 +37,3 @@ module.exports = {
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
-=======
->>>>>>> a9ca7713a35b1d6b934f5b232ee73d4a425c60dd
