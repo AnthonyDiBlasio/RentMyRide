@@ -1,6 +1,8 @@
 import decode from 'jwt-decode';
 import { LOGIN, LOGOUT } from '../context/actions';
 
+// delete this comment later! just trying to repush my changes
+
 class AuthService {
     getProfile() {
     return decode(this.getToken());
