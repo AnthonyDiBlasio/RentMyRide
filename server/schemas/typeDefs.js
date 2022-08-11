@@ -1,5 +1,24 @@
 const { gql } = require('apollo-server-express');
 
+// Orginal Booking Typedef:  Need to build scalar for the DATE type - https://stackoverflow.com/questions/49693928/date-and-json-in-type-definition-for-graphql
+
+// removing original Booking until Scalar is created for testing purposes.  Test Booking implemented without DATE fields
+
+// type Booking {
+//   users: [User]
+//   cars: [Car]
+//   reserveDate: Date
+//   returnDate: Date
+//   totalBill: Int
+//   amount: Int
+//   billingDate: Date
+//   lateFee: Int
+//   message: String
+//   bookingCreated: Date
+//   pickUp: Boolean
+//   address: String
+// }
+
 const typeDefs = gql`
   type Tech {
     _id: ID!
@@ -19,9 +38,9 @@ const typeDefs = gql`
     carType: String!
     CarMake: String!
     carModel: String!
-    carYear: Number!
+    carYear: Int!
     color: String
-    price: Number!
+    price: Int!
     isAvailable: Boolean!
     locationAvail: String
     userRented: [String]
@@ -39,14 +58,10 @@ const typeDefs = gql`
   type Booking {
     users: [User]
     cars: [Car]
-    reserveDate: Date
-    returnDate: Date
-    totalBill: Number
-    amount: Number
-    billingDate: Date
-    lateFee: Number
+    totalBill: Int
+    amount: Int
+    lateFee: Int
     message: String
-    bookingCreated: Date
     pickUp: Boolean
     address: String
   }

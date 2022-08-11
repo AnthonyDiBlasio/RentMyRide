@@ -18,7 +18,9 @@ const server = new ApolloServer({
   context: authMiddleware
 });
 
-const seedData = require('./seeds/seedData.json')
+// const seedData = require('./seeds/seedData.json')
+const carData = require('./seeds/seedCar.json');
+const userData = require('./seeds/seedUser.json');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -39,8 +41,11 @@ const startApolloServer = async (typeDefs, resolvers) => {
     app.post("/seedDatabase", async (req, res) => {
       if (req.body.SEEDPASS === process.env.SEEDPASS) {
         await User.deleteMany({});
-        const users = await User.insertMany(seedData);
-        res.json(users);
+        await Car.deleteMany({});
+
+        const users = await User.insertMany(userData);
+        const cars = await Car.insertMany(carData);
+        res.json(users, cars);
       }
       else {
         res.json("this is not working")
