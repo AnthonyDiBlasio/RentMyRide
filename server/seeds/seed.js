@@ -11,6 +11,6 @@ db.once('open', async () => {
   const users = await User.insertMany(userData);
   const cars = await Car.insertMany(carData);
 
-  console.log(users[0]);
+  // console.log(users[0]);
   console.log('seeded!');
 });
