@@ -6,7 +6,7 @@ const path = require("path");
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 
-const { User, Car } = require('./models');
+const { User } = require('./models');
 
 const  { authMiddleware } = require('./utils/auth')
 
