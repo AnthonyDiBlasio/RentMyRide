@@ -20,23 +20,11 @@ const { gql } = require('apollo-server-express');
 // }
 
 const typeDefs = gql`
-  type Tech {
-    _id: ID!
-    name: String!
-  }
-
-  type Matchup {
-    _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
-  }
 
   type Car {
     carId: String!
     carType: String!
-    CarMake: String!
+    carMake: String!
     carModel: String!
     carYear: Int!
     color: String
@@ -67,11 +55,9 @@ const typeDefs = gql`
   }
   
   type Query {
-    tech: [Tech]
-    matchups(_id: String): [Matchup]
     users: [User]
     user(_id: String!): User
-    car: [Car]
+    cars: [Car]
     booking: [Booking]
   }
 
@@ -81,10 +67,9 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
     createUser(first_name: String!, last_name: String!, email: String!, password: String!): User
     login(email: String!, password: String!): TokenUser
+    createCar(carType: String!, carMake: String!, carModel: String!, carYear: Int!, color: String, price: Int!, isAvailable: Boolean!, locationAvail: String, ownedBy: String): Car
   }
 `;
 
