@@ -40,7 +40,7 @@ module.exports = {
         res.staus(200).json(userFound);
     },
 
-    // Update User
+    // Update User (edit profile)
     async updateUser({ user, body }, res) {
       console.log(user);
       try {
@@ -65,21 +65,37 @@ module.exports = {
           return res.status(404).json({ message: "Couldn't find user with this id!" });
         }
         return res.json(userDelete);
-      },
+    },
+
+    // Create Car with identifying User first and save under cars_rented
+    // async createCar({ user, body }, res) {
+    //   try {
+    //     const user = await User.findOneAndUpdate(
+    //       { _id: req.body._id },
+    //       { $addToSet: { cars4Rent: body }},
+    //       { new: true, runValidators: true }
+    //   );
+    //   return res.json(user);
+    //   }
+    //   catch (err) {
+    //     rconsole.log(err);
+    //     return res.status(400).json(err);
+    //   }
+    // },
 
     // login 
     async login({ body }, res) {
-        const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
-        if (!user) {
-          return res.status(400).json({ message: "Can't find this user" });
-        }
-    
-        const correctPw = await user.isCorrectPassword(body.password);
-    
-        if (!correctPw) {
-          return res.status(400).json({ message: 'Wrong password!' });
-        }
-        const token = signToken(user);
-        res.json({ token, user });
-        },
+      const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
+      if (!user) {
+        return res.status(400).json({ message: "Can't find this user" });
+      }
+  
+      const correctPw = await user.isCorrectPassword(body.password);
+  
+      if (!correctPw) {
+        return res.status(400).json({ message: 'Wrong password!' });
+      }
+      const token = signToken(user);
+      res.json({ token, user });
+    },
 };

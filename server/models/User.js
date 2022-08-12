@@ -1,6 +1,6 @@
-const { ObjectId } = require('mongodb');
+// const { ObjectId } = require('mongodb');
 const { Schema, model } = require('mongoose');
-const { schema } = require('./User');
+// const { schema } = require('./User');
 const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 7;
 
@@ -12,6 +12,12 @@ const userSchema = new Schema(
         last_name: { type: String, 
             required: true, 
             trim: true },
+        // username: {
+        //     type: String,
+        //     required: true,
+        //     unique: true,
+        //     trim: true,
+        // },
         email: {
             type: String,
             unique: true,
@@ -27,7 +33,7 @@ const userSchema = new Schema(
         // is_owner: {type: Boolean, required: false, default: false},
 
         // array of how many cars does a user put up for rent
-        // car4rent: [
+        // cars_rented: [
         //     {
         //         type: Schema.Types.ObjectId,
         //         ref : 'Car',
