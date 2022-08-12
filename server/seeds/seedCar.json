@@ -7,8 +7,7 @@
         "color": "Red",
         "price": 550,
         "isAvailable": true,
-        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
-        "userRented": null
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010"
     },
     {
         "carType": "Coupe",
@@ -18,8 +17,7 @@
         "color": "Silver",
         "price": 350,
         "isAvailable": true,
-        "locationAvail": "2 Bala Plaza, Bala Cynwyd, PA 19004",
-        "userRented": null
+        "locationAvail": "2 Bala Plaza, Bala Cynwyd, PA 19004"
     },
     {
         "carType": "Convertible",
@@ -29,8 +27,7 @@
         "color": "Black",
         "price": 400,
         "isAvailable": true,
-        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
-        "userRented": null
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010"
     },
     {
         "carType": "Sedan",
@@ -40,8 +37,7 @@
         "color": "Black",
         "price": 100,
         "isAvailable": true,
-        "locationAvail": "580 Meetinghouse Rd, Ambler, PA 19002",
-        "userRented": null
+        "locationAvail": "580 Meetinghouse Rd, Ambler, PA 19002"
     },
     {
         "carType": "SUV",
@@ -51,8 +47,7 @@
         "color": "White",
         "price": 175,
         "isAvailable": true,
-        "locationAvail": "820 Cooper St, Woodbury, NJ 08096",
-        "userRented": null
+        "locationAvail": "820 Cooper St, Woodbury, NJ 08096"
     },
     {
         "carType": "Coupe",
@@ -62,8 +57,7 @@
         "color": "Red",
         "price": 500,
         "isAvailable": true,
-        "locationAvail": "61 E Main St, Moorestown, NJ 08057",
-        "userRented": null
+        "locationAvail": "61 E Main St, Moorestown, NJ 08057"
     },
     {
         "carType": "Sedan",
@@ -73,8 +67,7 @@
         "color": "Red",
         "price": 225,
         "isAvailable": true,
-        "locationAvail": "2999 Street Rd, Bensalem, PA 19020",
-        "userRented": null
+        "locationAvail": "2999 Street Rd, Bensalem, PA 19020"
     },
     {
         "carType": "SUV",
@@ -84,8 +77,7 @@
         "color": "Navy",
         "price": 250,
         "isAvailable": true,
-        "locationAvail": "1001 N Park Dr, Wilmington, DE 19802",
-        "userRented": null
+        "locationAvail": "1001 N Park Dr, Wilmington, DE 19802"
     },
     {
         "carType": "Hatchback",
@@ -95,8 +87,7 @@
         "color": "Yellow",
         "price": 325,
         "isAvailable": true,
-        "locationAvail": "201 Pine St, Mt Holly, NJ 08060",
-        "userRented": null
+        "locationAvail": "201 Pine St, Mt Holly, NJ 08060"
     },
     {
         "carType": "Pickup Truck",
@@ -106,7 +97,6 @@
         "color": "Grey",
         "price": 150,
         "isAvailable": true,
-        "locationAvail": "400 E King St, Malvern, PA 19355",
-        "userRented": null
+        "locationAvail": "400 E King St, Malvern, PA 19355"
     }
 ]
