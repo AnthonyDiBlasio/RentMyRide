@@ -25,6 +25,14 @@ const userSchema = new Schema(
             match: [/[a-zA-Z0-9!-]+/i, "Must use a-z or 0-9 or ! or -"],
         },
         // is_owner: {type: Boolean, required: false, default: false},
+
+        // array of how many cars does a user put up for rent
+        // car4rent: [
+        //     {
+        //         type: Schema.Types.ObjectId,
+        //         ref : 'Car',
+        //     },
+        // ],
         location: {type: String , required: false}
     },
 );

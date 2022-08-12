@@ -1,5 +1,7 @@
 const { User } = require('../models');
 
+const { signToken } = require('../utils/auth');
+
 module.exports = {
     // GET all Users
     async getAllUsers(req, res) {
@@ -19,8 +21,8 @@ module.exports = {
         if (!user) {
             return res.status(400).json({ message: 'Something is wrong!' });
         }
-        // const token = signToken(user);
-        // res.json({ token, user });
+        const token = signToken(user);
+        res.json({ token, user });
         
         res.staus(200).json(user);
     },
@@ -38,9 +40,25 @@ module.exports = {
         res.staus(200).json(userFound);
     },
 
+    // Update User
+    async updateUser({ user, body }, res) {
+      console.log(user);
+      try {
+        const user = await User.findOneAndUpdate(
+          { _id: user._id },
+          { $set: body },
+          { runValidators: true, new: true }
+        );
+        return res.json(user); 
+      } 
+      catch (err) {
+        return res.status(400).json(err);
+      }
+    },
+
     // DELETE user
     async deleteUser(req, res) {
-        const userDelete = await User.findOneAndRemove(
+        const user = await User.findOneAndRemove(
           { _id: user._id },
         );
         if (!userDelete) {

@@ -5,12 +5,13 @@ const {
     getSingleUser,
     deleteUser,
     updateUser,
+    // addCarToRent,
+    // deleteCarToRent,
     login,
-    logout,
 } = require('../../controllers/user-controllers');
 
 // import middleware
-// const { authMiddleware } = require('../../utils/auth');
+const { authMiddleware } = require('../../utils/auth');
 
 // GET all Users (test purpose)
 router.route('/').get(getAllUsers);
@@ -22,10 +23,14 @@ router.route('/').get(getAllUsers);
 router.route('/').post(createUser); 
 
 // api/users/:userId
-router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);
+router.route('/:userId').get(authMiddleware ,getSingleUser).put(authMiddleware, updateUser).delete(deleteUser);
+
+// api/users/:userId/car4rent/:car4rentId
+// router.route(':userId/car4rent/:car4rentId').post(addCarToRent).delete(deleteCarToRent);
+
+// note: users will have an array of cars they put up for rent.
 
 // api/users/login
 router.route('/login').post(login);
 
-// api/users/logout
-router.route('/logout').post(logout);
+module.exports = router;
