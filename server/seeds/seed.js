@@ -6,11 +6,13 @@ const userData = require('./seedUser.json');
 
 db.once('open', async () => {
   await User.deleteMany({});
-  // await Car.deleteMany({});
+  await Car.deleteMany({});
 
   const users = await User.insertMany(userData);
-  // const cars = await Car.insertMany(carData);
+  const cars = await Car.insertMany(carData);
 
   console.log(users[0]);
+  console.log(cars[0]);
+
   console.log('seeded!');
 });
