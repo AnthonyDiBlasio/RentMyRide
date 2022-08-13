@@ -21,7 +21,7 @@ export const QUERY_MATCHUPS = gql`
   }
 `;
 
-export const Query_Users = gql`
+export const Query_Users = gql` 
   query users {
     users {
       _id

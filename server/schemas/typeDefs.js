@@ -37,8 +37,7 @@ const typeDefs = gql`
 
   type User {
     _id: ID!
-    first_name: String!
-    last_name: String!
+    name: String!
     email: String!
     location: String
     cars_rented: [Car]
@@ -70,7 +69,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(first_name: String!, last_name: String!, email: String!, password: String!): User
+    createUser(name: String!, email: String!, password: String!): TokenUser
+    createUserNoToken(): User
     login(email: String!, password: String!): TokenUser
     createCar(carType: String!, carMake: String!, carModel: String!, carYear: Int!, color: String, price: Int!, isAvailable: Boolean!, locationAvail: String, ownedBy: String): Car
     cars_rented(car_id: ID!): User
