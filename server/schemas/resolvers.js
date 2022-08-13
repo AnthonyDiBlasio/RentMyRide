@@ -7,21 +7,15 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    // user: async () => {
-    //   return User.find({});
-    // },
     users: async () => {
-      return User.find({});
+      return await User.find({});
     },
     user: async (parent, { _id }) => {
-      return User.findOne({_id: ObjectId(_id)});
+      return await User.findOne({_id: ObjectId(_id)});
     },
     cars: async () => {
-      return Car.find({});
+      return await Car.find({});
     }
-
-
-    
   },
   Mutation: {
     createUser: async(parent, {first_name, Last_name, email, password}) => {
