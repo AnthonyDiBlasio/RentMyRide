@@ -10,15 +10,24 @@ const resolvers = {
     users: async () => {
       return await User.find({});
     },
-    // user: async (parent, { _id }) => {
-    //   return await User.findOne({_id: ObjectId(_id)});
-    // },
+    user: async (parent, { _id }) => {
+      return await User.findOne({_id: ObjectId(_id)});
+    },
     cars: async () => {
       return await Car.find({});
-    }
+    },
+    car: async (parent, { _id }) => {
+      return await Car.findOne({_id: ObjectId(_id)});
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+          return User.findOne({ _id: context.user._id }).populate("cars_rented");
+      }
+      // throw new AuthenticationError('You need to be logged in!');
+  },
   },
   Mutation: {
-    createUser: async(parent, {first_name, Last_name, email, password}) => {
+    createUser: async(parent, {first_name, Last_name, email, password, }) => {
       const user = await User.create({first_name, Last_name, email, password});
       return user;
     },
@@ -29,6 +38,8 @@ const resolvers = {
       const car = await Car.create(args);
       return car;
     },
+  },
+
 
     //TODO Login
     login: async(parent, {email, password}) => {
