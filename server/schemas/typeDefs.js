@@ -56,9 +56,7 @@ const typeDefs = gql`
   
   type Query {
     users: [User]
-    user(_id: String!): User
     cars: [Car]
-    booking: [Booking]
   }
 
   type TokenUser {
@@ -74,3 +72,6 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+
+
+// user(_id: String!): User
