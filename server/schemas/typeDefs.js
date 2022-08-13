@@ -61,6 +61,7 @@ const typeDefs = gql`
     user(_id: String!): User
     car(_id: String!): Car
     me: User
+    
   }
 
   type TokenUser {
@@ -72,6 +73,7 @@ const typeDefs = gql`
     createUser(first_name: String!, last_name: String!, email: String!, password: String!): User
     login(email: String!, password: String!): TokenUser
     createCar(carType: String!, carMake: String!, carModel: String!, carYear: Int!, color: String, price: Int!, isAvailable: Boolean!, locationAvail: String, ownedBy: String): Car
+    cars_rented(_id: ID!): User
   }
 `;
 

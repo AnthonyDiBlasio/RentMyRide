@@ -23,8 +23,9 @@ const resolvers = {
       if (context.user) {
           return User.findOne({ _id: context.user._id }).populate("cars_rented");
       }
-      // throw new AuthenticationError('You need to be logged in!');
-  },
+    // throw new AuthenticationError('You need to be logged in!');
+  
+    },
   },
   Mutation: {
     createUser: async(parent, {first_name, Last_name, email, password, }) => {
@@ -38,7 +39,33 @@ const resolvers = {
       const car = await Car.create(args);
       return car;
     },
+
+    cars_rented: async (parent, context, id) => {
+      if (context.user) {
+          const addRentedCar = await User.findOneAndUpdate(
+              { _id: context.user._id },
+              {
+                  $addToSet: {
+                      cars_rented: {
+                        // carType: args.carType,
+                        // carMake: args.carMake,
+                        // carModel: args.carModel,
+                        // carYear: args.carYear,
+                        // color: args.color,
+                        // price: args.price, 
+                        // isAvailable: args.isAvailable,
+                        // locationAvail: args.locationAvail,
+                        // ownedBy: args.ownedBy
+                        _id: id
+                      }
+                  },
+              },
+              {new: true},
+          );
+          return addRentedCar;
+      }
   },
+  
 
 
     //TODO Login
@@ -60,7 +87,7 @@ const resolvers = {
       const token = signToken(user);
       return {token, user};
     }
-  },
-};
+  }
+}
 
 module.exports = resolvers;
