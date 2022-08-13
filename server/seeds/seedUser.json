@@ -2,40 +2,30 @@
  
   {
     "name":"Ant",
-    "first_name": "Anthony",
-    "last_name": "DiBlasio",
     "password": "1234abcd",
     "email": "anthony@email.com",
     "location": "123 Main St, Philadelphia, PA 19127"
   },
   {
     "name": "Jen",
-    "first_name": "Jen",
-    "last_name": "Cho",
     "password": "1234abcd",
     "email": "jen@email.com",
     "location": "400 W Sproul Rd, Springfield, PA 19064"
   },
   {
     "name": "Vince",
-    "first_name": "Vincent",
-    "last_name": "Tjia",
     "password": "1234abcd",
     "email": "vince@email.com",
     "location": "216 W Beidler Rd #600, King of Prussia, PA 19406"
   },
   {
     "name":"Sajjad",
-    "first_name": "Sajjad",
-    "last_name": "Zaidi",
     "password": "1234abcd",
     "email": "sajjad@email.com",
     "location": "190 Center St, Sewell, NJ 08080"
   },
   {
     "name":"Cal",
-    "first_name": "Calvin",
-    "last_name": "Paschall",
     "password": "1234abcd",
     "email": "cal@email.com",
     "location": "404 Marlton Pike East, Cherry Hill, NJ 08034"
