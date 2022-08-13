@@ -41,7 +41,7 @@ const resolvers = {
     },
 
     createUserNoToken: async (parent, { name, email, password }) => {
-      const user = await User.create({name, email, passowrd});
+      const user = await User.create({name, email, password});
       return user;
     },
     // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy})
