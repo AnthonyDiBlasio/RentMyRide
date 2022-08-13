@@ -27,10 +27,9 @@ const resolvers = {
     },
   },
   Mutation: {
-    createUser: async (parent, { first_name, Last_name, email, password }) => {
+    createUser: async (parent, { name, email, password }) => {
       const user = await User.create({
-        first_name,
-        Last_name,
+       name,
         email,
         password,
       });
