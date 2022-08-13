@@ -37,8 +37,7 @@ const typeDefs = gql`
 
   type User {
     _id: ID!
-    first_name: String!
-    last_name: String!
+    name: String!
     email: String!
     location: String
     cars_rented: [Car]
