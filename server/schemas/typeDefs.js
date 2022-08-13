@@ -70,7 +70,7 @@ const typeDefs = gql`
 
   type Mutation {
     createUser(name: String!, email: String!, password: String!): TokenUser
-    createUserNoToken(): User
+    createUserNoToken(name: String!, email: String!, password: String!): User
     login(email: String!, password: String!): TokenUser
     createCar(carType: String!, carMake: String!, carModel: String!, carYear: Int!, color: String, price: Int!, isAvailable: Boolean!, locationAvail: String, ownedBy: String): Car
     cars_rented(car_id: ID!): User
@@ -78,6 +78,3 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
-
-
-// 
