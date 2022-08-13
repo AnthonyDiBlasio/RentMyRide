@@ -30,3 +30,12 @@ export const Query_Users = gql`
     }
   }
 `;
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      name
+      email
+    }
+  }
+`;

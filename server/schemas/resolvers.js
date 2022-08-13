@@ -29,7 +29,7 @@ const resolvers = {
   Mutation: {
     createUser: async (parent, { name, email, password }) => {
       const user = await User.create({
-        name
+        name,
         email,
         password,
       });
@@ -43,7 +43,7 @@ const resolvers = {
     createUserNoToken: async (parent, { name, email, password }) => {
       const user = await User.create({name, email, passowrd});
       return user;
-    }
+    },
     // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy})
 
     createCar: async (parent, args) => {
