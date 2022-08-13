@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
-        <h1>Welcome to Tech Matchup!</h1>
+        <h1>Welcome to RentmyRide!</h1>
         <Link to="/login">{ state.logged_in ? "Profile" : "Login" }</Link><br />
         <a href="/logout" onClick={logout}>Logout</a><br/>
         { state.logged_in ? (

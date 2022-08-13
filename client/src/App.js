@@ -8,8 +8,6 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 import Users from './pages/Users';
-import Matchup from './pages/Matchup';
-import Vote from './pages/Vote';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import UserForm from './pages/UserForm';
@@ -65,14 +63,6 @@ function App() {
                   <Login />
                 )}
                 
-              />
-              <Route 
-                path="/matchup" 
-                element={<Matchup />}
-              />
-              <Route 
-                path="/matchup/:id" 
-                element={<Vote />}
               />
               <Route 
                 path="*"
