@@ -1,9 +1,9 @@
-const { User, Car } = require('../models');
+const { User, Car } = require("../models");
 const { ObjectId } = require("mongoose").Types;
 
-const { AuthenticationError } = require('apollo-server-express');
+const { AuthenticationError } = require("apollo-server-express");
 
-const { signToken } = require('../utils/auth');
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -11,83 +11,93 @@ const resolvers = {
       return await User.find({});
     },
     user: async (parent, { _id }) => {
-      return await User.findOne({_id: ObjectId(_id)});
+      return await User.findOne({ _id: ObjectId(_id) });
     },
     cars: async () => {
       return await Car.find({});
     },
     car: async (parent, { _id }) => {
-      return await Car.findOne({_id: ObjectId(_id)});
+      return await Car.findOne({ _id: ObjectId(_id) });
     },
     me: async (parent, args, context) => {
       if (context.user) {
-          return User.findOne({ _id: context.user._id }).populate("cars_rented");
+        return User.findOne({ _id: context.user._id }).populate("cars_rented");
       }
-    // throw new AuthenticationError('You need to be logged in!');
-  
+      // throw new AuthenticationError('You need to be logged in!');
     },
   },
   Mutation: {
-    createUser: async(parent, {first_name, Last_name, email, password, }) => {
-      const user = await User.create({first_name, Last_name, email, password});
+    createUser: async (parent, { first_name, Last_name, email, password }) => {
+      const user = await User.create({
+        first_name,
+        Last_name,
+        email,
+        password,
+      });
       return user;
     },
 
     // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy})
 
-    createCar: async(parent, args) => {
+    createCar: async (parent, args) => {
       const car = await Car.create(args);
       return car;
     },
 
-    cars_rented: async (parent, context, id) => {
-      if (context.user) {
-          const addRentedCar = await User.findOneAndUpdate(
-              { _id: context.user._id },
-              {
-                  $addToSet: {
-                      cars_rented: {
-                        // carType: args.carType,
-                        // carMake: args.carMake,
-                        // carModel: args.carModel,
-                        // carYear: args.carYear,
-                        // color: args.color,
-                        // price: args.price, 
-                        // isAvailable: args.isAvailable,
-                        // locationAvail: args.locationAvail,
-                        // ownedBy: args.ownedBy
-                        _id: id
-                      }
-                  },
+    cars_rented: async (parent, { car_id }, context) => {
+      // if (context.user) {
+        const carResult = await Car.findOne({ _id: car_id });
+        if (carResult) {
+          const userWithCar = await User.findOneAndUpdate(
+            // { _id: context.user._id },
+            {_id: ObjectId("62f7a4458ee68bbb0eef7e02")},
+            {
+              $addToSet: {
+                cars_rented: {
+                  // carType: args.carType,
+                  // carMake: args.carMake,
+                  // carModel: args.carModel,
+                  // carYear: args.carYear,
+                  // color: args.color,
+                  // price: args.price,
+                  // isAvailable: args.isAvailable,
+                  // locationAvail: args.locationAvail,
+                  // ownedBy: args.ownedBy
+                  _id: car_id,
+                },
               },
-              {new: true},
-          );
-          return addRentedCar;
-      }
-  },
-  
+            },
+            { new: true }
+          ).populate("cars_rented");
 
+          console.log(userWithCar);
+          return userWithCar;
+        } else {
+          throw new Error ("Could not find Car")
+        }
+      // } 
+    },
 
     //TODO Login
-    login: async(parent, {email, password}) => {
+    login: async (parent, { email, password }) => {
       // make sure user exists
       const user = await User.findOne({ email });
-      if(!user) {
-        throw new AuthenticationError('No user with such email');
+      if (!user) {
+        throw new AuthenticationError("No user with such email");
       }
 
       // check password
       const correctPw = await User.comparePassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('incorrect password!');
+        throw new AuthenticationError("incorrect password!");
       }
 
       // get the user token
       const token = signToken(user);
-      return {token, user};
-    }
-  }
-}
+      return { token, user };
+    },
+  },
+};
 
 module.exports = resolvers;
