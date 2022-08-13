@@ -1,6 +1,18 @@
 import React, {useState, useReducer} from 'react';
+import { CREATE_USER } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { useUser } from '../context/UserContext';
+import Auth from '../utils/auth';
+import { useNavigate } from 'react-router-dom';
+import reducer from '../context/reducers';
 
 export default function UserForm(props){
+  const [createUser] = useMutation(CREATE_USER);
+  const initialState = useUser();
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const navigate = useNavigate();
+
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -49,14 +61,31 @@ export default function UserForm(props){
       [name]: value
     });
   }
-  const submitHandler = (event) => {
-    alert(JSON.stringify(formState));
+  const submitHandler = async(event) => {
+    event.preventDefault();
+    // alert(JSON.stringify(formState));
+    let {name, email, password} = formState;
+    let tokenUser = await createUser({
+      variables: {
+        name,
+        email,
+        password
+      }
+    });
+    const token = tokenUser.data.createUser.token;
+    const user = tokenUser.data.createUser.user;
+
+    // formData.login.user
+    Auth.login(dispatch, token, {
+      login: user
+    }, navigate)
+
   }
   return (
     <section>
     <form onSubmit={submitHandler}>
       {(!formState["name-verified"]) ?
-        (<><span class="badge text-bg-danger">Name must be longer than 6 characters</span><br/></>)
+        (<><span className="badge text-bg-danger">Name must be longer than 6 characters</span><br/></>)
         : (<></>)
       }
       
@@ -95,7 +124,7 @@ export default function UserForm(props){
       /> */}
       <br/>
       {(!formState["email-verified"]) ?
-        (<><span class="badge text-bg-danger">Email must look like "name@company.com"</span><br/></>)
+        (<><span className="badge text-bg-danger">Email must look like "name@company.com"</span><br/></>)
         : (<></>)
       }
       Email: &nbsp;
@@ -107,7 +136,7 @@ export default function UserForm(props){
         />
         <br/>
         {(!formState["password-verified"]) ?
-        (<><span class="badge text-bg-danger">Password must be longer than 5 characters and use letters, numbers or "!" or "-".</span><br/></>)
+        (<><span className="badge text-bg-danger">Password must be longer than 5 characters and use letters, numbers or "!" or "-".</span><br/></>)
         : (<></>)
       }
       Password: &nbsp;
