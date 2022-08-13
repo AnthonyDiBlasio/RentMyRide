@@ -27,23 +27,22 @@ const resolvers = {
     },
   },
   Mutation: {
-    createUser: async (parent, { name, email, password }) => {
-      const user = await User.create({
-        name,
-        email,
-        password,
-      });
-      // return user;
+    createUser: async (parent, {name, email, password}) => {
+      const user = await User.create({name, email, password});
+
+      const token = signToken(user);
       return {
-        token: ID!,
-        user: User
+        token: token,
+        user: user
       };
     },
+
 
     createUserNoToken: async (parent, { name, email, password }) => {
       const user = await User.create({name, email, password});
       return user;
     },
+
     // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy})
 
     createCar: async (parent, args) => {
@@ -87,24 +86,25 @@ const resolvers = {
     },
 
     //TODO Login
-    login: async (parent, { email, password }) => {
-      // make sure user exists
+    login: async(parent, {email, password}) => {
+      // make sure the user exists
       const user = await User.findOne({ email });
+
       if (!user) {
-        throw new AuthenticationError("No user with such email");
+        throw new AuthenticationError('No user with this email found!');
       }
 
-      // check password
-      const correctPw = await User.comparePassword(password);
+      // check the password
+      const correctPw = await user.comparePassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("incorrect password!");
+        throw new AuthenticationError('Incorrect password!');
       }
 
       // get the user token
       const token = signToken(user);
-      return { token, user };
-    },
+      return {token, user};
+    }
   },
 };
 
