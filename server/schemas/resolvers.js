@@ -10,9 +10,9 @@ const resolvers = {
     users: async () => {
       return await User.find({});
     },
-    user: async (parent, { _id }) => {
-      return await User.findOne({_id: ObjectId(_id)});
-    },
+    // user: async (parent, { _id }) => {
+    //   return await User.findOne({_id: ObjectId(_id)});
+    // },
     cars: async () => {
       return await Car.find({});
     }
