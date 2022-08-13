@@ -36,7 +36,9 @@ const resolvers = {
         user: user
       };
     },
-    createUserNoToken: async (parent, {name, email, password}) => {
+
+
+    createUserNoToken: async (parent, { name, email, password }) => {
       const user = await User.create({name, email, password});
       return user;
     },
