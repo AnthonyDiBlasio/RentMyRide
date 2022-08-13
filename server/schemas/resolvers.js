@@ -29,13 +29,21 @@ const resolvers = {
   Mutation: {
     createUser: async (parent, { name, email, password }) => {
       const user = await User.create({
-       name,
+        name,
         email,
         password,
       });
-      return user;
+      // return user;
+      return {
+        token: ID!,
+        user: User
+      };
     },
 
+    createUserNoToken: async (parent, { name, email, password }) => {
+      const user = await User.create({name, email, passowrd});
+      return user;
+    },
     // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy})
 
     createCar: async (parent, args) => {
@@ -48,6 +56,7 @@ const resolvers = {
         const carResult = await Car.findOne({ _id: car_id });
         if (carResult) {
           const userWithCar = await User.findOneAndUpdate(
+            // context refers to token created when user is logged in
             // { _id: context.user._id },
             {_id: ObjectId("62f7a4458ee68bbb0eef7e02")},
             {
