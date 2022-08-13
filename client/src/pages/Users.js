@@ -9,7 +9,7 @@ const Users = () => {
   });
 
   const [formState, setFormState] = useState({
-   name: "",
+    name: "",
     email: "",
     password: ""
   });
@@ -55,15 +55,8 @@ const Users = () => {
           <label>Name</label>
           <input 
             type="text" 
-            name="first_name" 
-            placeholder='First Name' 
-            onChange={handleInputChange}
-            value={formState.name}
-          />
-          <input 
-            type="text" 
-            name="last_name" 
-            placeholder='Last Name' 
+            name="name" 
+            placeholder='Name of person' 
             onChange={handleInputChange}
             value={formState.name}
           />
