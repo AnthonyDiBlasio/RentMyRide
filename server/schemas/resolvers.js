@@ -56,8 +56,8 @@ const resolvers = {
         if (carResult) {
           const userWithCar = await User.findOneAndUpdate(
             // context refers to token created when user is logged in
-            // { _id: context.user._id },
-            {_id: ObjectId("62f7a4458ee68bbb0eef7e02")},
+            { _id: context.user._id },
+            // {_id: ObjectId("62f7a4458ee68bbb0eef7e02")},
             {
               $addToSet: {
                 cars_rented: {
