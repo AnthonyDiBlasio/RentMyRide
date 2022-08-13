@@ -22,14 +22,14 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
 
   type Car {
-    carId: String!
-    carType: String!
-    carMake: String!
-    carModel: String!
-    carYear: Int!
+    _id: ID
+    carType: String
+    carMake: String
+    carModel: String
+    carYear: Int
     color: String
-    price: Int!
-    isAvailable: Boolean!
+    price: Int
+    isAvailable: Boolean
     locationAvail: String
     userRented: [String]
     ownedBy: String
@@ -41,6 +41,7 @@ const typeDefs = gql`
     last_name: String!
     email: String!
     location: String
+    cars_rented: [Car]
   }
 
   type Booking {
@@ -57,6 +58,9 @@ const typeDefs = gql`
   type Query {
     users: [User]
     cars: [Car]
+    user(_id: String!): User
+    car(_id: String!): Car
+    me: User
   }
 
   type TokenUser {
@@ -74,4 +78,4 @@ const typeDefs = gql`
 module.exports = typeDefs;
 
 
-// user(_id: String!): User
+// 

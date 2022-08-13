@@ -33,12 +33,12 @@ const userSchema = new Schema(
         // is_owner: {type: Boolean, required: false, default: false},
 
         // array of how many cars does a user put up for rent
-        // cars_rented: [
-        //     {
-        //         type: Schema.Types.ObjectId,
-        //         ref : 'Car',
-        //     },
-        // ],
+        cars_rented: [
+            {
+                type: Schema.Types.ObjectId,
+                ref : 'Car',
+            },
+        ],
         location: {type: String , required: false}
     },
 );
