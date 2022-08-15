@@ -18,7 +18,7 @@ function NavTabs({ currentPage, handlePageChange }) {
       </li>
       <li className="nav-item">
         <a
-          href="#about"
+          href="/about"
           onClick={() => handlePageChange('About')}
           
 
@@ -29,13 +29,35 @@ function NavTabs({ currentPage, handlePageChange }) {
       </li>
       <li className="nav-item">
         <a
-          href="#signup"
+          href="/signup"
           onClick={() => handlePageChange('Signup')}
           
 
           className={currentPage === 'Signup' ? 'nav-link active' : 'nav-link'}
         >
         Signup
+        </a>
+      </li>
+      <li className="nav-item">
+        <a
+          href="/login"
+          onClick={() => handlePageChange('Signup')}
+          
+
+          className={currentPage === 'Signup' ? 'nav-link active' : 'nav-link'}
+        >
+        Login
+        </a>
+      </li>
+      <li className="nav-item">
+        <a
+          href="/logout"
+          onClick={() => handlePageChange('Signup')}
+          
+
+          className={currentPage === 'Signup' ? 'nav-link active' : 'nav-link'}
+        >
+        Logout
         </a>
       </li>
       <li className="nav-item">
