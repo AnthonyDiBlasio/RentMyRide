@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import UserForm from './pages/UserForm';
 import 'bootstrap/dist/css/bootstrap.css';
+import NavTabs from './components/NavTabs'
 
 import UserProvider from './context/UserContext';
 
@@ -41,6 +42,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <NavTabs />
         <UserProvider>
           <div className="flex-column justify-center align-center min-100-vh bg-primary">
             <Routes>
