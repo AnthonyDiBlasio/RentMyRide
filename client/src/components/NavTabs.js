@@ -9,7 +9,7 @@ function NavTabs({ currentPage, handlePageChange }) {
         <a
           href="/"
           onClick={() => handlePageChange('Home')}
-          
+          //need logo in nav
 
           className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}
         >
