@@ -1,19 +1,19 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_BOOKING = gql`
-  query booking {
-    booking {
-    _id
-    carOwnedBy
-    userRented
-    reservDate
-    returnDate
-    totalBill
-    billingDate
-    lateFee
-    message
-  }
-`;
+// export const QUERY_BOOKING = gql`
+//   query booking {
+//     booking {
+//     _id
+//     carOwnedBy
+//     userRented
+//     reservDate
+//     returnDate
+//     totalBill
+//     billingDate
+//     lateFee
+//     message
+//   }
+// `;
 
 export const QUERY_CAR = gql`
   query car {
