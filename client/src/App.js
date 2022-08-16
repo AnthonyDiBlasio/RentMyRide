@@ -12,7 +12,9 @@ import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import UserForm from './pages/UserForm';
 import 'bootstrap/dist/css/bootstrap.css';
-import NavTabs from './components/NavTabs'
+import NavTabs from './components/NavTabs';
+import RentalForm from './pages/RentalForm';
+import Rentals from './pages/Rentals';
 
 import UserProvider from './context/UserContext';
 
@@ -57,6 +59,14 @@ function App() {
               <Route 
                 path="/users" 
                 element={<Users />}
+              />
+               <Route 
+                path="/rentalform" 
+                element={<RentalForm />}
+              />
+               <Route 
+                path="/rentals" 
+                element={<Rentals />}
               />
               <Route 
                 path="/login" 

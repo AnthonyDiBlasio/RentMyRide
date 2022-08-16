@@ -18,17 +18,6 @@ function NavTabs({ currentPage, handlePageChange }) {
       </li>
       <li className="nav-item">
         <a
-          href="/about"
-          onClick={() => handlePageChange('About')}
-          
-
-          className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}
-        >
-          About
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
           href="/signup"
           onClick={() => handlePageChange('Signup')}
           
@@ -62,24 +51,24 @@ function NavTabs({ currentPage, handlePageChange }) {
       </li>
       <li className="nav-item">
         <a
-          href="#Search"
+          href="/rentals"
         
 
-          onClick={() => handlePageChange('Search')}
-          className={currentPage === 'Search' ? 'nav-link active' : 'nav-link'}
+          onClick={() => handlePageChange('Rentals')}
+          className={currentPage === 'Rentals' ? 'nav-link active' : 'nav-link'}
         >
-          Search
+          Find your Dream Ride!
         </a>
       </li>
       <li className="nav-item">
         <a
-          href="#users"
-          onClick={() => handlePageChange('Users')}
+          href="/rentalform"
+          onClick={() => handlePageChange('RentalForm')}
           
 
-          className={currentPage === 'Users' ? 'nav-link active' : 'nav-link'}
+          className={currentPage === 'RentalForm' ? 'nav-link active' : 'nav-link'}
         >
-          Users
+          Rent your Ride!
         </a>
       </li>
     </ul>
