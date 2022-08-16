@@ -8,6 +8,7 @@ const carSchema = new Schema(
         carModel: {type: String, trim: true, required: true },
         carYear: { type: Number, require: true },
         color: {type: String},
+        image: {type: String},
         price: { type: Number, required: true },
         isAvailable: { type: Boolean, default: false },
         // reserveDate: { type: Date, required: true },
@@ -16,22 +17,12 @@ const carSchema = new Schema(
         locationAvail: {
                 type: String,
         },
-        userRented: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-            }
-        ],
-        ownedBy: {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-        }
+        carOwner: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        },
     },
-)
-
-// carSchema.virtual('').get(function () {
-//     return 
-// });
+);
 
 const Car = model('Car', carSchema);
 
