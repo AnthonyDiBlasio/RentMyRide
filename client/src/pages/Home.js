@@ -7,6 +7,7 @@ import { useUser } from '../context/UserContext';
 import reducer from '../context/reducers';
 import {LOGIN, LOGOUT} from '../context/actions';
 
+
 const Home = () => {
   const initialState = useUser();
   const [state, dispatch] = useReducer(reducer, initialState);
