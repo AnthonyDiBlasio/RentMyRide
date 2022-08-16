@@ -4,4 +4,4 @@ const Car = require('./Car');
 const Booking = require('./Booking');
 // const Bills = require('./Bills');
 
-module.exports = { User, Car };
+module.exports = { User, Car, Booking };
