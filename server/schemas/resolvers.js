@@ -96,8 +96,10 @@ const resolvers = {
     // },
     
     createBooking: async (parent, { car_id, booking_id }, context) => {
-      const booking = await Car.findOne({ _id: car_id});
-      if (booking) {
+      // check syntax of ID
+      const createBooking = await Booking.create(args)
+
+      if (createBooking) {
         const userBooked = await User.findOneAndUpdate(
           // context refers to token created when user is logged in
           { _id: context.user._id },
@@ -113,7 +115,7 @@ const resolvers = {
                 // billingDate: args.billingDate,
                 // lateFee: args.lateFee,
                 // message: args.message,
-                _id: booking_id
+                _id: createBooking._id
               }
             }
           },
