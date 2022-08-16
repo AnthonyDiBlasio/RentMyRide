@@ -70,7 +70,6 @@ function App() {
               />
               <Route 
                 path="/login" 
-                // component={Login}
                 element={(
                   <Login />
                 )}
@@ -90,28 +89,4 @@ function App() {
 
 export default App;
 
-// commenting out this portion is for when we are ready to render Rent My Ride/delete turtle shit :)
-// import "./App.css";
-// // after some troubleshooting, i found that we will need to follow newer syntax in order to render react-router-dom version 6.  (i.e. include <Route> inside of <Routes>)
-// import { Route, BrowserRouter, Routes } from "react-router-dom";
-// import Home from "./pages/Home";
-// import Login from "./pages/Login";
-// import Register from "./pages/Register";
-// import Booking from "./pages/Booking";
 
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/" element={<App />}>
-//           <Route index element={<Home />} />
-//           <Route path="login" element={<Login />} />
-//           <Route path="register" element={<Register />} />
-//           <Route path="booking" element={<Booking />} />
-//         </Route>
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
