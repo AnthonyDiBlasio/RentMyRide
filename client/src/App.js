@@ -53,7 +53,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <NavTabs />
+        <NavTabs/>
         <UserProvider>
           <div className=" min-100-vh bgSiteTimber">
             <Routes>

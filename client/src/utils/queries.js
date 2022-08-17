@@ -29,8 +29,7 @@ export const QUERY_CAR = gql`
       isAvailable
       locationAvail
       carOwner
-       
-
+      
     }
   }
 `;

@@ -1,42 +1,41 @@
 import React from 'react';
 import '../styles/NavTabs.css';
-
+import { Link} from 'react-router-dom';
+import { LoneSchemaDefinitionRule } from 'graphql';
 // returns the navbar on everypage
 
 function NavTabs({ currentPage, handlePageChange }) {
   return (
     <ul className="nav nav-tabs justify-content-end navColor">
       <li className="nav-item ">
-        <a
-          href="/"
-          onClick={() => handlePageChange('Home')}
+        <Link
+          to="/"
+          
 
           className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}
         >
           Home
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a
-          href="/signup"
-          onClick={() => handlePageChange('Signup')}
-          
-
+        <Link
+          to="/signup"
+    
           className={currentPage === 'Signup' ? 'nav-link active' : 'nav-link'}
         >
         Signup
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a
-          href="/login"
-          onClick={() => handlePageChange('Signup')}
+        <Link
+          to="/login"
+        
           
 
           className={currentPage === 'Signup' ? 'nav-link active' : 'nav-link'}
         >
         Login
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
         <a
@@ -50,26 +49,26 @@ function NavTabs({ currentPage, handlePageChange }) {
         </a>
       </li>
       <li className="nav-item">
-        <a
-          href="/rentals"
+        <Link
+          to="/rentals"
         
 
-          onClick={() => handlePageChange('Rentals')}
+          
           className={currentPage === 'Rentals' ? 'nav-link active' : 'nav-link'}
         >
           Find your Dream Ride!
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a
-          href="/rentalform"
-          onClick={() => handlePageChange('RentalForm')}
+        <Link
+          to="/rentalform"
+         
           
 
           className={currentPage === 'RentalForm' ? 'nav-link active' : 'nav-link'}
         >
           Rent your Ride!
-        </a>
+        </Link>
       </li>
     </ul>
   );
