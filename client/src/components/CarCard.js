@@ -40,8 +40,6 @@ const CarCard= () => {
                                 <span className="span"> Year: {car.carYear}</span><br />
                                 <span className="span"> Color: {car.color}</span><br />
                                 <span className="span">Price per day: ${car.price}</span><br /><span></span>
-                                
-                                
                               </MDBCardText>
                               <MDBBtn href='#'>Book this car</MDBBtn>
                             </MDBCardBody>
