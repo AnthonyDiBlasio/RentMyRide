@@ -28,8 +28,6 @@ const typeDefs = gql`
 
   type Booking {
     _id: ID
-    carOwnedBy: Car!
-    userRented: User!
     reservDate: String
     returnDate: String
     totalBill: Int
