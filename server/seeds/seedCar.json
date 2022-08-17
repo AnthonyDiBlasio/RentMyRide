@@ -5,7 +5,7 @@
         "carModel": "Aventador S",
         "carYear": 2020,
         "color": "Red",
-        "image": "https://dmrentalcar.ae/en/car/sportscar/lamborghini/aventador-s-roadster/lamborghini-aventador-s-roadster-2020",
+        "image": "https://www.lambocars.com/wp-content/uploads/2020/12/dmc_aventador_s_tecno_8.jpg",
         "price": 550,
         "isAvailable": true,
         "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010"
@@ -16,7 +16,7 @@
         "carModel": "Continental GT",
         "carYear": 2022,
         "color": "Silver",
-        "image": "https://www.thedrive.com/news/39901/2022-bentley-continental-gt-speed-the-elegant-grand-tourer-gets-650-hp-huge-10-piston-brakes",
+        "image": "https://img.autobytel.com/2022/bentley/continental-gt/2-376-oem-exterior-front1300-99825.jpg",
         "price": 350,
         "isAvailable": true,
         "locationAvail": "2 Bala Plaza, Bala Cynwyd, PA 19004"
@@ -27,7 +27,7 @@
         "carModel": "911",
         "carYear": 2017,
         "color": "Black",
-        "image": "https://www.elferspot.com/en/car/porsche-991-2-carrera-4s-2017-1431392/",
+        "image": "https://blog.dupontregistry.com/wp-content/uploads/2017/07/2017-Turbo-911-Feature-1140x570.jpg",
         "price": 400,
         "isAvailable": true,
         "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010"
@@ -38,6 +38,7 @@
         "carModel": "Accord",
         "carYear": 2015,
         "color": "Black",
+        "image": "https://s1.cdn.autoevolution.com/images/gallery/FERRARI-488-Pista-6247_3.jpg",
         "price": 100,
         "isAvailable": true,
         "locationAvail": "580 Meetinghouse Rd, Ambler, PA 19002"
