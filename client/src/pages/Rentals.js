@@ -15,28 +15,28 @@ const Rentals = () => {
     return (
         <div className="card bg-white card-rounded w-50">
             <div className="card-header bg-dark text-center">
-            <h1>Car List</h1>
+            <h1>RentmyRide</h1>
             </div>
             <div className="card-body m-5">
-            <h2>Here is a list of cars on this website:</h2>
-            {loading ? (
-                <div>Loading...</div>
-            ) : (
-                <ul className="square">
+            <h2>Get into Gear</h2>
+                <ul className="">
                 {carList.map((car) => {
                     return (
-                    <li key={car._id}>
-                    <span>{car.carType}</span><br />
-                    <span>{car.carMake}</span><br />
-                    <span>{car.carModel}</span><br />
-                    <span>{car.carYear}</span><br />
-                    <span>{car.color}</span><br />
-                    <span>{car.price}</span><br />
+                    <li className="card" key={car._id}>
+                    <span>Type: {car.carType}</span><br />
+                    <span> Make: {car.carMake}</span><br />
+                    <span> Model: {car.carModel}</span><br />
+                    <span> Year: {car.carYear}</span><br />
+                    <span> Color: {car.color}</span><br />
+                    <span> Image: {car.image}</span><br />
+
+                    <span>Price per day: ${car.price}</span><br />
                     </li>
+                    
                     );
                 })}
                 </ul>
-            )}
+            )
             </div>
         </div>
     );
