@@ -30,11 +30,11 @@ const CarCard= () => {
                             <MDBCard>
                             <MDBCardImage src={car.image} position='top' alt='...' />
                             <MDBCardBody>
-                              <MDBCardTitle>Available for Rent</MDBCardTitle>
+                              <MDBCardTitle>Available for Rent {car.isAvailable}</MDBCardTitle>
                               <MDBCardText key={car._id}>
-                               
-                            
-                                <span className="span">Type: {car.carType}</span><br />
+                              <span className="span">Owned by: {car.carOwner}</span><br />
+                              <span className="span">Location: {car.locationAvail}</span><br />
+                              <span className="span"> Type: {car.carType}</span><br />
                                 <span className="span"> Make: {car.carMake}</span><br />
                                 <span className="span"> Model: {car.carModel}</span><br />
                                 <span className="span"> Year: {car.carYear}</span><br />
