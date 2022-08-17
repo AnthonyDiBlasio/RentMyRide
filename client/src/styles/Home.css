@@ -1,0 +1,40 @@
+.carImgHeader {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.7)), url('../images/car1.jpg');
+    height: 670px;
+    width: 1600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.headerText {
+    position: relative;
+    margin: auto;
+}
+.heading2Home {
+    color: #bfb8ad ;
+    font-weight: 700;
+}
+
+.heading1Home {
+    color: #eadeda;
+    font-size: 60px;
+    font-weight: 800;
+    /* bottom: 230px; */
+    
+
+    /* font-size: 60px;
+    font-weight: 800;
+    left: 20px;
+    bottom: 230px; */
+}
+
+.card{
+    margin: auto;
+}
+.homeInfo {
+    color: #8a3033;
+}

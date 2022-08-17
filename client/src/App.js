@@ -39,6 +39,15 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// color pallete for the site 
+var bgColors = { "Timberwolf": "#eadeda",
+                    "Cinerous": "#998888",
+                    "Pale Silver": "#bfb8ad",
+                    "Burnt Umber": "#823329",
+                    "Brandy": "#8a3033",
+};
+
+
 function App() {
   
   return (
@@ -46,7 +55,7 @@ function App() {
       <Router>
         <NavTabs />
         <UserProvider>
-          <div className="flex-column justify-center align-center min-100-vh bg-primary">
+          <div className=" min-100-vh bgSiteTimber">
             <Routes>
               <Route 
                 path="/" 

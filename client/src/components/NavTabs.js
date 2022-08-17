@@ -1,15 +1,15 @@
 import React from 'react';
+import '../styles/NavTabs.css';
 
 // returns the navbar on everypage
 
 function NavTabs({ currentPage, handlePageChange }) {
   return (
-    <ul className="nav nav-tabs">
-      <li className="nav-item">
+    <ul className="nav nav-tabs justify-content-end navColor">
+      <li className="nav-item ">
         <a
           href="/"
           onClick={() => handlePageChange('Home')}
-          //need logo in nav
 
           className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}
         >
