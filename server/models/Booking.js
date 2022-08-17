@@ -8,14 +8,14 @@ const { ObjectId } = require('mongodb');
 // maybe have a delivery fees that goes to set whether 'willPickUp' be true or false? that could be added to final 'totalBill'
 const bookingSchema = new Schema(
     {
-        carOwnedBy: {
-            type: Schema.Types.ObjectId,
-            ref: 'Car'
-        },
-        userRented: {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        },
+        // carOwnedBy: {
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'Car'
+        // },
+        // userRented: {
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'User'
+        // },
         reservDate: {
             type: String,
             required: true,
