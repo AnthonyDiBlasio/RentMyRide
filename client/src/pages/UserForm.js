@@ -82,46 +82,23 @@ export default function UserForm(props){
 
   }
   return (
-    <section>
+
+    <section className='card'>
     <form onSubmit={submitHandler}>
       {(!formState["name-verified"]) ?
         (<><span className="badge text-bg-danger">Name must be longer than 6 characters</span><br/></>)
         : (<></>)
       }
       
-      Hi my name is &nbsp;
+      Enter your Name:&nbsp;
       <input 
           type="text"
           name="name"
           value={formState.name}
           onChange={onChangeHandler}
         />
-      {/* {formState["name-finished"] ? (
-        <>{formState.name}</>
-      ) : (
-        
-        <input 
-          type="text"
-          name="name"
-          value={formState.name}
-          onChange={onChangeHandler}
-        />
-      )}
-      
-      .
+     
 
-      <input
-        type="checkbox"
-        name="name-finished"
-        checked={formState["name-finished"]}
-        onChange={() => onChangeHandler( {
-            target: {
-              name: "name-finished",
-              value: !formState["name-finished"]
-            }
-        })
-        }
-      /> */}
       <br/>
       {(!formState["email-verified"]) ?
         (<><span className="badge text-bg-danger">Email must look like "name@company.com"</span><br/></>)

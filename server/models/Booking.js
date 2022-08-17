@@ -8,46 +8,34 @@ const { ObjectId } = require('mongodb');
 // maybe have a delivery fees that goes to set whether 'willPickUp' be true or false? that could be added to final 'totalBill'
 const bookingSchema = new Schema(
     {
-        user_owned: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-            }
-        ],
-        user_rented: 
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-            },
-        // car: {
+        // carOwnedBy: {
         //     type: Schema.Types.ObjectId,
-        //     ref: 'Car',
+        //     ref: 'Car'
+        // },
+        // userRented: {
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'User'
         // },
         reservDate: {
-            type: Date,
-            default: Date.now,
+            type: String,
             required: true,
         },
         returnDate: {
-            type: Date,
+            type: String,
             required: true,
-            default: Date.now,
         },
         totalBill: {
             type: Number,
             required: true
         },
-        // amount: {
-        //     type: Number,
-        //     min: 0,
-        // },
         billingDate: {
-            type: Date,
-            default: Date.now,
+            type: String,
+            required: true
         },
         lateFee: {
             type: Number,
-            min: 0,
+            default: 0,
+            min: 0
         },
         // have an optional message field for extra details of the, exact location, etc.
         message: {
@@ -56,19 +44,6 @@ const bookingSchema = new Schema(
             minLength: 1,
             maxLength : 280,
         },
-        // when was this transaction made
-        bookingCreated: {
-            type: Date,
-            default: Date.now,
-        },
-        // pickUp: {
-        //     type: Boolean,
-        //     required: true,
-        // },
-        // address: {
-        //     type: String,
-        //         equired: true,
-        // },
     },
 );
 

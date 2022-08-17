@@ -2,23 +2,6 @@ const { gql } = require('apollo-server-express');
 
 // Orginal Booking Typedef:  Need to build scalar for the DATE type - https://stackoverflow.com/questions/49693928/date-and-json-in-type-definition-for-graphql
 
-// removing original Booking until Scalar is created for testing purposes.  Test Booking implemented without DATE fields
-
-// type Booking {
-//   users: [User]
-//   cars: [Car]
-//   reserveDate: Date
-//   returnDate: Date
-//   totalBill: Int
-//   amount: Int
-//   billingDate: Date
-//   lateFee: Int
-//   message: String
-//   bookingCreated: Date
-//   pickUp: Boolean
-//   address: String
-// }
-
 const typeDefs = gql`
 
   type Car {
@@ -29,29 +12,28 @@ const typeDefs = gql`
     carYear: Int
     color: String
     price: Int
+    image: String
     isAvailable: Boolean
     locationAvail: String
-    userRented: [String]
-    ownedBy: String
+    carOwner: String
   }
 
   type User {
     _id: ID!
     name: String!
     email: String!
+    carsRented: [Car]
     location: String
-    cars_rented: [Car]
   }
 
   type Booking {
-    users: [User]
-    cars: [Car]
+    _id: ID
+    reservDate: String
+    returnDate: String
     totalBill: Int
-    amount: Int
+    billingDate: String
     lateFee: Int
     message: String
-    pickUp: Boolean
-    address: String
   }
   
   type Query {
@@ -59,6 +41,7 @@ const typeDefs = gql`
     cars: [Car]
     user(_id: String!): User
     car(_id: String!): Car
+    booking: [Booking]
     me: User
     
   }
@@ -73,8 +56,8 @@ const typeDefs = gql`
     createUser(name: String!, email: String!, password: String!): TokenUser
     createUserNoToken(name: String!, email: String!, password: String!): User
     login(email: String!, password: String!): TokenUser
-    createCar(carType: String!, carMake: String!, carModel: String!, carYear: Int!, color: String, price: Int!, isAvailable: Boolean!, locationAvail: String, ownedBy: String): Car
-    cars_rented(car_id: ID!): User
+    createCar(carType: String!, carMake: String!, carModel: String!, carYear: Int!, color: String, price: Int!, image: String, isAvailable: Boolean!, locationAvail: String, carOwner: String): Car
+    createBooking(reservDate: String, returnDate: String, totalBill: Int, billingDate: String, lateFee: Int, message: String): Booking
   }
 `;
 

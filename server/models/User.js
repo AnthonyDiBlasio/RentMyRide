@@ -6,12 +6,6 @@ const SALT_WORK_FACTOR = 7;
 
 const userSchema = new Schema(
     {
-        first_name: { type: String, 
-          required: false,  
-          trim: true },
-        last_name: { type: String, 
-            required: false, 
-            trim: true },
         name: {
             type: String,
             required: true,
@@ -30,13 +24,12 @@ const userSchema = new Schema(
             minLength: 6,
             match: [/[a-zA-Z0-9!-]+/i, "Must use a-z or 0-9 or ! or -"],
         },
-        // is_owner: {type: Boolean, required: false, default: false},
 
         // array of how many cars does a user put up for rent
-        cars_rented: [
+        carsRented: [
             {
                 type: Schema.Types.ObjectId,
-                ref : 'Car',
+                ref : 'Booking',
             },
         ],
         location: {type: String , required: false}
@@ -74,10 +67,6 @@ userSchema.methods.comparePassword = async function(candidatePassword, cb) {
         return false;
     }
 };
-
-// userSchema.virtual('').get(function () {
-//     return 
-// });
 
 const User = model('User', userSchema);
 

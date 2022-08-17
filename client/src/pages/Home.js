@@ -7,7 +7,6 @@ import { useUser } from '../context/UserContext';
 import reducer from '../context/reducers';
 import {LOGIN, LOGOUT} from '../context/actions';
 
-import '../styles/Home.css';
 
 const Home = () => {
   const initialState = useUser();
