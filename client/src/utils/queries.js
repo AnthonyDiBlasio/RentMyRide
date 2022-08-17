@@ -17,7 +17,7 @@ import { gql } from '@apollo/client';
 
 export const QUERY_CAR = gql`
   query car {
-    car {
+    cars {
       _id
       carType
       carMake
