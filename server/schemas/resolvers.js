@@ -46,10 +46,10 @@ const resolvers = {
       return user;
     },
 
-    // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy})
+    // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image})
 
-    createCar: async (parent, args) => {
-      const car = await Car.create(args);
+    createCar: async (parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image}) => {
+      const car = await Car.create({carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image});
       return car;
     },
 
