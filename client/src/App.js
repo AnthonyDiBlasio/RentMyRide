@@ -50,8 +50,8 @@ var bgColors = {
   Brandy: "#8a3033",
 };
 
-function LayOut() {
-  return <div></div>;
+function LayOut({ children }) {
+  return <div>{children}</div>;
 }
 
 function App() {
