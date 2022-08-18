@@ -4,18 +4,20 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink,
-} from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
-import Home from "./pages/Home";
-import Users from "./pages/Users";
-import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import "bootstrap/dist/css/bootstrap.css";
-import NavTabs from "./components/NavTabs";
-import RentalForm from "./pages/RentalForm";
-import Rentals from "./pages/Rentals";
+
+  createHttpLink} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import Home from './pages/Home';
+import Users from './pages/Users';
+import NotFound from './pages/NotFound';
+import Login from './pages/Login';
+import UserForm from './pages/UserForm';
+import 'bootstrap/dist/css/bootstrap.css';
+import NavTabs from './components/NavTabs';
+import RentalForm from './pages/RentalForm';
+import Rentals from './pages/Rentals';
+import Footer from './components/Footer';
+
 
 import UserProvider from "./context/UserContext";
 
@@ -55,7 +57,7 @@ function App() {
       <Router>
         <NavTabs />
         <UserProvider>
-          <div className=" min-100-vh bgSiteTimber">
+          <div className=" bgSiteTimber">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/signup" element={<SignUp />} />
@@ -67,6 +69,7 @@ function App() {
             </Routes>
           </div>
         </UserProvider>
+        <Footer />
       </Router>
     </ApolloProvider>
   );
