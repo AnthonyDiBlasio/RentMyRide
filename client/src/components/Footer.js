@@ -15,7 +15,7 @@ const Footer = () => {
             <ul className="list-inline socila-list">
               <li className="list-inline-item">
                 <a href="https://github.com/AnthonyDiBlasio/RentMyRide.git">
-                  <FontAwesomeIcon icon="fa-brands fa-github" size="" />
+                  <FontAwesomeIcon icon="fa-brands fa-github" />
                 </a>
               </li>
             </ul>
@@ -68,7 +68,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div class="copyright text-center">
+      <div className="copyright text-center">
         Copyright &copy; 2022 <span>SuperGroup</span>
       </div>
     </footer>

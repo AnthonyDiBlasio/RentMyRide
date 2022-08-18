@@ -10,6 +10,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 
+
 export default function SignUp() {
   const initialState = useUser();
   const [_, dispatch] = useReducer(reducer, initialState);
@@ -42,6 +43,7 @@ export default function SignUp() {
   };
 
   return (
+    <div classname="container-fluid">
     <Card style={{ width: "30rem", padding: "20px" }}>
       <Card.Body>
         <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
@@ -119,5 +121,6 @@ export default function SignUp() {
         </Container>
       </Card.Body>
     </Card>
+    </div>
   );
 }
