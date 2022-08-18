@@ -109,7 +109,7 @@ const resolvers = {
         await User.findOneAndUpdate(
           // { _id: context.user._id },
           { _id: ObjectId("62fc0eeefa0bad8b1268aa79")},
-          { $addToSet: { carsRented: booking._id}}
+          { $addToSet: { carsRented: {...booking}}}
         );
         return booking
       // }

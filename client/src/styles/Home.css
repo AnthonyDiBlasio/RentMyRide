@@ -34,6 +34,7 @@
 
 .card{
     margin: auto;
+    text-align: justify;
 }
 .homeInfo {
     color: #8a3033;

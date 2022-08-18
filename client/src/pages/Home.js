@@ -6,6 +6,7 @@ import Auth from '../utils/auth';
 import { useUser } from '../context/UserContext';
 import reducer from '../context/reducers';
 import {LOGIN, LOGOUT} from '../context/actions';
+import Footer from '../components/Footer';
 
 import '../styles/Home.css';
 
@@ -35,6 +36,7 @@ const Home = () => {
     }
   }); // want to update state on any change
   return (
+    <>
     <div className='container-fluid d-flex flex-wrap flex-column align-content-center'>
       {/* header section */}
       <div className='carImgHeader'>
@@ -49,14 +51,16 @@ const Home = () => {
         <div className='card-body m-3'>
           <h3 className='card-title'>When you rent from us:</h3>
           <ul className='list-group list-group-flush'>
-            <li class="list-group-item">24/7 Customer Support - Here for any issues that might arrise during your trip.</li>
-            <li class="list-group-item">Pick your dream car - Countless makers and models to chosen from.</li>
-            <li class="list-group-item">Rent and Earn - Rent your AMAZING car to others and earn money while doing it.</li>
-            <li class="list-group-item">Drive with Confidence - comes with standard third-party insurance.</li>
+            <li className="list-group-item">24/7 Customer Support - Here for any issues that might arrise during your trip.</li>
+            <li className="list-group-item">Pick your dream car - Countless makers and models to chosen from.</li>
+            <li className="list-group-item">Rent and Earn - Rent your AMAZING car to others and earn money while doing it.</li>
+            <li className="list-group-item">Drive with Confidence - comes with standard third-party insurance.</li>
           </ul>
         </div>
       </div> */}
     </div>
+    <Footer/>
+    </>
   );
 };
 
