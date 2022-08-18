@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import NavTabs from './components/NavTabs';
 import RentalForm from './pages/RentalForm';
 import Rentals from './pages/Rentals';
+import Footer from './components/Footer';
 
 import UserProvider from './context/UserContext';
 
@@ -55,7 +56,7 @@ function App() {
       <Router>
         <NavTabs />
         <UserProvider>
-          <div className=" min-100-vh bgSiteTimber">
+          <div className=" bgSiteTimber">
             <Routes>
               <Route 
                 path="/" 
@@ -91,6 +92,7 @@ function App() {
             </Routes>
           </div>
         </UserProvider>
+        <Footer />
       </Router>
     </ApolloProvider>
   );

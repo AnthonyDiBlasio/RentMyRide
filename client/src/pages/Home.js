@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <div className='container-fluid d-flex flex-wrap flex-column align-content-center'>
       {/* header section */}
-      <div className='carImgHeader mb-3'>
+      <div className='carImgHeader'>
         <div className='headerText'>
           <h1 className='heading1Home p-5'>Get Into Gear and Find Your Dream Ride</h1>
           <h2 className='heading2Home text-center'>Book Online Now</h2>
@@ -45,7 +45,7 @@ const Home = () => {
       </div>
 
       {/* not liking this section at Home.js. Maybe put it on about.js? */}
-      <div className=' card homeInfo' style={{ width: '50rem'}}>
+      {/* <div className=' card homeInfo' style={{ width: '50rem'}}>
         <div className='card-body m-3'>
           <h3 className='card-title'>When you rent from us:</h3>
           <ul className='list-group list-group-flush'>
@@ -55,7 +55,7 @@ const Home = () => {
             <li class="list-group-item">Drive with Confidence - comes with standard third-party insurance.</li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
