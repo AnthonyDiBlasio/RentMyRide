@@ -6,6 +6,7 @@ import Auth from '../utils/auth';
 import { useUser } from '../context/UserContext';
 import reducer from '../context/reducers';
 import {LOGIN, LOGOUT} from '../context/actions';
+import Footer from '../components/Footer';
 
 import '../styles/Home.css';
 
@@ -35,6 +36,7 @@ const Home = () => {
     }
   }); // want to update state on any change
   return (
+    <>
     <div className='container-fluid d-flex flex-wrap flex-column align-content-center'>
       {/* header section */}
       <div className='carImgHeader mb-3'>
@@ -57,6 +59,8 @@ const Home = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
