@@ -25,19 +25,28 @@ function CarCard({ data }) {
       />
 
       <Card.Body>
-        <Card.Title>Available {data.isAvailable}</Card.Title>
+        <Card.Title style={{ textAlign: "right" }}>
+          <h3> Available {data.isAvailable}</h3>
+        </Card.Title>
 
         <div>
           <p>Price per day: ${data.price}</p>
-          <p>Location: {data.locationAvail}</p>
+          <p>Make: {data.carMake}</p>
+          <p>Model: {data.carModel}</p>
+          <p>Year: {data.carYear}</p>
         </div>
 
-        <p onClick={() => setOpen(!open)} aria-expanded={open}>
+        <p
+          style={{ color: "maroon" }}
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+        >
           more info...
         </p>
         <Collapse in={open}>
           <div id="example-collapse-text">
             <p>Owned by: {data.carOwner}</p>
+            <p>Location: {data.locationAvail}</p>
             <p>Type: {data.carType}</p>
             <p>Make: {data.carMake}</p>
             <p>Model: {data.carModel}</p>
@@ -45,8 +54,9 @@ function CarCard({ data }) {
             <p>Color: {data.color}</p>
           </div>
         </Collapse>
-
-        <Button variant="primary">Book This Ride</Button>
+        <div style={{ display: "flex", justifyContent: "right" }}>
+          <Button variant="primary">Book This Ride</Button>
+        </div>
       </Card.Body>
     </Card>
   );
