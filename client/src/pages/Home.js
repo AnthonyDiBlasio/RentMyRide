@@ -34,20 +34,26 @@ const Home = () => {
     }
   }); // want to update state on any change
   return (
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
-        <h1>Welcome to RentmyRide!</h1>
-        <Link to="/login">{ state.logged_in ? "Profile" : "Login" }</Link><br />
-        <a href="/logout" onClick={logout}>Logout</a><br/>
-        { state.logged_in ? (
-          <></>
-        ) : (
-          <>
-            <Link to="/signup">Sign Up</Link>
-            <br />
-          </>
-        )}
-        
+    <div className='container-fluid d-flex flex-wrap flex-column align-content-center'>
+      {/* header section */}
+      <div className='carImgHeader mb-3'>
+        <div className='headerText'>
+          <h1 className='heading1Home p-5'>Get Into Gear and Find Your Dream Ride</h1>
+          <h2 className='heading2Home text-center'>Book Online Now</h2>
+        </div>  
+      </div>
+
+      {/* not liking this section at Home.js. Maybe put it on about.js? */}
+      <div className=' card homeInfo' style={{ width: '50rem'}}>
+        <div className='card-body m-3'>
+          <h3 className='card-title'>When you rent from us:</h3>
+          <ul className='list-group list-group-flush'>
+            <li class="list-group-item">24/7 Customer Support - Here for any issues that might arrise during your trip.</li>
+            <li class="list-group-item">Pick your dream car - Countless makers and models to chosen from.</li>
+            <li class="list-group-item">Rent and Earn - Rent your AMAZING car to others and earn money while doing it.</li>
+            <li class="list-group-item">Drive with Confidence - comes with standard third-party insurance.</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

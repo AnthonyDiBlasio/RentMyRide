@@ -26,7 +26,10 @@ export const QUERY_CAR = gql`
       color
       image
       price
-      isAvailable 
+      isAvailable
+      locationAvail
+      carOwner
+      
     }
   }
 `;

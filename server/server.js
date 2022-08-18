@@ -6,9 +6,9 @@ const path = require("path");
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 
-const { User,Car } = require('./models');
+const { User, Car } = require('./models');
 
-const  { authMiddleware } = require('./utils/auth')
+const { authMiddleware } = require('./utils/auth')
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -39,19 +39,26 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
   db.once("open", () => {
     app.post("/seedDatabase", async (req, res) => {
+
       if (req.body.SEEDPASS === process.env.SEEDPASS) {
         await User.deleteMany({});
         await Car.deleteMany({});
 
         const users = await User.insertMany(userData);
         const cars = await Car.insertMany(carData);
-        res.json(users, cars);
+        res.json({users,cars});
       }
       else {
         res.json("this is not working")
       }
-    });
 
+    });
+    if (process.env.NODE_ENV === "production") {
+      app.get("*", (req, res) => {
+        //react fallback route
+        res.sendFile(path.join(__dirname, "../client/build/index.html"));
+      });
+    }
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(
