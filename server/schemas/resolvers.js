@@ -40,114 +40,11 @@ const resolvers = {
       };
     },
 
-
     createUserNoToken: async (parent, { name, email, password }) => {
       const user = await User.create({name, email, password});
       return user;
     },
 
-    // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image})
-
-    createCar: async (parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image}) => {
-      const car = await Car.create({carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image});
-      return car;
-    },
-
-    // carsRented: async (parent, { car_id }, context) => {
-    //   // if (context.user) {
-    //     const carResult = await Car.findOne({ _id: car_id });
-    //     if (carResult) {
-    //       const userWithCar = await User.findOneAndUpdate(
-    //         // context refers to token created when user is logged in
-    //         { _id: context.user._id },
-    //         // {_id: ObjectId("62f7a4458ee68bbb0eef7e02")},
-    //         {
-    //           $addToSet: {
-    //             cars_rented: {
-    //               // carType: args.carType,
-    //               // carMake: args.carMake,
-    //               // carModel: args.carModel,
-    //               // carYear: args.carYear,
-    //               // color: args.color,
-    //               // price: args.price,
-    //               // isAvailable: args.isAvailable,
-    //               // locationAvail: args.locationAvail,
-    //               // ownedBy: args.ownedBy
-    //               _id: car_id,
-    //             },
-    //           },
-    //         },
-    //         { new: true }
-    //       ).populate("cars_rented");
-
-    //       console.log(userWithCar);
-    //       return userWithCar;
-    //     } else {
-    //       throw new Error ("Could not find Car")
-    //     }
-    //   // } 
-    // },
-  
-    // create a booking between a user and a car
-
-    // createBooking: async (parent, args) => {
-    //   const booking = await Booking.create(args);
-    //   return booking;
-    // },
-    createBooking: async (parent, args, context) => {
-      // if (context.user) {
-        const booking = await Booking.create({
-          reservDate: args.reservDate,
-          returnDate: args.returnDate,
-          totalBill: args.totalBill,
-          billingDate: args.billingDate,
-          lateFee: args.lateFee,
-          message: args.message,
-        });
-        
-
-        await User.findOneAndUpdate(
-          // { _id: context.user._id },
-          { _id: ObjectId("62fc0eeefa0bad8b1268aa79")},
-          { $addToSet: { carsRented: {...booking}}}
-        );
-        return booking
-      // }
-      throw new AuthenticationError("You need to be logged in");
-    },
-  //   createBooking: async (parent, { car_id, booking_id }, context) => {
-  //     // check syntax of ID
-  //     const createBooking = await Booking.create(args)
-
-  //     if (createBooking) {
-  //       const userBooked = await User.findOneAndUpdate(
-  //         // context refers to token created when user is logged in
-  //         { _id: context.user._id },
-  //         // {_id: ObjectId("62f7a4458ee68bbb0eef7e02")},
-  //         {
-  //           $addToSet: {
-  //             carsRented: {
-  //               // carOwnedBy: args.carOwnedBy,
-  //               // userRented: args.userRented,
-  //               // reservDate: args.reservDate,
-  //               // returnDate: args.returnDate,
-  //               // totalBill: args.totalBill,
-  //               // billingDate: args.billingDate,
-  //               // lateFee: args.lateFee,
-  //               // message: args.message,
-  //               _id: createBooking._id
-  //             }
-  //           }
-  //         },
-  //         { new: true }
-  //       ).populate("carsRented");
-  //     return userBooked;
-  //   } else {
-  //     throw new Error ("Could not find Car")
-  //   }
-  // },
-
-    //TODO Login
     login: async(parent, {email, password}) => {
       // make sure the user exists
       const user = await User.findOne({ email });
@@ -166,8 +63,44 @@ const resolvers = {
       // get the user token
       const token = signToken(user);
       return {token, user};
-    }
-  },
+    },
+
+    // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image})
+
+    createCar: async (parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image}) => {
+      const car = await Car.create({carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image});
+      return car;
+    },
+  
+    // create a booking between a user and a car
+
+    createBooking: async (parent, args, context) => {
+      // if (context.user) {
+        const booking = await Booking.create({
+          reservDate: args.reservDate,
+          returnDate: args.returnDate,
+          totalBill: args.totalBill,
+          billingDate: args.billingDate,
+          lateFee: args.lateFee,
+          message: args.message,
+        });
+        
+        const userBooking = await User.findOneAndUpdate(
+          // { _id: context.user._id },
+          { _id: ObjectId("62fec19369146e8576e4c348")},
+          { 
+            $addToSet: { 
+              carsRented: booking._id 
+            },
+          },
+          { new: true }
+        );
+        return userBooking;
+        // return booking;
+    // }
+    // throw new AuthenticationError("You need to be logged in");
+    },
+  } 
 };
 
 module.exports = resolvers;
