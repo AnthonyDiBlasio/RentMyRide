@@ -51,7 +51,11 @@ var bgColors = {
 };
 
 function LayOut({ children }) {
-  return <div>{children}</div>;
+  return (
+    <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+      {children}
+    </div>
+  );
 }
 
 function App() {
@@ -61,7 +65,10 @@ function App() {
         <UserProvider>
           <LayOut>
             <NavTabs />
-            <div className=" bgSiteTimber">
+            <div
+              className="bgSiteTimber"
+              style={{ flexGrow: 1, paddingTop: "16px", paddingBottom: "16px" }}
+            >
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/signup" element={<SignUp />} />
