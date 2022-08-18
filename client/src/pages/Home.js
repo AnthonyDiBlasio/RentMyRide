@@ -1,3 +1,4 @@
+
 import React, {useEffect, useReducer} from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -7,34 +8,37 @@ import { useUser } from '../context/UserContext';
 import reducer from '../context/reducers';
 import {LOGIN, LOGOUT} from '../context/actions';
 
-import '../styles/Home.css';
+
+
+
+
+import "../styles/Home.css";
 
 const Home = () => {
   const initialState = useUser();
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const logout = (event) =>{
+  const logout = (event) => {
     event.preventDefault();
 
     Auth.logout(dispatch);
-  }
-
-  
+  };
 
   const { loading: loadingMe, data: dataMe } = useQuery(QUERY_ME, {
-    fetchPolicy: "no-cache"
+    fetchPolicy: "no-cache",
   });
 
   const me = dataMe?.me || {};
 
-  useEffect( () => {
-    if(me && me.hasOwnProperty("_id")){
-      if(state.user === null || me._id !== state.user._id ){
-        dispatch({type: LOGIN, payload: me});
+  useEffect(() => {
+    if (me && me.hasOwnProperty("_id")) {
+      if (state.user === null || me._id !== state.user._id) {
+        dispatch({ type: LOGIN, payload: me });
       }
     }
   }); // want to update state on any change
   return (
+
     <>
     <div className='container-fluid d-flex flex-wrap flex-column align-content-center'>
       {/* header section */}
@@ -46,7 +50,12 @@ const Home = () => {
       </div>
     </div>
     </>
+
   );
 };
 
 export default Home;
+
+
+
+
