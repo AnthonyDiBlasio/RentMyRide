@@ -11,11 +11,14 @@ import Home from './pages/Home';
 import Users from './pages/Users';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
+
 import SignUp from "./pages/SignUp";
+
 import 'bootstrap/dist/css/bootstrap.css';
 import NavTabs from './components/NavTabs';
 import RentalForm from './pages/RentalForm';
 import Rentals from './pages/Rentals';
+import SignUp from "./pages/SignUp";
 import Footer from './components/Footer';
 
 
