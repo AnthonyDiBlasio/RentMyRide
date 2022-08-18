@@ -1,3 +1,4 @@
+
 import React, { useEffect, useReducer } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -33,6 +34,7 @@ const Home = () => {
     }
   }); // want to update state on any change
   return (
+
     <div className="container-fluid d-flex flex-wrap flex-column align-content-center">
       {/* header section */}
       <div className="carImgHeader mb-3">
@@ -42,6 +44,7 @@ const Home = () => {
           </h1>
           <h2 className="heading2Home text-center">Book Online Now</h2>
         </div>
+
       </div>
     </div>
   );
@@ -49,8 +52,10 @@ const Home = () => {
 
 export default Home;
 
-/* not liking this section at Home.js. Maybe put it on about.js? */
-/* <div className=' card homeInfo' style={{ width: '50rem'}}>
+
+      {/* not liking this section at Home.js. Maybe put it on about.js? */}
+      {/* <div className=' card homeInfo' style={{ width: '50rem'}}>
+
         <div className='card-body m-3'>
           <h3 className='card-title'>When you rent from us:</h3>
           <ul className='list-group list-group-flush'>
@@ -60,4 +65,15 @@ export default Home;
             <li className="list-group-item">Drive with Confidence - comes with standard third-party insurance.</li>
           </ul>
         </div>
+
       </div> */
+
+      </div> */}
+    </div>
+    <Footer/>
+    </>
+  );
+};
+
+export default Home;
+
