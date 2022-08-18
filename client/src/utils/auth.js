@@ -1,51 +1,51 @@
-import decode from 'jwt-decode';
-import { LOGIN, LOGOUT } from '../context/actions';
+import decode from "jwt-decode";
+import { LOGIN, LOGOUT } from "../context/actions";
 
 // delete this comment later! just trying to repush my changes
 
 class AuthService {
-    getProfile() {
+  getProfile() {
     return decode(this.getToken());
-    }
+  }
 
-    loggedIn() {
+  loggedIn() {
     const token = this.getToken();
     return token && !this.isTokenExpired(token) ? true : false;
-    }
+  }
 
-    isTokenExpired(token) {
+  isTokenExpired(token) {
     const decoded = decode(token);
     if (decoded.exp < Date.now() / 1000) {
-        localStorage.removeItem('id_token');
-        return true;
+      localStorage.removeItem("id_token");
+      return true;
     }
     return false;
-    }
+  }
 
-    getToken() {
-    return localStorage.getItem('id_token');
-    }
+  getToken() {
+    return localStorage.getItem("id_token");
+  }
 
-    // login & logout converted into reducers 
-    // additional utils folder under the name "context" created to keep tracks of global variables
-    login(dispatch, idToken, formData, navigate) {
-        // using context's dispatch
-        dispatch({type: LOGIN, payload: formData.login.user});
-        localStorage.setItem('id_token', idToken);
+  // login & logout converted into reducers
+  // additional utils folder under the name "context" created to keep tracks of global variables
+  login(dispatch, idToken, formData, navigate) {
+    // using context's dispatch
+    dispatch({ type: LOGIN, payload: formData.login.user });
+    localStorage.setItem("id_token", idToken);
 
     // prevents a complete refresh of the site
     // allows react state to stay intact
     // it hooks in to react router provider to change the page
-    navigate("/", {replace: true}) 
+    navigate("/", { replace: true });
     // window.location.assign('/');
-    }
+  }
 
-    logout(dispatch) {
+  logout(dispatch) {
     // using context's dispatch
-    dispatch({type: LOGOUT});
-    localStorage.removeItem('id_token');
+    dispatch({ type: LOGOUT });
+    localStorage.removeItem("id_token");
     window.location.reload();
-    }
+  }
 }
 
 export default new AuthService();
