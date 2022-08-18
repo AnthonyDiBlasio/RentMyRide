@@ -15,19 +15,20 @@ const typeDefs = gql`
     image: String
     isAvailable: Boolean
     locationAvail: String
-    carOwner: String
+    carOwner: User
   }
 
   type User {
     _id: ID!
     name: String!
     email: String!
-    carsRented: [Car]
+    carsRented: [Booking]
     location: String
   }
 
   type Booking {
     _id: ID
+    rentedCar: Car
     reservDate: String
     returnDate: String
     totalBill: Int
@@ -57,7 +58,7 @@ const typeDefs = gql`
     createUserNoToken(name: String!, email: String!, password: String!): User
     login(email: String!, password: String!): TokenUser
     createCar(carType: String!, carMake: String!, carModel: String!, carYear: Int!, color: String, price: Int!, image: String, isAvailable: Boolean!, locationAvail: String, carOwner: String): Car
-    createBooking(reservDate: String, returnDate: String, totalBill: Int, billingDate: String, lateFee: Int, message: String): Booking
+    createBooking(rentedCar: ID!, reservDate: String, returnDate: String, totalBill: Int, billingDate: String, lateFee: Int, message: String): Booking
   }
 `;
 
