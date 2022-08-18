@@ -53,27 +53,5 @@ const Home = () => {
 export default Home;
 
 
-      {/* not liking this section at Home.js. Maybe put it on about.js? */}
-      {/* <div className=' card homeInfo' style={{ width: '50rem'}}>
 
-        <div className='card-body m-3'>
-          <h3 className='card-title'>When you rent from us:</h3>
-          <ul className='list-group list-group-flush'>
-            <li className="list-group-item">24/7 Customer Support - Here for any issues that might arrise during your trip.</li>
-            <li className="list-group-item">Pick your dream car - Countless makers and models to chosen from.</li>
-            <li className="list-group-item">Rent and Earn - Rent your AMAZING car to others and earn money while doing it.</li>
-            <li className="list-group-item">Drive with Confidence - comes with standard third-party insurance.</li>
-          </ul>
-        </div>
-
-      </div> */
-
-      </div> */}
-    </div>
-    <Footer/>
-    </>
-  );
-};
-
-export default Home;
 
