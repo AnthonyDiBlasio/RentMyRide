@@ -97,8 +97,6 @@ const resolvers = {
     createBooking: async (parent, args, context) => {
       // if (context.user) {
         const booking = await Booking.create({
-          rentedCar: args.rentedCar,
-          userRenting: args.userRenting,
           reservDate: args.reservDate,
           returnDate: args.returnDate,
           totalBill: args.totalBill,
@@ -110,8 +108,8 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           // { _id: context.user._id },
-          { _id: ObjectId("62fd72310c0a297a5ffca2a2")},
-          { $addToSet: { carsRented: booking._id }}
+          { _id: ObjectId("62fc0eeefa0bad8b1268aa79")},
+          { $addToSet: { carsRented: {...booking}}}
         );
         return booking
       // }
