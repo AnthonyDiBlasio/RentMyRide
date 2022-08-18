@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 // export const QUERY_BOOKING = gql`
 //   query booking {
@@ -28,13 +28,14 @@ export const QUERY_CAR = gql`
       price
       isAvailable
       locationAvail
-      carOwner
-      
+      carOwner {
+        _id
+      }
     }
   }
 `;
 
-export const QUERY_USERS = gql` 
+export const QUERY_USERS = gql`
   query users {
     users {
       _id
