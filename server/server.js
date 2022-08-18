@@ -46,7 +46,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
         const users = await User.insertMany(userData);
         const cars = await Car.insertMany(carData);
-        res.json(users, cars);
+        res.json({users,cars});
       }
       else {
         res.json("this is not working")
