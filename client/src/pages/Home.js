@@ -39,8 +39,8 @@ const Home = () => {
   }); // want to update state on any change
   return (
 
-    <>
-    <div className='container-fluid d-flex flex-wrap flex-column align-content-center'>
+    <div className="body">
+    <div className='container-fluid d-flex flex-wrap flex-column align-content-center' >
       {/* header section */}
       <div className='carImgHeader'>
         <div className='headerText'>
@@ -49,7 +49,7 @@ const Home = () => {
         </div>  
       </div>
     </div>
-    </>
+    </div>
 
   );
 };

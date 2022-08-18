@@ -2,6 +2,7 @@ footer {
     background: #823329;
     color: #998888;
     padding-top: 10px;
+    
 }
 
 footer a {
@@ -59,7 +60,7 @@ footer .img-thumbnail {
 
 footer .copyright {
     padding: 15px 0;
-    background: #333;
+    background: white !important;
     margin-top: 20px;
     font-size: 15px;
 }

@@ -4,20 +4,19 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-
-  createHttpLink} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import Home from './pages/Home';
-import Users from './pages/Users';
-import NotFound from './pages/NotFound';
-import Login from './pages/Login';
-import 'bootstrap/dist/css/bootstrap.css';
-import NavTabs from './components/NavTabs';
-import RentalForm from './pages/RentalForm';
-import Rentals from './pages/Rentals';
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import Home from "./pages/Home";
+import Users from "./pages/Users";
+import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import "bootstrap/dist/css/bootstrap.css";
+import NavTabs from "./components/NavTabs";
+import RentalForm from "./pages/RentalForm";
+import Rentals from "./pages/Rentals";
 import SignUp from "./pages/SignUp";
-import Footer from './components/Footer';
-
+import Footer from "./components/Footer";
 
 import UserProvider from "./context/UserContext";
 
@@ -51,25 +50,31 @@ var bgColors = {
   Brandy: "#8a3033",
 };
 
+function LayOut() {
+  return <div></div>;
+}
+
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <NavTabs />
         <UserProvider>
-          <div className=" bgSiteTimber">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/users" element={<Users />} />
-              <Route path="/rentalform" element={<RentalForm />} />
-              <Route path="/rentals" element={<Rentals />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </div>
+          <LayOut>
+            <NavTabs />
+            <div className=" bgSiteTimber">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/users" element={<Users />} />
+                <Route path="/rentalform" element={<RentalForm />} />
+                <Route path="/rentals" element={<Rentals />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+            <Footer />
+          </LayOut>
         </UserProvider>
-        <Footer />
       </Router>
     </ApolloProvider>
   );
