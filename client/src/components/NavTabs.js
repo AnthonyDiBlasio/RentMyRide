@@ -28,8 +28,8 @@ export default function NavTabs({ currentPage, handlePageChange }) {
             </Nav.Link>
             <Nav.Link
               as={Link}
-              to="/rentalform"
-              active={location.pathname === "/rentalform"}
+              to="/list-my-ride"
+              active={location.pathname === "/list-my-ride"}
             >
               List a Ride
             </Nav.Link>
