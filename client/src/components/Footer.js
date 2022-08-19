@@ -15,7 +15,7 @@ const Footer = () => {
             <ul className="list-inline socila-list">
               <li className="list-inline-item">
                 <a href="https://github.com/AnthonyDiBlasio/RentMyRide.git">
-                  <FontAwesomeIcon icon="fa-brands fa-github" />
+                  <FontAwesomeIcon icon={['fa-brands', 'fa-github']} />
                 </a>
               </li>
             </ul>
