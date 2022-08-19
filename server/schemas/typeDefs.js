@@ -58,7 +58,7 @@ const typeDefs = gql`
     createUserNoToken(name: String!, email: String!, password: String!): User
     login(email: String!, password: String!): TokenUser
     createCar(carType: String!, carMake: String!, carModel: String!, carYear: Int!, color: String, price: Int!, image: String, isAvailable: Boolean!, locationAvail: String, carOwner: String): Car
-    createBooking(rentedCar: ID!, reservDate: String, returnDate: String, totalBill: Int, billingDate: String, lateFee: Int, message: String): Booking
+    createBooking(rentedCar: ID, reservDate: String, returnDate: String, totalBill: Int, billingDate: String, lateFee: Int, message: String): Booking
     removeCar(cardId: ID, bookingId: ID): Car
     cancelBooking(bookingId: ID): User
   }
