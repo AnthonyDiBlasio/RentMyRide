@@ -28,17 +28,6 @@ class AuthService {
 
   // login & logout converted into reducers
   // additional utils folder under the name "context" created to keep tracks of global variables
-  login(dispatch, idToken, formData, navigate) {
-    // using context's dispatch
-    dispatch({ type: LOGIN, payload: formData.login.user });
-    localStorage.setItem("id_token", idToken);
-
-    // prevents a complete refresh of the site
-    // allows react state to stay intact
-    // it hooks in to react router provider to change the page
-    navigate("/", { replace: true });
-    // window.location.assign('/');
-  }
 
   logout(dispatch) {
     // using context's dispatch

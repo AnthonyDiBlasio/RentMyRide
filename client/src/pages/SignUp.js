@@ -10,7 +10,6 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 
-
 export default function SignUp() {
   const initialState = useUser();
   const [_, dispatch] = useReducer(reducer, initialState);
@@ -44,83 +43,87 @@ export default function SignUp() {
 
   return (
     <div classname="container-fluid">
-    <Card style={{ width: "30rem", padding: "20px" }}>
-      <Card.Body>
-        <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
-          Sign Up
-        </Card.Title>
-        <Container>
-          <Form
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const invalid = verify(data);
-              setError(invalid);
-              if (Object.keys(invalid).length > 0) {
-                console.log("form is invalid.");
-              } else {
-                let tokenUser = await createUser({
-                  variables: {
-                    name: data.username,
-                    email: data.email,
-                    password: data.password,
-                  },
-                });
-                const token = tokenUser.data.createUser.token;
-                const user = tokenUser.data.createUser.user;
+      <Card style={{ width: "30rem", padding: "20px" }}>
+        <Card.Body>
+          <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
+            Sign Up
+          </Card.Title>
+          <Container>
+            <Form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const invalid = verify(data);
+                setError(invalid);
+                if (Object.keys(invalid).length > 0) {
+                  console.log("form is invalid.");
+                } else {
+                  let tokenUser = await createUser({
+                    variables: {
+                      name: data.username,
+                      email: data.email,
+                      password: data.password,
+                    },
+                  });
+                  const token = tokenUser.data.createUser.token;
+                  const user = tokenUser.data.createUser.user;
 
-                Auth.login(
-                  dispatch,
-                  token,
-                  {
-                    login: user,
-                  },
-                  navigate
-                );
-              }
-            }}
-          >
-            <Form.Group className="mb-3" controlId="formBasicUsername">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter username"
-                name="username"
-                onChange={(e) => setData({ ...data, username: e.target.value })}
-                isInvalid={error.username}
-              />
+                  Auth.login(
+                    dispatch,
+                    token,
+                    {
+                      login: user,
+                    },
+                    navigate
+                  );
+                }
+              }}
+            >
+              <Form.Group className="mb-3" controlId="formBasicUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter username"
+                  name="username"
+                  onChange={(e) =>
+                    setData({ ...data, username: e.target.value })
+                  }
+                  isInvalid={error.username}
+                />
 
-              <Form.Control.Feedback type="invalid">
-                Name must be longer than 6 characters.
-              </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter email"
-                name="email"
-                onChange={(e) => setData({ ...data, email: e.target.value })}
-                isInvalid={error.email}
-              />
-            </Form.Group>
+                <Form.Control.Feedback type="invalid">
+                  Name must be longer than 6 characters.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter email"
+                  name="email"
+                  onChange={(e) => setData({ ...data, email: e.target.value })}
+                  isInvalid={error.email}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                name="password"
-                onChange={(e) => setData({ ...data, password: e.target.value })}
-                isInvalid={error.password}
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </Container>
-      </Card.Body>
-    </Card>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  onChange={(e) =>
+                    setData({ ...data, password: e.target.value })
+                  }
+                  isInvalid={error.password}
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Container>
+        </Card.Body>
+      </Card>
     </div>
   );
 }
