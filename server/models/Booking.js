@@ -16,6 +16,7 @@ const bookingSchema = new Schema(
         //     type: Schema.Types.ObjectId,
         //     ref: 'User'
         // },
+        //is this supposed to be reserveDate: ? currently its says reservDate: 
         reservDate: {
             type: String,
             required: true,
