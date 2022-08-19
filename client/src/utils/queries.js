@@ -53,3 +53,9 @@ export const QUERY_ME = gql`
     }
   }
 `;
+export const QUERY_USER = gql`
+type Query {
+  users: [User]
+
+  
+}`

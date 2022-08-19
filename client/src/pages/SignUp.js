@@ -68,8 +68,9 @@ export default function SignUp() {
                   });
                   const token = tokenUser.data.createUser.token;
                   const user = tokenUser.data.createUser.user;
+                
 
-                  Auth.login(
+                  Auth.Login(
               
                     dispatch,
                     token,

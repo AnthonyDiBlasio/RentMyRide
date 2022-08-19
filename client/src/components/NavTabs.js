@@ -31,6 +31,13 @@ export default function NavTabs({ currentPage, handlePageChange }) {
             </Nav.Link>
             <Nav.Link
               as={Link}
+              to="/profile"
+              active={location.pathname === "/profile"}
+            >
+              My Profile
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
               to="/list-my-ride"
               active={location.pathname === "/list-my-ride"}
             >

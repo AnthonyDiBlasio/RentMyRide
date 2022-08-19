@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USERS } from '../utils/queries';
 
-const Users = () => {
+const Profile = () => {
   const { loading, data } = useQuery(QUERY_USERS, {
     fetchPolicy: "no-cache"
   });
@@ -34,7 +34,7 @@ const Users = () => {
         <h1>Users List!</h1>
       </div>
       <div className="card-body m-5">
-        <h2>Here is a list of users on this website:</h2>
+        <h2>Welcome</h2>
         {loading ? (
           <div>Loading...</div>
         ) : (
@@ -83,4 +83,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Profile;
