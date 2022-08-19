@@ -1,10 +1,10 @@
 [
  
   {
-    "name":"Ant",
+    "name":"Anthony",
     "password": "1234abcd",
     "email": "anthony@email.com",
-    "location": "123 Main St, Philadelphia, PA 19127"
+    "location": "725 Village Rd W, West Windsor Township, NJ 08550"
   },
   {
     "name": "Jen",
@@ -29,5 +29,29 @@
     "password": "1234abcd",
     "email": "cal@email.com",
     "location": "404 Marlton Pike East, Cherry Hill, NJ 08034"
+  },
+  {
+    "name":"Charles Day",
+    "password": "1234abcd",
+    "email": "cday@email.com",
+    "location": "800 US-130, Hamilton Township, NJ 08690"
+  },
+  {
+    "name":"Cory Holms",
+    "password": "1234abcd",
+    "email": "cholms@email.com",
+    "location": "1521 Durham Rd, Buckingham, PA 18912"
+  },
+  {
+    "name":"Martin Smith",
+    "password": "1234abcd",
+    "email": "msmith@email.com",
+    "location": "650 Bergey Rd, Telford, PA 18969 "
+  }, 
+  {
+    "name":"Sarah Summers",
+    "password": "1234abcd",
+    "email": "ssummers@email.com",
+    "location": "20 Country Club Ln, Doylestown, PA 18901"
   }
 ]
