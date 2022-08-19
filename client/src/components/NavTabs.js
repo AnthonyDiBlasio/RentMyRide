@@ -3,13 +3,16 @@ import "../styles/NavTabs.css";
 import { useUser } from "../context/UserContext";
 // returns the navbar on everypage
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useLogout } from "../context/UserContext";
 export default function NavTabs({ currentPage, handlePageChange }) {
   const location = useLocation();
   const [userData] = useUser();
+  const logout = useLogout();
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -28,8 +31,8 @@ export default function NavTabs({ currentPage, handlePageChange }) {
             </Nav.Link>
             <Nav.Link
               as={Link}
-              to="/rentalform"
-              active={location.pathname === "/rentalform"}
+              to="/list-my-ride"
+              active={location.pathname === "/list-my-ride"}
             >
               List a Ride
             </Nav.Link>
@@ -37,17 +40,7 @@ export default function NavTabs({ currentPage, handlePageChange }) {
 
           {userData.logged_in ? (
             <Nav>
-              <Navbar.Text>
-                <a
-                  href="/logout"
-                  onClick={() => handlePageChange("Signup")}
-                  className={
-                    currentPage === "Signup" ? "nav-link active" : "nav-link"
-                  }
-                >
-                  Logout
-                </a>
-              </Navbar.Text>
+              <Button onClick={logout}>logout</Button>
             </Nav>
           ) : (
             <Nav>

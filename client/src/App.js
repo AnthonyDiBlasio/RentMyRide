@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import "bootstrap/dist/css/bootstrap.css";
 import NavTabs from "./components/NavTabs";
-import RentalForm from "./pages/RentalForm";
+import ListMyRide from "./pages/ListMyRide";
 import Rentals from "./pages/Rentals";
 import SignUp from "./pages/SignUp";
 import Footer from "./components/Footer";
@@ -73,7 +73,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/users" element={<Users />} />
-                <Route path="/rentalform" element={<RentalForm />} />
+                <Route path="/list-my-ride" element={<ListMyRide />} />
                 <Route path="/rentals" element={<Rentals />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="*" element={<NotFound />} />
