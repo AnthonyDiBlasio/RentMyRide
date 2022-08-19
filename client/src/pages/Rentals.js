@@ -1,19 +1,30 @@
-import React from "react";
+import React ,{useState}from "react";
 import CarCard from "../components/CarCard";
+import { useQuery } from "@apollo/client";
+import { QUERY_CAR } from "../utils/queries";
 //todo add filter look at tomsturtles
 
 const Rentals = () => {
-  return (
+    const { loading, data } = useQuery(QUERY_CAR, {
+        fetchPolicy: "no-cache",
+      });
+      if (loading) {
+        return <p>loading...</p>;
+      }
+
+    
+  
+    {data.cars.filter((car) => {
+        console.log(car);
+        return <div data={car} key={car._id} />;
+      })}
+      return(
     <>
-      <select className="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+     
 
       <CarCard />
-    </>
+</>
+   
   );
 };
 
