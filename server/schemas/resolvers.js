@@ -8,7 +8,7 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      return await User.find({});
+      return await User.find().populate("carsRented");
     },
     user: async (parent, { _id }) => {
       return await User.findOne({ _id: ObjectId(_id) });
@@ -94,7 +94,7 @@ const resolvers = {
         
         const userBooking = await User.findOneAndUpdate(
           // { _id: context.user._id },
-          { _id: ObjectId("62fed91fb7dd79dfe7cea556")},
+          { _id: ObjectId("62fe567489fc33ff97b8f34a")},
           { 
             $addToSet: { 
               carsRented: booking._id 
@@ -102,7 +102,8 @@ const resolvers = {
           },
           { new: true }
         );
-        return userBooking;
+        // return userBooking;
+        return await Booking.findOne({ _id: ObjectId(booking._id) }).populate("rentedCar").exec();
         // return booking;
     // }
     // throw new AuthenticationError("You need to be logged in");
