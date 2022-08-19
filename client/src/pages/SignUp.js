@@ -9,23 +9,25 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
+import Login from "./Login";
 
 export default function SignUp() {
   const initialState = useUser();
   const [_, dispatch] = useReducer(reducer, initialState);
   const navigate = useNavigate();
   const [createUser] = useMutation(CREATE_USER);
-  const [data, setData] = useState({ username: "", email: "", password: "" });
+  const [data, setData] = useState({ name: "", email: "", password: "" });
+
   const [error, setError] = useState({
-    username: false,
+    name: false,
     email: false,
     password: false,
   });
   const verify = (data) => {
     //check length of username if less than 6 set error to true
     const invalid = {};
-    if (data.username.length < 6) {
-      invalid.username = true;
+    if (data.name.length < 6) {
+      invalid.name = true;
     }
     //check the email against regex set error to true if invalid
     if (!/.+@.+\..+/.test(data.email)) {
@@ -42,7 +44,7 @@ export default function SignUp() {
   };
 
   return (
-    <div classname="container-fluid">
+    <div className="container-fluid">
       <Card style={{ width: "30rem", padding: "20px" }}>
         <Card.Body>
           <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
@@ -59,7 +61,7 @@ export default function SignUp() {
                 } else {
                   let tokenUser = await createUser({
                     variables: {
-                      name: data.username,
+                      name: data.name,
                       email: data.email,
                       password: data.password,
                     },
@@ -68,6 +70,7 @@ export default function SignUp() {
                   const user = tokenUser.data.createUser.user;
 
                   Auth.login(
+              
                     dispatch,
                     token,
                     {
@@ -85,9 +88,9 @@ export default function SignUp() {
                   placeholder="Enter username"
                   name="username"
                   onChange={(e) =>
-                    setData({ ...data, username: e.target.value })
+                    setData({ ...data, name: e.target.value })
                   }
-                  isInvalid={error.username}
+                  isInvalid={error.name}
                 />
 
                 <Form.Control.Feedback type="invalid">
