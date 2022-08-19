@@ -50,3 +50,13 @@ export function useLogin() {
   };
   return login;
 }
+
+export function useLogout() {
+  //need to return a function that will clear the user token from local storage
+  //navigate back home
+  const logout = () => {
+    localStorage.clear();
+    window.location = "/";
+  };
+  return logout;
+}
