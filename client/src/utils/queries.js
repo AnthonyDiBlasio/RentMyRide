@@ -1,20 +1,6 @@
 import { gql } from "@apollo/client";
 
-// export const QUERY_BOOKING = gql`
-//   query Booking {
-//     Booking {
-//       _id
-//       reservDate
-//       returnDate
-//       totalBill
-//       billingDate
-//       lateFee
-//       message
-//       rentedCar{
-//         _id
-//       }
-//   }
-// `;
+
 
 export const QUERY_CAR = gql`
   query car {
@@ -54,9 +40,35 @@ export const QUERY_ME = gql`
     }
   }
 `;
-export const QUERY_USER = gql`
-type Query {
-  users: [User]
+// export const QUERY_USER = gql`
+// type Query {
+//   users: [User]
 
-  
-}`
+
+// }`
+export const QUERY_BOOKING = gql`
+query booking {
+  Booking {
+ _id
+ reservDate
+ returnDate
+ totalBill
+ billingDate
+ lateFee
+ message
+rentedCar {
+  _id
+  carType
+  carMake
+  carModel
+  carYear
+  color
+  price
+  image
+  isAvailable
+  locationAvail
+  carOwner
+    }
+  }
+}
+`
