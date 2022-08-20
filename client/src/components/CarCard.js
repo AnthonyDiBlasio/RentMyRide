@@ -47,13 +47,13 @@ export default function CarCard( data ) {
         </p>
         <Collapse in={open}>
           <div id="example-collapse-text">
-            <p>Owned by: {data.carOwner}</p>
-            <p>Location: {data.locationAvail}</p>
-            <p>Type: {data.carType}</p>
-            <p>Make: {data.carMake}</p>
-            <p>Model: {data.carModel}</p>
-            <p>Year: {data.carYear}</p>
-            <p>Color: {data.color}</p>
+            <p>Owned by: {data.data.carOwner}</p>
+            <p>Location: {data.data.locationAvail}</p>
+            {/* <p>Type: {data.data.carType}</p>
+            <p>Make: {data.data.carMake}</p>
+            <p>Model: {data.data.carModel}</p>
+            <p>Year: {data.data.carYear}</p>
+            <p>Color: {data.data.color}</p> */}
           </div>
         </Collapse>
         <div style={{ display: "flex", justifyContent: "right" }}>
