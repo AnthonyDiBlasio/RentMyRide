@@ -96,16 +96,20 @@ function ListMyRide() {
               </Form.Select>
             </Form.Group>
           </Row>
-
-          <Form.Group as={Col}>
-            <Form.Label>Year</Form.Label>
-            <Form.Select defaultValue="Select" name="year">
-              {range(1950, 2023).map((year) => (
-                <option key={year}>{year}</option>
-              ))}
-            </Form.Select>
-          </Form.Group>
-
+          <Row className="mb-3">
+            <Form.Group as={Col}>
+              <Form.Label>Type</Form.Label>
+              <Form.Control name="type" />
+            </Form.Group>
+            <Form.Group as={Col}>
+              <Form.Label>Year</Form.Label>
+              <Form.Select defaultValue="Select" name="year">
+                {range(1950, 2023).map((year) => (
+                  <option key={year}>{year}</option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+          </Row>
           <Form.Group className="mb-3">
             <Form.Label>Color</Form.Label>
             <Form.Select defaultValue="Select" name="color">
@@ -136,8 +140,14 @@ function ListMyRide() {
               <Form.Label>Zipcode</Form.Label>
               <Form.Control name="zipcode" />
             </Form.Group>
+            
           </Row>
-
+          <Row className="mb-3">
+          <Form.Group as={Col}>
+              <Form.Label>Image URL</Form.Label>
+              <Form.Control name="image" />
+            </Form.Group>
+            </Row>
           <Button variant="primary" type="submit">
             Submit
           </Button>
