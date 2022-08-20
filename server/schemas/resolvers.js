@@ -102,7 +102,7 @@ const resolvers = {
           message: args.message,
         });
         
-      const userBooking = await User.findOneAndUpdate(
+      await User.findOneAndUpdate(
         { _id: context.user._id },
         // { _id: ObjectId("6300ed1b5b70aac0cef8408d")},
         { 
@@ -137,7 +137,7 @@ const resolvers = {
           {
             $pull: {
               carsRented: {
-                __id: bookinId
+                __id: bookingId
               }
             }
           },
