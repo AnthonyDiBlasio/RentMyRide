@@ -5,72 +5,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 
-function range(start, end) {
-  return Array(end - start + 1)
-    .fill()
-    .map((_, idx) => start + idx);
-}
-const stateAbbr = [
-  "AL",
-  "AK",
-  "AS",
-  "AZ",
-  "AR",
-  "CA",
-  "CO",
-  "CT",
-  "DE",
-  "DC",
-  "FM",
-  "FL",
-  "GA",
-  "GU",
-  "HI",
-  "ID",
-  "IL",
-  "IN",
-  "IA",
-  "KS",
-  "KY",
-  "LA",
-  "ME",
-  "MH",
-  "MD",
-  "MA",
-  "MI",
-  "MN",
-  "MS",
-  "MO",
-  "MT",
-  "NE",
-  "NV",
-  "NH",
-  "NJ",
-  "NM",
-  "NY",
-  "NC",
-  "ND",
-  "MP",
-  "OH",
-  "OK",
-  "OR",
-  "PW",
-  "PA",
-  "PR",
-  "RI",
-  "SC",
-  "SD",
-  "TN",
-  "TX",
-  "UT",
-  "VT",
-  "VI",
-  "VA",
-  "WA",
-  "WV",
-  "WI",
-  "WY",
-];
+
 function ListMyRide() {
   return (
     <div className="container-fluid">
@@ -82,10 +17,12 @@ function ListMyRide() {
           <Row className="mb-3">
             <Form.Group as={Col}>
               <Form.Label>Make</Form.Label>
+              <Form.Control name="make" />
             </Form.Group>
 
             <Form.Group as={Col}>
               <Form.Label>Model</Form.Label>
+              <Form.Control name="model" />
             </Form.Group>
           </Row>
           <Row className="mb-3">
@@ -95,22 +32,12 @@ function ListMyRide() {
             </Form.Group>
             <Form.Group as={Col}>
               <Form.Label>Year</Form.Label>
-              <Form.Select defaultValue="Select" name="year">
-                {range(1950, 2023).map((year) => (
-                  <option key={year}>{year}</option>
-                ))}
-              </Form.Select>
+              <Form.Control name="year" />
             </Form.Group>
           </Row>
           <Form.Group className="mb-3">
             <Form.Label>Color</Form.Label>
-            <Form.Select defaultValue="Select" name="color">
-              {["Red", "Blue", "Black", "White", "Gray", "Green", "Yellow"].map(
-                (color) => (
-                  <option key={color}>{color}</option>
-                )
-              )}
-            </Form.Select>
+            <Form.Control name="color" />
           </Form.Group>
 
           <Row className="mb-3">
@@ -121,11 +48,7 @@ function ListMyRide() {
 
             <Form.Group as={Col}>
               <Form.Label>State</Form.Label>
-              <Form.Select defaultValue="Select" name="state">
-                {stateAbbr.map((state) => (
-                  <option key={state}>{state}</option>
-                ))}
-              </Form.Select>
+              <Form.Control name="state" />
             </Form.Group>
 
             <Form.Group as={Col}>
