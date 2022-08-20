@@ -26,7 +26,7 @@ function CarCard({ data }) {
 
       <Card.Body>
         <Card.Title style={{ textAlign: "right" }}>
-          <h3> Available {data.isAvailable}</h3>
+          <h3> {data.isAvailable ? "Available" : "Not Available"}</h3>
         </Card.Title>
 
         <div>
