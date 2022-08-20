@@ -82,18 +82,10 @@ function ListMyRide() {
           <Row className="mb-3">
             <Form.Group as={Col}>
               <Form.Label>Make</Form.Label>
-              <Form.Select defaultValue="Select" name="make">
-                <option></option>
-                <option></option>
-              </Form.Select>
             </Form.Group>
 
             <Form.Group as={Col}>
               <Form.Label>Model</Form.Label>
-              <Form.Select defaultValue="Select" name="model">
-                <option></option>
-                <option></option>
-              </Form.Select>
             </Form.Group>
           </Row>
           <Row className="mb-3">
@@ -140,14 +132,13 @@ function ListMyRide() {
               <Form.Label>Zipcode</Form.Label>
               <Form.Control name="zipcode" />
             </Form.Group>
-            
           </Row>
           <Row className="mb-3">
-          <Form.Group as={Col}>
+            <Form.Group as={Col}>
               <Form.Label>Image URL</Form.Label>
               <Form.Control name="image" />
             </Form.Group>
-            </Row>
+          </Row>
           <Button variant="primary" type="submit">
             Submit
           </Button>
