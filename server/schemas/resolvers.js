@@ -8,7 +8,11 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      return await User.find().populate("carsRented");
+      return await User.find().populate("carsRented").populate({
+        path: "carsRented",
+        populate: "rentedCar"
+
+      });
     },
     user: async (parent, { _id }) => {
       return await User.findOne({ _id: ObjectId(_id) });
@@ -94,7 +98,7 @@ const resolvers = {
         
         const userBooking = await User.findOneAndUpdate(
           // { _id: context.user._id },
-          { _id: ObjectId("62fe567489fc33ff97b8f34a")},
+          { _id: ObjectId("62fd8e9b89f5c9490c3765dc")},
           { 
             $addToSet: { 
               carsRented: booking._id 
