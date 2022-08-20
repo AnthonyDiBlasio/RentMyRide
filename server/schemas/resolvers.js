@@ -74,12 +74,6 @@ const resolvers = {
       return {token, user};
     },
 
-    // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image})
-
-    // createCar: async (parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, carOwner, image}) => {
-    //   const car = await Car.create({carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, carOwner, image});
-    //   return car;
-    // },
     createCar: async (parent, args, context) => {
       // if (context.user) {
         const car = await Car.create({
@@ -159,7 +153,7 @@ const resolvers = {
     // },
 
     removeCar: async (parent, { carId, bookingId }, context) => {
-      if (context.user) {
+      // if (context.user) {
         const car = await Car.findOneAndDelete({ _id: carId });
 
         await User.findOneAndUpdate(
@@ -167,7 +161,7 @@ const resolvers = {
           { $pull: { carRented: bookingId } }
         );
         return car;
-      }
+      // }
       throw new AuthenticationError("You need to be logged in")
     },
 
