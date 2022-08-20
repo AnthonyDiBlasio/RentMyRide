@@ -27,15 +27,11 @@ const resolvers = {
     booking: async(parent, { _id }) => {
       return await Booking.findOne({ _id: ObjectId(_id) }).populate("rentedCar").exec();
     },
-    // original Booking query
-    // booking: async(parent, { _id }) => {
-    //   return await Booking.findOne({ _id: ObjectId(_id) });
-    // },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("carsRented");
       }
-      // throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError('You need to be logged in!');
     },
   },
   Mutation: {
@@ -75,7 +71,7 @@ const resolvers = {
     },
 
     createCar: async (parent, args, context) => {
-      // if (context.user) {
+      if (context.user) {
         const car = await Car.create({
           // adding rentedCar arg
           carType: args.carType,
@@ -89,15 +85,14 @@ const resolvers = {
           carOwner: args.carOwner,
           image: args.image
         });
+      }
         return car;
       }, 
   
     // create a booking between a user and a car
-    // Tom's solution
     createBooking: async (parent, args, context) => {
-      // if (context.user) {
+      if (context.user) {
         const booking = await Booking.create({
-          // adding rentedCar arg
           rentedCar: args.rentedCar,
           reservDate: args.reservDate,
           returnDate: args.returnDate,
@@ -107,53 +102,23 @@ const resolvers = {
           message: args.message,
         });
         
-        const userBooking = await User.findOneAndUpdate(
-          // { _id: context.user._id },
-          { _id: ObjectId("62fd8e9b89f5c9490c3765dc")},
-          { 
-            $addToSet: { 
-              carsRented: booking._id 
-            },
+      const userBooking = await User.findOneAndUpdate(
+        { _id: context.user._id },
+        // { _id: ObjectId("6300ed1b5b70aac0cef8408d")},
+        { 
+          $addToSet: { 
+            carsRented: booking._id 
           },
-          { new: true }
-        );
-        // return userBooking;
-        return await Booking.findOne({ _id: ObjectId(booking._id) }).populate("rentedCar").exec();
-        // return booking;
-    // }
-    // throw new AuthenticationError("You need to be logged in");
+        },
+        { new: true }
+      );
+      return await Booking.findOne({ _id: ObjectId(booking._id) }).populate("rentedCar").exec();
+      }
+      throw new AuthenticationError("You need to be logged in");
     },
 
-    // Original solution
-    // createBooking: async (parent, args, context) => {
-    //   // if (context.user) {
-    //     const booking = await Booking.create({
-    //       reservDate: args.reservDate,
-    //       returnDate: args.returnDate,
-    //       totalBill: args.totalBill,
-    //       billingDate: args.billingDate,
-    //       lateFee: args.lateFee,
-    //       message: args.message,
-    //     });
-        
-    //     const userBooking = await User.findOneAndUpdate(
-    //       // { _id: context.user._id },
-    //       { _id: ObjectId("62fec19369146e8576e4c348")},
-    //       { 
-    //         $addToSet: { 
-    //           carsRented: booking._id 
-    //         },
-    //       },
-    //       { new: true }
-    //     );
-    //     return userBooking;
-    //     // return booking;
-    // // }
-    // // throw new AuthenticationError("You need to be logged in");
-    // },
-
     removeCar: async (parent, { carId, bookingId }, context) => {
-      // if (context.user) {
+      if (context.user) {
         const car = await Car.findOneAndDelete({ _id: carId });
 
         await User.findOneAndUpdate(
@@ -161,7 +126,7 @@ const resolvers = {
           { $pull: { carRented: bookingId } }
         );
         return car;
-      // }
+      }
       throw new AuthenticationError("You need to be logged in")
     },
 
