@@ -24,14 +24,7 @@ const Login = () => {
     event.preventDefault();
     console.log(formState);
     await login(formState);
-    // console.log(result);
-    // Auth.login(
-    //   appState,
-    //   setAppState,
-    //   result.data.login.token,
-    //   result.data,
-    //   navigate
-    // );
+   
   };
   return (
     <div className="container-fluid">
