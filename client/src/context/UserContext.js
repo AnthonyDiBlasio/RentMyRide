@@ -46,7 +46,7 @@ export function useLogin() {
     });
     dispatch({ type: LOGIN, payload: result.data.login.user });
     localStorage.setItem("id_token", result.data.token);
-    navigate("/", { replace: true });
+    navigate("/profile", { replace: true });
   };
   return login;
 }

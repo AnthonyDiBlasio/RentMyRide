@@ -10,6 +10,7 @@ import Collapse from "react-bootstrap/Collapse";
 function CarCard({ data }) {
   const [open, setOpen] = useState(false);
   return (
+   
     <Card
       style={{
         minHeight: "350px",
@@ -59,6 +60,7 @@ function CarCard({ data }) {
         </div>
       </Card.Body>
     </Card>
+  
   );
 }
 export default function CarCardList() {
@@ -76,6 +78,7 @@ export default function CarCardList() {
         })}
       </Row>
     </Container>
+    
   );
 }
 
