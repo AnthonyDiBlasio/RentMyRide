@@ -119,32 +119,32 @@ const resolvers = {
 
     removeCar: async (parent, { carId, bookingId }, context) => {
       if (context.user) {
+       
         const car = await Car.findOneAndDelete({ _id: carId });
+      
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { carRented: bookingId } }
-        );
+        // await User.findOneAndUpdate(
+        //   { _id: context.user._id },
+        //   { $pull: { carRented: bookingId } }
+        // );
+        
         return car;
       }
       throw new AuthenticationError("You need to be logged in")
     },
 
     cancelBooking: async (parent, { bookingId }, context) => {
-      if (context.user) {
+      // if (context.user) {
         return User.findOneAndUpdate(
-          { _id: context.user._id },
+          {_id: ObjectId("62fd8e9b89f5c9490c3765dc")},
+          // { _id: context.user._id },
           {
-            $pull: {
-              carsRented: {
-                __id: bookingId
-              }
-            }
+            $pull: {carsRented: bookingId}
           },
           { new: true }
         )
-      }
-      throw new AuthenticationError("You need to be logged in")
+      // }
+      // throw new AuthenticationError("You need to be logged in")
     },
   },
 };

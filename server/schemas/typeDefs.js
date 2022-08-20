@@ -59,7 +59,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): TokenUser
     createCar(carType: String!, carMake: String!, carModel: String!, carYear: Int!, color: String, price: Int!, image: String, isAvailable: Boolean!, locationAvail: String, carOwner: ID): Car
     createBooking(rentedCar: ID, reservDate: String, returnDate: String, totalBill: Int, billingDate: String, lateFee: Int, message: String): Booking
-    removeCar(cardId: ID, bookingId: ID): Car
+    removeCar(carId: ID, bookingId: ID): Car
     cancelBooking(bookingId: ID): User
   }
 `;
