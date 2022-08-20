@@ -1,6 +1,6 @@
-// const { ObjectId } = require('mongodb');
+
 const { Schema, model } = require('mongoose');
-// const { schema } = require('./User');
+
 const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 7;
 
@@ -54,11 +54,7 @@ userSchema.pre('save', function(next) {
 });
   
 userSchema.methods.comparePassword = async function(candidatePassword, cb) {
-    // await bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-    //     if (err) return cb(err);
-    //     cb(null, isMatch);
-    // }
-    // );
+ 
     try{
         const isMatch = await bcrypt.compare(candidatePassword, this.password);
         return isMatch;

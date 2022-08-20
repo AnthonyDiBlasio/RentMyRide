@@ -1,22 +1,13 @@
 const { Schema, model } = require('mongoose');
 const { ObjectId } = require('mongodb');
-// in order for users to book/rent a car, we need db for users to fill up their infos
-// their desired car, as well as when will it be out and in for the return,
-// this schema can be used to store db for every rentals made on the website via booking form
 
-// note: have rental dates be here instead to make things easier instead of jam packing the Car model
-// maybe have a delivery fees that goes to set whether 'willPickUp' be true or false? that could be added to final 'totalBill'
 const bookingSchema = new Schema(
     {
         rentedCar: {
             type: Schema.Types.ObjectId,
             ref: 'Car'
         },
-        // userRenting: {
-        //     type: Schema.Types.ObjectId,
-        //     ref: 'User'
-        // },
-        //is this supposed to be reserveDate: ? currently its says reservDate: 
+         
         reservDate: {
             type: String,
             required: true,
@@ -38,7 +29,7 @@ const bookingSchema = new Schema(
             default: 0,
             min: 0
         },
-        // have an optional message field for extra details of the, exact location, etc.
+        
         message: {
             type: String,
             required: false,

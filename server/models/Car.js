@@ -11,9 +11,7 @@ const carSchema = new Schema(
         image: {type: String},
         price: { type: Number, required: true },
         isAvailable: { type: Boolean, default: false },
-        // reserveDate: { type: Date, required: true },
-        // returnDate: { type: Date, required: true },
-        // How are we using this field?  Sort Cars by area?
+        
         locationAvail: {
                 type: String,
         },
