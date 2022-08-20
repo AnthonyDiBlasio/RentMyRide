@@ -18,7 +18,7 @@ const resolvers = {
       return await User.findOne({ _id: ObjectId(_id) });
     },
     cars: async () => {
-      return await Car.find({});
+      return await Car.find().populate("carOwner");
     },
     car: async (parent, { _id }) => {
       return await Car.findOne({ _id: ObjectId(_id) });
@@ -76,10 +76,27 @@ const resolvers = {
 
     // createCar: async(parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image})
 
-    createCar: async (parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image}) => {
-      const car = await Car.create({carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, ownedBy, image});
-      return car;
-    },
+    // createCar: async (parent, {carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, carOwner, image}) => {
+    //   const car = await Car.create({carType, carMake, carModel, carYear, color, price, isAvailable, locationAvail, carOwner, image});
+    //   return car;
+    // },
+    createCar: async (parent, args, context) => {
+      // if (context.user) {
+        const car = await Car.create({
+          // adding rentedCar arg
+          carType: args.carType,
+          carMake: args.carMake,
+          carModel: args.carModel,
+          carYear: args.carYear,
+          color: args.color,
+          price: args.price,
+          isAvailable: args.isAvailable,
+          locationAvail: args.locationAvail,
+          carOwner: args.carOwner,
+          image: args.image
+        });
+        return car;
+      }, 
   
     // create a booking between a user and a car
     // Tom's solution
