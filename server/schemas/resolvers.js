@@ -85,9 +85,9 @@ const resolvers = {
           carOwner: args.carOwner,
           image: args.image
         });
-      }
         return car;
-      }, 
+      } 
+    }, 
   
     // create a booking between a user and a car
     createBooking: async (parent, args, context) => {
