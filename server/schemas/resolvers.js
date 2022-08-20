@@ -82,7 +82,7 @@ const resolvers = {
           price: args.price,
           isAvailable: args.isAvailable,
           locationAvail: args.locationAvail,
-          carOwner: args.carOwner,
+          carOwner: context.user._id,
           image: args.image
         });
         return car;
