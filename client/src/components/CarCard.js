@@ -7,7 +7,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Collapse from "react-bootstrap/Collapse";
 
-function CarCard({ data }) {
+export default function CarCard( data ) {
+  console.log(data)
   const [open, setOpen] = useState(false);
   return (
    
@@ -22,19 +23,19 @@ function CarCard({ data }) {
       <Card.Img
         style={{ height: "250px", width: "auto" }}
         variant="top"
-        src={data.image || "http://placekitten.com/250/250"}
+        src={data.data.image || "http://placekitten.com/250/250"}
       />
 
       <Card.Body>
         <Card.Title style={{ textAlign: "right" }}>
-          <h3> {data.isAvailable ? "Available" : "Not Available"}</h3>
+          <h3> {data.data.isAvailable ? "Available" : "Not Available"}</h3>
         </Card.Title>
 
         <div>
-          <p>Price per day: ${data.price}</p>
-          <p>Make: {data.carMake}</p>
-          <p>Model: {data.carModel}</p>
-          <p>Year: {data.carYear}</p>
+          <p>Price per day: ${data.data.price}</p>
+          <p>Make: {data.data.carMake}</p>
+          <p>Model: {data.data.carModel}</p>
+          <p>Year: {data.data.carYear}</p>
         </div>
 
         <p
@@ -63,24 +64,24 @@ function CarCard({ data }) {
   
   );
 }
-export default function CarCardList() {
-  const { loading, data } = useQuery(QUERY_CAR, {
-    fetchPolicy: "no-cache",
-  });
-  if (loading) {
-    return <p>loading...</p>;
-  }
-  return (
-    <Container>
-      <Row>
-        {data.cars.map((car) => {
-          return <CarCard data={car} key={car._id} />;
-        })}
-      </Row>
-    </Container>
+// export default function CarCardList() {
+//   const { loading, data } = useQuery(QUERY_CAR, {
+//     fetchPolicy: "no-cache",
+//   });
+//   if (loading) {
+//     return <p>loading...</p>;
+//   }
+//   return (
+//     <Container>
+//       <Row>
+//         {data.cars.map((car) => {
+//           return <CarCard data={car} key={car._id} />;
+//         })}
+//       </Row>
+//     </Container>
     
-  );
-}
+//   );
+// }
 
 // const CarCard = () => {
 //   const { loading, data } = useQuery(QUERY_CAR, {

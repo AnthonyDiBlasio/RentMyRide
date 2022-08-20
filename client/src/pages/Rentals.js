@@ -8,22 +8,34 @@ const Rentals = () => {
     const { loading, data } = useQuery(QUERY_CAR, {
         fetchPolicy: "no-cache",
       });
-      if (loading) {
-        return <p>loading...</p>;
-      }
-
+    const cars = data?.cars || [];
+    if (loading) {
+      return <p>loading...</p>;
+    }
+      
     
   
-    {data.cars.filter((car) => {
-        console.log(car);
-        return <div data={car} key={car._id} />;
-      })}
-      return(
-    <>
-     
+    // {data.cars.filter((car) => {
+    //     console.log(car);
+    //     return <div data={car} key={car._id} />;
+    //   })}
 
-      <CarCard />
-</>
+
+      return(
+      <>
+      {/* {cars.filter(car => car.carMake.includes('Audi')).map(filteredName => (
+            <li>
+              {filteredName}
+            </li>
+      ))} */}
+        {cars.map(car => {
+          return (<div>
+            {car.carMake}
+            <CarCard data={car}/>
+          </div>)
+        })}
+        {/* <CarCard /> */}
+      </>
    
   );
 };
