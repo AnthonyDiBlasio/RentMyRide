@@ -7,31 +7,35 @@ import Col from "react-bootstrap/Col";
 
 const FindMyRide = () => {
   const [carTypeFilter, setCarTypeFilter] = useState([]);
+  //create usestate hook for boolean isAvailable
   const { loading, data } = useQuery(QUERY_CAR, {
     fetchPolicy: "no-cache",
   });
 
   const filterCars = (cards) => {
     // look through the types of filters
-    return cards.filter((car) => {
-      // if the car type includes a given car return true
-      if (carTypeFilter.includes(car.carType)) {
-        return true;
-      }
-      if (carTypeFilter.length === 0) {
-        return true;
-      }
-    });
+    return cards
+      .filter((car) => car.isAvailable)
+      .filter((car) => {
+        // if the car type includes a given car return true
+        if (carTypeFilter.includes(car.carType)) {
+          return true;
+        }
+        if (carTypeFilter.length === 0) {
+          return true;
+        }
+      });
   };
 
   if (loading) {
     return <p>loading...</p>;
   }
+  //render form input for on change set is available true or false checkbox
 
   return (
     <div>
       <h1>Find My Ride</h1>
-      
+
       <Form.Group as={Col} controlId="my_multiselect_field">
         <Form.Label>My multiselect</Form.Label>
         <Form.Control
@@ -53,10 +57,13 @@ const FindMyRide = () => {
             "SUV",
             "Hatchback",
           ].map((carType) => (
-            <option key={carType} value={carType}>{carType}</option>
+            <option key={carType} value={carType}>
+              {carType}
+            </option>
           ))}
         </Form.Control>
       </Form.Group>
+
       <CarCardList cars={filterCars(data.cars)} />
     </div>
   );
