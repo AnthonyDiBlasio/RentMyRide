@@ -5,45 +5,40 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 // Import the `useMutation()` hook from Apollo Client
-import { useMutation } from '@apollo/client';
+import { useMutation } from "@apollo/client";
 // Import the GraphQL mutation
-import { CREATE_CAR } from '../utils/mutations';
-
+import { CREATE_CAR } from "../utils/mutations";
+import { useNavigate } from "react-router-dom";
 
 function ListMyRide() {
+  const navigate = useNavigate();
   const [createCar, { error }] = useMutation(CREATE_CAR);
 
-  const handleForm = async function(e) {  
+  const handleForm = async function (e) {
     e.preventDefault();
-    console.log('E ===>', e)
-    const { make, model, type, year, color, price,address, image } = e.target.elements;
-    console.log('make ====>',make.value)
-    console.log('model ====>',model.value)
-    console.log('type ====>',type.value)
-    console.log('year ====>',year.value)
-    console.log('color ====>',color.value)
-    console.log('price ====>',price.value)
-    console.log('city ====>',address.value)
-    
-    console.log('image ====>', image.value)
+    const { make, model, type, year, color, price, address, image } =
+      e.target.elements;
     try {
       const { data } = await createCar({
-        variables: { carType: type.value,
-                     carMake: make.value,
-                     carModel: model.value,
-                     carYear: year.value,
-                     color: color.value,
-                     price: price.value,
-                     locationAvail: address.value},
-                   
+        variables: {
+          carType: type.value,
+          carMake: make.value,
+          carModel: model.value,
+          carYear: parseInt(year.value),
+          color: color.value,
+          checkInDate: '10/20/2020',
+          checkOutDate: '10/20/2020',
+          price: parseInt(price.value),
+          isAvailable: false,
+          locationAvail: address.value
+        }
       });
       // you don't have to do a reload!!! if you design using proper App states
-      window.location.reload();
-    } catch ({error}) {
-      console.error({error});
+      navigate("/");
+    } catch ({ e }) {
+      console.error({ error });
     }
-
-  }
+  };
   return (
     <div className="container-fluid">
       <Card style={{ width: "50rem", padding: "16px" }}>
@@ -86,23 +81,6 @@ function ListMyRide() {
             <Form.Label>Address</Form.Label>
             <Form.Control name="address" />
           </Form.Group>
-
-          {/* <Row className="mb-3">
-            <Form.Group as={Col}>
-              <Form.Label>City</Form.Label>
-              <Form.Control name="city" />
-            </Form.Group>
-
-            <Form.Group as={Col}>
-              <Form.Label>State</Form.Label>
-              <Form.Control name="state" />
-            </Form.Group>
-
-            <Form.Group as={Col}>
-              <Form.Label>Zipcode</Form.Label>
-              <Form.Control name="zipcode" />
-            </Form.Group>
-          </Row> */}
           <Row className="mb-3">
             <Form.Group as={Col}>
               <Form.Label>Image URL</Form.Label>
