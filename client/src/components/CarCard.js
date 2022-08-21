@@ -12,10 +12,10 @@ export function CarCard({ data }) {
   return (
     <Card
       style={{
-        minHeight: "350px",
-        width: "400px",
+        minHeight: "325px",
+        width: "375px",
         padding: "20px",
-        margin: "15px",
+        margin: "16px",
       }}
     >
       <Card.Img
