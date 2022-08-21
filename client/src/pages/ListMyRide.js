@@ -4,16 +4,53 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
+// Import the `useMutation()` hook from Apollo Client
+import { useMutation } from '@apollo/client';
+// Import the GraphQL mutation
+import { CREATE_CAR } from '../utils/mutations';
 
 
 function ListMyRide() {
+  const [createCar, { error }] = useMutation(CREATE_CAR);
+
+  const handleForm = async function(e) {  
+    e.preventDefault();
+    console.log('E ===>', e)
+    const { make, model, type, year, color, price,address, image } = e.target.elements;
+    console.log('make ====>',make.value)
+    console.log('model ====>',model.value)
+    console.log('type ====>',type.value)
+    console.log('year ====>',year.value)
+    console.log('color ====>',color.value)
+    console.log('price ====>',price.value)
+    console.log('city ====>',address.value)
+    
+    console.log('image ====>', image.value)
+    try {
+      const { data } = await createCar({
+        variables: { carType: type.value,
+                     carMake: make.value,
+                     carModel: model.value,
+                     carYear: year.value,
+                     color: color.value,
+                     price: price.value,
+                     locationAvail: address.value},
+                   
+      });
+      // you don't have to do a reload!!! if you design using proper App states
+      window.location.reload();
+    } catch ({error}) {
+      console.error({error});
+    }
+
+  }
   return (
     <div className="container-fluid">
       <Card style={{ width: "50rem", padding: "16px" }}>
         <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
           List Your Ride
         </Card.Title>
-        <Form>
+        <Form onSubmit={handleForm}>
           <Row className="mb-3">
             <Form.Group as={Col}>
               <Form.Label>Make</Form.Label>
@@ -40,7 +77,17 @@ function ListMyRide() {
             <Form.Control name="color" />
           </Form.Group>
 
-          <Row className="mb-3">
+          <Form.Group className="mb-3">
+            <Form.Label>Price</Form.Label>
+            <Form.Control name="price" />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Address</Form.Label>
+            <Form.Control name="address" />
+          </Form.Group>
+
+          {/* <Row className="mb-3">
             <Form.Group as={Col}>
               <Form.Label>City</Form.Label>
               <Form.Control name="city" />
@@ -55,7 +102,7 @@ function ListMyRide() {
               <Form.Label>Zipcode</Form.Label>
               <Form.Control name="zipcode" />
             </Form.Group>
-          </Row>
+          </Row> */}
           <Row className="mb-3">
             <Form.Group as={Col}>
               <Form.Label>Image URL</Form.Label>
