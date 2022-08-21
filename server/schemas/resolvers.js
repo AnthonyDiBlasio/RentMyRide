@@ -81,6 +81,8 @@ const resolvers = {
           color: args.color,
           price: args.price,
           isAvailable: args.isAvailable,
+          checkInDate:args.checkInDate,
+          checkOutDate:args.checkOutDate,
           locationAvail: args.locationAvail,
           carOwner: context.user._id,
           image: args.image

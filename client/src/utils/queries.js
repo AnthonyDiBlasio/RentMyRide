@@ -11,6 +11,8 @@ export const QUERY_CAR = gql`
       carModel
       carYear
       color
+      checkInDate
+      checkOutDate
       image
       price
       isAvailable
