@@ -24,8 +24,8 @@ export default function NavTabs({ currentPage, handlePageChange }) {
           <Nav className="me-auto">
             <Nav.Link
               as={Link}
-              to="/rentals"
-              active={location.pathname === "/rentals"}
+              to="/find-my-ride"
+              active={location.pathname === "/find-my-ride"}
             >
               Find a Ride
             </Nav.Link>

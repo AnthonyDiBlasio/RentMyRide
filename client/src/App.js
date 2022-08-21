@@ -14,7 +14,7 @@ import Login from "./pages/Login";
 import "bootstrap/dist/css/bootstrap.css";
 import NavTabs from "./components/NavTabs";
 import ListMyRide from "./pages/ListMyRide";
-import Rentals from "./pages/Rentals";
+import FindMyRide from "./pages/FindMyRide";
 import SignUp from "./pages/SignUp";
 import Footer from "./components/Footer";
 import UserProvider from "./context/UserContext";
@@ -75,7 +75,7 @@ function App() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/users" element={<Users />} />
                 <Route path="/list-my-ride" element={<ListMyRide />} />
-                <Route path="/rentals" element={<Rentals />} />
+                <Route path="/find-my-ride" element={<FindMyRide />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/book-my-ride" element={<BookMyRide />} />
                 <Route path="/profile" element={<Profile />} />
