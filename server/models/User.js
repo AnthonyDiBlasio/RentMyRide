@@ -26,13 +26,22 @@ const userSchema = new Schema(
             match: [/[a-zA-Z0-9!-]+/i, "Must use a-z or 0-9 or ! or -"],
         },
 
-        // array of how many cars does a user put up for rent.  When User is logged in and complete a Booking form, data will then be added to this array to show what cars they have served.  See Booking model.
+        //  When User is logged in and complete a Booking form, data will then be added to this array to show what cars they have served.  See Booking model.
         carsRented: [
             {
                 type: Schema.Types.ObjectId,
                 ref : 'Booking',
             },
         ],
+        // credits: {type: Number}, // payment field
+
+        // array of how many cars does a user put up for rent. they won't be able to rent these
+        // carOwned: [
+        //     {
+        //         type: Schema.Types.ObjectId,
+        //         ref: 'Car',
+        //     }
+        // ],
         location: {type: String , required: false}
     },
 );

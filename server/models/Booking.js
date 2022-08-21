@@ -20,17 +20,19 @@ const bookingSchema = new Schema(
         },
         totalBill: {
             type: Number,
-            required: true
+            required: true,
         },
-        billingDate: {
-            type: String,
-            required: true
-        },
-        lateFee: {
-            type: Number,
-            default: 0,
-            min: 0
-        },
+
+
+        // billingDate: {
+        //     type: String,
+        //     required: true
+        // },
+        // lateFee: {
+        //     type: Number,
+        //     default: 0,
+        //     min: 0
+        // },
         
         message: {
             type: String,
