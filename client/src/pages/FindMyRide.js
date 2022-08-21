@@ -4,9 +4,13 @@ import { useQuery } from "@apollo/client";
 import { QUERY_CAR } from "../utils/queries";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 const FindMyRide = () => {
   const [carTypeFilter, setCarTypeFilter] = useState([]);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+
   //create usestate hook for boolean isAvailable
   const { loading, data } = useQuery(QUERY_CAR, {
     fetchPolicy: "no-cache",
@@ -24,6 +28,7 @@ const FindMyRide = () => {
         if (carTypeFilter.length === 0) {
           return true;
         }
+        return false;
       });
   };
 
@@ -35,9 +40,8 @@ const FindMyRide = () => {
   return (
     <div>
       <h1>Find My Ride</h1>
-
       <Form.Group as={Col} controlId="my_multiselect_field">
-        <Form.Label>My multiselect</Form.Label>
+        <Form.Label>Desired Car Type</Form.Label>
         <Form.Control
           as="select"
           multiple
@@ -63,7 +67,34 @@ const FindMyRide = () => {
           ))}
         </Form.Control>
       </Form.Group>
+      <Form.Label>Start date:</Form.Label>
+      <Form.Control
+        type="date"
+        name="startDate"
+        onChange={(e) => {
+          setStartDate(e.target.value);
+        }}
+      />
+      <Form.Label>End date:</Form.Label>
+      <Form.Control
+        type="date"
+        name="endDate"
+        onChange={(e) => {
+          setEndDate(e.target.value);
+        }}
+      />
 
+      <Button
+        variant="primary"
+        onClick={() => {
+          console.log(
+            "TODO! This onclick event should query backend for cars that match the date range"
+          );
+          console.log(startDate, endDate);
+        }}
+      >
+        Search
+      </Button>
       <CarCardList cars={filterCars(data.cars)} />
     </div>
   );
