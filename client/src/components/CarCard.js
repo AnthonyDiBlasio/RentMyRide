@@ -21,7 +21,7 @@ export function CarCard({ data }) {
       <Card.Img
         style={{ height: "250px", width: "auto" }}
         variant="top"
-        src={data.data.image || "http://placekitten.com/250/250"}
+        src={data.image || "http://placekitten.com/250/250"}
       />
 
       <Card.Body>
