@@ -12,8 +12,8 @@ const carSchema = new Schema(
         image: {type: String},
         price: { type: Number, required: true },
         isAvailable: { type: Boolean, default: true },
-        checkInDate:{type:String},
-        checkOutDate:{type:String},
+        checkInDate:{type:String, default: Date},
+        checkOutDate:{type:String, default: Date},
         locationAvail: {
             type: String,
         },
