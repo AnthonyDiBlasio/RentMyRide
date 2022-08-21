@@ -17,7 +17,7 @@ import ListMyRide from "./pages/ListMyRide";
 import Rentals from "./pages/Rentals";
 import SignUp from "./pages/SignUp";
 import Footer from "./components/Footer";
-
+import BookingForm from "./pages/BookingForm";
 import UserProvider from "./context/UserContext";
 import Profile from "./pages/Profile";
 
@@ -77,6 +77,7 @@ function App() {
                 <Route path="/list-my-ride" element={<ListMyRide />} />
                 <Route path="/rentals" element={<Rentals />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/book-my-ride" element={<BookingForm />} />
                 <Route path="/profile" element={<Profile />} />
                 
                 <Route path="*" element={<NotFound />} />
