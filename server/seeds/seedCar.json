@@ -9,8 +9,8 @@
         "price": 550,
         "isAvailable": true,
         "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
-        "checkInDate":"8/20/2022",
-        "checkOutDate":"8/31/2022"
+        "checkInDate":"8/10/2022",
+        "checkOutDate":"9/19/2022"
     },
     {
         "carType": "Convertible",
@@ -23,7 +23,7 @@
         "isAvailable": true,
         "locationAvail": "2 Bala Plaza, Bala Cynwyd, PA 19004",
         "checkInDate":"8/20/2022",
-        "checkOutDate":"8/31/2022"
+        "checkOutDate":"9/12/2022"
     },
     {
         "carType": "Convertible",
@@ -36,7 +36,7 @@
         "isAvailable": true,
         "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
         "checkInDate":"8/20/2022",
-        "checkOutDate":"8/31/2022"
+        "checkOutDate":"9/28/2022"
     },
     {
         "carType": "Sedan",
@@ -74,7 +74,7 @@
         "price": 600,
         "isAvailable": true,
         "locationAvail": "61 E Main St, Moorestown, NJ 08057",
-        "checkInDate":"8/20/2022",
+        "checkInDate":"8/21/2022",
         "checkOutDate":"8/31/2022"
     },
     {
@@ -87,7 +87,7 @@
         "price": 225,
         "isAvailable": true,
         "locationAvail": "2999 Street Rd, Bensalem, PA 19020",
-        "checkInDate":"8/20/2022",
+        "checkInDate":"8/21/2022",
         "checkOutDate":"8/31/2022"
     },
     {
@@ -100,8 +100,8 @@
         "price": 150,
         "isAvailable": true,
         "locationAvail": "1001 N Park Dr, Wilmington, DE 19802",
-        "checkInDate":"8/20/2022",
-        "checkOutDate":"8/31/2022"
+        "checkInDate":"8/21/2022",
+        "checkOutDate":"9/23/2022"
     },
     {
         "carType": "Hatchback",
@@ -113,8 +113,8 @@
         "price": 200,
         "isAvailable": true,
         "locationAvail": "201 Pine St, Mt Holly, NJ 08060",
-        "checkInDate":"8/20/2022",
-        "checkOutDate":"8/31/2022"
+        "checkInDate":"8/21/2022",
+        "checkOutDate":"9/12/2022"
     },
     {
         "carType": "SUV",
