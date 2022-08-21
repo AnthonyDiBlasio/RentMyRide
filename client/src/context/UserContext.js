@@ -45,7 +45,8 @@ export function useLogin() {
       variables: { ...formState },
     });
     dispatch({ type: LOGIN, payload: result.data.login.user });
-    localStorage.setItem("id_token", result.data.token);
+    console.log('result.data  ===>', result.data)
+    localStorage.setItem("id_token", result.data.login.token);
     navigate("/profile", { replace: true });
   };
   return login;
