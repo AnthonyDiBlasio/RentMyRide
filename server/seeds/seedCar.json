@@ -8,7 +8,9 @@
         "image": "https://i.pinimg.com/originals/ab/55/f4/ab55f423938b36c69cb74d1aba0e9ff4.jpg",
         "price": 550,
         "isAvailable": true,
-        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010"
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "checkInDate":"8/20/2022",
+        "checkOutDate":"8/31/2022"
     },
     {
         "carType": "Convertible",
@@ -19,7 +21,9 @@
         "image": "https://img.autobytel.com/2022/bentley/continental-gt/2-376-oem-exterior-front1300-99825.jpg",
         "price": 450,
         "isAvailable": true,
-        "locationAvail": "2 Bala Plaza, Bala Cynwyd, PA 19004"
+        "locationAvail": "2 Bala Plaza, Bala Cynwyd, PA 19004",
+        "checkInDate":"8/20/2022",
+        "checkOutDate":"8/31/2022"
     },
     {
         "carType": "Convertible",
@@ -30,7 +34,9 @@
         "image": "https://www.thedrive.com/content/2021/09/IMG_2919-1.jpg?quality=85",
         "price": 550,
         "isAvailable": true,
-        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010"
+        "locationAvail": "101 N Merion Ave, Bryn Mawr, PA 19010",
+        "checkInDate":"8/20/2022",
+        "checkOutDate":"8/31/2022"
     },
     {
         "carType": "Sedan",
@@ -41,7 +47,9 @@
         "image": "https://s1.cdn.autoevolution.com/images/gallery/FERRARI-488-Pista-6247_3.jpg",
         "price": 200,
         "isAvailable": true,
-        "locationAvail": "580 Meetinghouse Rd, Ambler, PA 19002"
+        "locationAvail": "580 Meetinghouse Rd, Ambler, PA 19002",
+        "checkInDate":"8/20/2022",
+        "checkOutDate":"8/31/2022"
     },
     {
         "carType": "Coupe",
@@ -52,7 +60,9 @@
         "image": "https://www.thegablessportscars.com/imagetag/120/3/l/Used-2017-Porsche-911-Carrera-4S.jpg",
         "price": 375,
         "isAvailable": true,
-        "locationAvail": "820 Cooper St, Woodbury, NJ 08096"
+        "locationAvail": "820 Cooper St, Woodbury, NJ 08096",
+        "checkInDate":"8/20/2022",
+        "checkOutDate":"8/31/2022"
     },
     {
         "carType": "Coupe",
@@ -63,7 +73,9 @@
         "image": "https://cdn1.mecum.com/auctions/ca0821/ca0821-465374/images/1-1625688298702@2x.jpg?1628976047000",
         "price": 600,
         "isAvailable": true,
-        "locationAvail": "61 E Main St, Moorestown, NJ 08057"
+        "locationAvail": "61 E Main St, Moorestown, NJ 08057",
+        "checkInDate":"8/20/2022",
+        "checkOutDate":"8/31/2022"
     },
     {
         "carType": "Sedan",
@@ -74,7 +86,9 @@
         "color": "Red",
         "price": 225,
         "isAvailable": true,
-        "locationAvail": "2999 Street Rd, Bensalem, PA 19020"
+        "locationAvail": "2999 Street Rd, Bensalem, PA 19020",
+        "checkInDate":"8/20/2022",
+        "checkOutDate":"8/31/2022"
     },
     {
         "carType": "SUV",
@@ -85,7 +99,9 @@
         "color": "Navy",
         "price": 150,
         "isAvailable": true,
-        "locationAvail": "1001 N Park Dr, Wilmington, DE 19802"
+        "locationAvail": "1001 N Park Dr, Wilmington, DE 19802",
+        "checkInDate":"8/20/2022",
+        "checkOutDate":"8/31/2022"
     },
     {
         "carType": "Hatchback",
@@ -96,7 +112,9 @@
         "image": "https://images.cars.com/cldstatic/wp-content/uploads/mercedes-benz-amg-gt53-2019-01-exterior--front--mountains--silver.jpg",
         "price": 200,
         "isAvailable": true,
-        "locationAvail": "201 Pine St, Mt Holly, NJ 08060"
+        "locationAvail": "201 Pine St, Mt Holly, NJ 08060",
+        "checkInDate":"8/20/2022",
+        "checkOutDate":"8/31/2022"
     },
     {
         "carType": "SUV",
@@ -107,6 +125,8 @@
         "color": "White",
         "price": 200,
         "isAvailable": true,
-        "locationAvail": "725 Village Rd W, West Windsor Township, NJ 08550"
+        "locationAvail": "725 Village Rd W, West Windsor Township, NJ 08550",
+        "checkInDate":"8/20/2022",
+        "checkOutDate":"8/31/2022"
     }
 ]

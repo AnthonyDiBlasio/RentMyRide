@@ -49,6 +49,8 @@ export function CarCard({ data }) {
             <p>Color: {data.color}</p>
             <p>Location: {data.locationAvail}</p>
             <p>Owned by: {data.carOwner}</p>
+            <p>Dates Available: {data.checkInDate}-</p><span>{data.checkOutDate}</span>
+            
           </div>
         </Collapse>
         <div style={{ display: "flex", justifyContent: "right" }}>
