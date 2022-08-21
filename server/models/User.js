@@ -4,6 +4,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 7;
 
+// ** See models/index.js for Model logic **
 const userSchema = new Schema(
     {
         name: {
@@ -25,7 +26,7 @@ const userSchema = new Schema(
             match: [/[a-zA-Z0-9!-]+/i, "Must use a-z or 0-9 or ! or -"],
         },
 
-        // array of how many cars does a user put up for rent
+        // array of how many cars does a user put up for rent.  When User is logged in and complete a Booking form, data will then be added to this array to show what cars they have served.  See Booking model.
         carsRented: [
             {
                 type: Schema.Types.ObjectId,
