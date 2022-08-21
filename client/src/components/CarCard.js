@@ -6,10 +6,13 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Collapse from "react-bootstrap/Collapse";
-
-export default function CarCard( data ) {
+import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+export default function CarCard( data, props ) {
   console.log(data)
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   return (
    
     <Card
@@ -57,7 +60,8 @@ export default function CarCard( data ) {
           </div>
         </Collapse>
         <div style={{ display: "flex", justifyContent: "right" }}>
-          <Button variant="primary">Book This Ride</Button>
+          <Button variant="primary" onClick={() => navigate("/book-my-ride")}>Book This Ride</Button>
+          
         </div>
       </Card.Body>
     </Card>
