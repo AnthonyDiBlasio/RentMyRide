@@ -13,7 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 
-const BookingForm = () => {
+export default function BookMyRide() {
   //pulling in UserContext data
       // define check-in and check-out state
       const [checkInDate, setCheckInDate] = useState(null);
@@ -28,36 +28,7 @@ const BookingForm = () => {
       // define handler change function on check-out date
       const handleCheckOutDate = (date) => {
         setCheckOutDate(date);
-      };
-    
-  
-    //pulling in UserContext data
-  
-      // const [booking, setBooking] = useState('');
-    
-      // const [createBooking, { error }] = useMutation(CREATE_BOOKING);
-    
-      // const handleFormSubmit = async (event) => {
-      //   event.preventDefault();
-    
-      //   try {
-      //     const data = await createBooking({
-      //       variables: { 
-      //       _id,  
-      //       rentedCar,
-      //       reservDate,
-      //       returnDate,
-      //       totalBill,
-      //       billingDate,
-      //       lateFee,
-      //       message  
-      //     },
-      //     });
-    
-      //     setBooking('');
-      //   } catch (err) {
-      //     console.error(err);
-      //   }
+      }
       return (
         <Card style={{ width: "50rem", padding: "16px" }}>
         <Form>
@@ -91,8 +62,6 @@ const BookingForm = () => {
             <h4>Late Fees are as follows:</h4>
           </div>
         )}
-      
-      
            <Row className="mb-3">
              <Form.Group as={Col}>
                <Form.Label>Name: First and Last</Form.Label>
@@ -113,10 +82,9 @@ const BookingForm = () => {
          </Form>
         </Card>
     
-    );
-        }  
+    )};
   
-  
+
     
   
   
@@ -126,6 +94,5 @@ const BookingForm = () => {
         
       
   
-  export default BookingForm;
-  
+
 
