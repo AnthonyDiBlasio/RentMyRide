@@ -52,11 +52,6 @@ export default function CarCard( data, props ) {
           <div id="example-collapse-text">
             <p>Owned by: {data.data.carOwner}</p>
             <p>Location: {data.data.locationAvail}</p>
-            {/* <p>Type: {data.data.carType}</p>
-            <p>Make: {data.data.carMake}</p>
-            <p>Model: {data.data.carModel}</p>
-            <p>Year: {data.data.carYear}</p>
-            <p>Color: {data.data.color}</p> */}
           </div>
         </Collapse>
         <div style={{ display: "flex", justifyContent: "right" }}>
