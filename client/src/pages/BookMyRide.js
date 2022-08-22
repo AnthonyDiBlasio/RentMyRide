@@ -51,7 +51,7 @@ function BookMyRide() {
     navigate("/booked-rental-success");
   };
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ paddingTop: "16px" }}>
       <Card style={{ width: "50rem", padding: "16px" }}>
         <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
           Book Your Ride
