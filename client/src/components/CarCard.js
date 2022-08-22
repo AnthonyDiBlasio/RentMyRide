@@ -5,11 +5,12 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Collapse from "react-bootstrap/Collapse";
 import { useNavigate } from "react-router-dom";
-//comment
+import { useUser } from "../context/UserContext";
+
 export function CarCard({ data }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-
+  const [userData] = useUser();
 
   return (
     <Card
@@ -23,7 +24,10 @@ export function CarCard({ data }) {
       <Card.Img
         style={{ height: "250px", width: "auto" }}
         variant="top"
-        src={data.image || "http://avantgardemotorsports.com/wordpress/wp-content/uploads/2017/04/coming-soon.jpg"}
+        src={
+          data.image ||
+          "http://avantgardemotorsports.com/wordpress/wp-content/uploads/2017/04/coming-soon.jpg"
+        }
       />
       {console.log(data)}
       <Card.Body>
@@ -51,14 +55,22 @@ export function CarCard({ data }) {
             <p>Color: {data.color}</p>
             <p>Location: {data.locationAvail}</p>
             <p>Owned by: {data.carOwner ? data.carOwner.name : "No Owner"}</p>
-            <p>Dates Available: {data.checkInDate}-</p><span>{data.checkOutDate}</span>
-            
+            <p>Dates Available: {data.checkInDate}-</p>
+            <span>{data.checkOutDate}</span>
           </div>
         </Collapse>
         <div style={{ display: "flex", justifyContent: "right" }}>
-          <Button variant="primary" onClick={() =>{
-            navigate(`/book-my-ride/${data._id}`);
-        }}>
+          {/* if user is logged in navigate to bookmyride path, else send to login path */}
+          <Button
+            variant="primary"
+            onClick={() => {
+              if (userData.logged_in) {
+                navigate(`/book-my-ride/${data._id}`);
+              } else {
+                navigate("/login");
+              }
+            }}
+          >
             Book This Ride
           </Button>
         </div>
