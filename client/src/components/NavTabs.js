@@ -29,14 +29,8 @@ export default function NavTabs({ currentPage, handlePageChange }) {
             >
               Find a Ride
             </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="/profile"
-              active={location.pathname === "/profile"}
-            >
-              My Profile
-            </Nav.Link>
-            {userData.logged_in &&
+
+            {userData.logged_in && (
               <Nav.Link
                 as={Link}
                 to="/list-my-ride"
@@ -44,12 +38,18 @@ export default function NavTabs({ currentPage, handlePageChange }) {
               >
                 List a Ride
               </Nav.Link>
-            }
-           
+            )}
           </Nav>
 
           {userData.logged_in ? (
             <Nav>
+              <Nav.Link
+                as={Link}
+                to="/profile"
+                active={location.pathname === "/profile"}
+              >
+                My Profile
+              </Nav.Link>
               <Button onClick={logout}>logout</Button>
             </Nav>
           ) : (
@@ -68,7 +68,15 @@ export default function NavTabs({ currentPage, handlePageChange }) {
               >
                 Login
               </Nav.Link>
-             
+              {userData.logged_in && (
+                <Nav.Link
+                  as={Link}
+                  to="/profile"
+                  active={location.pathname === "/profile"}
+                >
+                  My Profile
+                </Nav.Link>
+              )}
             </Nav>
           )}
         </Navbar.Collapse>
