@@ -15,7 +15,7 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="row">
-          <div className="pt-4 col-lg-3 col-md-6">
+          <div className="pt-4 col-lg-3 col-md-12">
             <img src={logo} className="logoCar" />
 
             {/* <ul className="list-inline socila-list">
@@ -27,7 +27,7 @@ const Footer = () => {
             </ul> */}
           </div>
 
-          <div className="col-lg-6 col-md-3">
+          <div className="col-lg-6 col-md-12">
             <h3>Rent My Ride</h3>
             <ul className="list-group " style={{ listStyle: "none" }}>
               <li>
@@ -66,7 +66,7 @@ const Footer = () => {
           </div>
 
           {/* Team credits */}
-          <div className="col-lg-3 col-md-2">
+          <div className="col-lg-3 col-md-12">
             <h3>The Team</h3>
             <ul className="list-inline">
               <li>
