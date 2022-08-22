@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Collapse from "react-bootstrap/Collapse";
 import { useNavigate } from "react-router-dom";
-
+//comment
 export function CarCard({ data }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
