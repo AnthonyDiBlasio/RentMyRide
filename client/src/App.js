@@ -77,9 +77,9 @@ function App() {
                 <Route path="/list-my-ride" element={<ListMyRide />} />
                 <Route path="/find-my-ride" element={<FindMyRide />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/book-my-ride" element={<BookMyRide />} />
+                <Route path="/book-my-ride/:car_id" element={<BookMyRide />} />
                 <Route path="/profile" element={<Profile />} />
-                
+
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
