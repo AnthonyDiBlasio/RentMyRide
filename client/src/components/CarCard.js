@@ -9,12 +9,6 @@ import { useNavigate } from "react-router-dom";
 export function CarCard({ data }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-function handleId(){
-  console.log(data._id);
-}
- function handleNavigate() {
-   navigate('/book-my-ride');
-  } 
 
   return (
     <Card
@@ -56,15 +50,17 @@ function handleId(){
             <p>Color: {data.color}</p>
             <p>Location: {data.locationAvail}</p>
             <p>Owned by: {data.carOwner ? data.carOwner.name : "No Owner"}</p>
-            <p>Dates Available: {data.checkInDate}-</p><span>{data.checkOutDate}</span>
-            
+            <p>Dates Available: {data.checkInDate}-</p>
+            <span>{data.checkOutDate}</span>
           </div>
         </Collapse>
         <div style={{ display: "flex", justifyContent: "right" }}>
-          <Button variant="primary" onClick={() =>{
-          handleNavigate();
-          handleId();
-        }}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              navigate(`/book-my-ride/${data._id}`);
+            }}
+          >
             Book This Ride
           </Button>
         </div>
