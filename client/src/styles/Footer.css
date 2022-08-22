@@ -1,6 +1,6 @@
 footer {
     background: #823329;
-    color: #998888;
+    color: #eadeda;
     padding-top: 10px;
     
 }
@@ -20,9 +20,7 @@ footer h3 {
     margin: 30px 0 20px;
 }
 
-footer li span {
-    color: #bfb8ad;
-}
+
 
 footer .three-column {
     overflow: hidden;
