@@ -11,10 +11,10 @@ import { useMutation } from "@apollo/client";
 // Import the GraphQL mutation
 import { CREATE_BOOKING } from "../utils/mutations";
 import { useNavigate } from "react-router-dom";
+
 function BookMyRide() {
   const [reserveDate, setReserveDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
- 
 
   // define handler change function on check-in date
   const handleReserveDate = (date) => {
@@ -25,7 +25,7 @@ function BookMyRide() {
   // define handler change function on check-out date
   const handleReturnDate = (date) => {
     setReturnDate(date);
-  }
+  };
   const navigate = useNavigate();
   const [createBooking, { error }] = useMutation(CREATE_BOOKING);
   const handleForm = async function (e) {
@@ -40,7 +40,7 @@ function BookMyRide() {
           returnDate: dateReturn.value,
           totalBill: parseInt(bill.value),
           message: message.value,
-        }
+        },
       });
 
       navigate("/");
@@ -55,8 +55,7 @@ function BookMyRide() {
           Book Your Ride
         </Card.Title>
         <Form onSubmit={handleForm}>
-
-          <Form.Group >
+          <Form.Group>
             <div>
               <label>Reserve dates:</label>
               <DatePicker
@@ -79,22 +78,20 @@ function BookMyRide() {
           </Form.Group>
           {reserveDate && returnDate && (
             <div className="container">
-              <br/>
+              <br />
               <p>
-                You are renting a ride from {moment(reserveDate).format("LL")} to{" "}
-                {moment(returnDate).format("LL")}.
+                You are renting a ride from {moment(reserveDate).format("LL")}{" "}
+                to {moment(returnDate).format("LL")}.
               </p>
-            
             </div>
           )}
-        
 
-            <Form.Group as={Col}>
-              <Form.Label>Send a message:</Form.Label>
-              <Form.Control name="message" />
-            </Form.Group>
-         <br/>
-          <Button  variant="primary" type="submit">
+          <Form.Group as={Col}>
+            <Form.Label>Send a message:</Form.Label>
+            <Form.Control name="message" />
+          </Form.Group>
+          <br />
+          <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>
@@ -104,17 +101,3 @@ function BookMyRide() {
 }
 
 export default BookMyRide;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

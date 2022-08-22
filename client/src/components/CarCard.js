@@ -10,6 +10,7 @@ export function CarCard({ data }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
+
   return (
     <Card
       style={{
@@ -50,17 +51,14 @@ export function CarCard({ data }) {
             <p>Color: {data.color}</p>
             <p>Location: {data.locationAvail}</p>
             <p>Owned by: {data.carOwner ? data.carOwner.name : "No Owner"}</p>
-            <p>Dates Available: {data.checkInDate}-</p>
-            <span>{data.checkOutDate}</span>
+            <p>Dates Available: {data.checkInDate}-</p><span>{data.checkOutDate}</span>
+            
           </div>
         </Collapse>
         <div style={{ display: "flex", justifyContent: "right" }}>
-          <Button
-            variant="primary"
-            onClick={() => {
-              navigate(`/book-my-ride/${data._id}`);
-            }}
-          >
+          <Button variant="primary" onClick={() =>{
+            navigate(`/book-my-ride/${data._id}`);
+        }}>
             Book This Ride
           </Button>
         </div>
