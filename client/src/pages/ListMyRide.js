@@ -29,7 +29,7 @@ function ListMyRide() {
           checkInDate: '10/20/2020',
           checkOutDate: '10/20/2020',
           price: parseInt(price.value),
-          isAvailable: false,
+          isAvailable: true,
           locationAvail: address.value
         }
       });

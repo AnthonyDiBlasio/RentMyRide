@@ -72,7 +72,7 @@ const resolvers = {
 
     createCar: async (parent, args, context) => {
       if (context.user) {
-        const car = await Car.create({
+        await Car.create({
           // adding rentedCar arg
           carType: args.carType,
           carMake: args.carMake,
@@ -87,7 +87,7 @@ const resolvers = {
           carOwner: context.user._id,
           image: args.image
         });
-        return car;
+        return {};
       } 
     }, 
   
