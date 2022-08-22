@@ -20,6 +20,8 @@ import Footer from "./components/Footer";
 import UserProvider from "./context/UserContext";
 import Profile from "./pages/Profile";
 import BookMyRide from "./pages/BookMyRide";
+import BookedRentalSuccess from "./pages/BookedRentalSuccess";
+import CreatedListingSuccess from "./pages/CreatedListingSuccess";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -76,7 +78,14 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/book-my-ride/:car_id" element={<BookMyRide />} />
                 <Route path="/profile" element={<Profile />} />
-
+                <Route
+                  path="/booked-rental-success"
+                  element={<BookedRentalSuccess />}
+                />
+                <Route
+                  path="/created-listing-success"
+                  element={<CreatedListingSuccess />}
+                />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
