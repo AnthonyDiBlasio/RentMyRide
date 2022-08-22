@@ -1,98 +1,120 @@
-
-import React, { useState ,Component} from "react";
-import Form from "react-bootstrap/Form";
-import Auth from "../utils/auth";
-import { CREATE_BOOKING } from "../utils/mutations";
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-
-export default function BookMyRide() {
-  //pulling in UserContext data
-      // define check-in and check-out state
-      const [checkInDate, setCheckInDate] = useState(null);
-      const [checkOutDate, setCheckOutDate] = useState(null);
-    
-      // define handler change function on check-in date
-      const handleCheckInDate = (date) => {
-        setCheckInDate(date);
-        setCheckOutDate(null);
-      };
-    
-      // define handler change function on check-out date
-      const handleCheckOutDate = (date) => {
-        setCheckOutDate(date);
-      }
-      return (
-        <Card style={{ width: "50rem", padding: "16px" }}>
-        <Form>
-        <div>Owned by this user: </div>
-       <Form.Group >
-          <div>
-            <label>Reserve dates:</label>
-            <DatePicker
-              selected={checkInDate}
-              minDate={new Date()}
-              onChange={handleCheckInDate}
-            />
-          </div>
-          
-          <div>
-            <label>Return Date</label>
-            <DatePicker
-              selected={checkOutDate}
-              minDate={checkInDate}
-              onChange={handleCheckOutDate}
-            />
-          </div>
-        </Form.Group>
-        {checkInDate && checkOutDate && (
-          <div className="container">
-            <h2>
-              You are renting a ride from {moment(checkInDate).format("LL")} to{" "}
-              {moment(checkOutDate).format("LL")}.
-            </h2>
-            <h3>Your total bill is ....</h3>
-            <h4>Late Fees are as follows:</h4>
-          </div>
-        )}
-           <Row className="mb-3">
-             <Form.Group as={Col}>
-               <Form.Label>Name: First and Last</Form.Label>
-               <Form.Control name="" />
-             </Form.Group>
-            </Row>
+// Import the `useMutation()` hook from Apollo Client
+import { useMutation } from "@apollo/client";
+// Import the GraphQL mutation
+import { CREATE_BOOKING } from "../utils/mutations";
+import { useNavigate } from "react-router-dom";
+function BookMyRide() {
+  const [reserveDate, setReserveDate] = useState(null);
+  const [returnDate, setReturnDate] = useState(null);
  
-           <Row className="mb-3">
-             <Form.Group as={Col}>
-               <Form.Label>Message</Form.Label>
-               <Form.Control name="city" />
-             </Form.Group>
- 
-            </Row>
-           <Button variant="primary" type="submit">
-             Submit
-           </Button>
-         </Form>
-        </Card>
-    
-    )};
-  
 
-    
-  
-  
-  
-    
-     
+  // define handler change function on check-in date
+  const handleReserveDate = (date) => {
+    setReserveDate(date);
+    setReturnDate(null);
+  };
+
+  // define handler change function on check-out date
+  const handleReturnDate = (date) => {
+    setReturnDate(date);
+  }
+  const navigate = useNavigate();
+  const [createBooking, { error }] = useMutation(CREATE_BOOKING);
+  const handleForm = async function (e) {
+    e.preventDefault();
+    const { car_id, bill, dateReserve, message, dateReturn } =
+      e.target.elements;
+    try {
+      const { data } = await createBooking({
+        variables: {
+          rentedCar: car_id.value,
+          reservDate: dateReserve.value,
+          returnDate: dateReturn.value,
+          totalBill: parseInt(bill.value),
+          message: message.value,
+        }
+      });
+
+      navigate("/");
+    } catch ({ e }) {
+      console.error({ error });
+    }
+  };
+  return (
+    <div className="container-fluid">
+      <Card style={{ width: "50rem", padding: "16px" }}>
+        <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
+          Book Your Ride
+        </Card.Title>
+        <Form onSubmit={handleForm}>
+
+          <Form.Group >
+            <div>
+              <label>Reserve dates:</label>
+              <DatePicker
+                name="dateReserve"
+                selected={reserveDate}
+                minDate={new Date()}
+                onChange={handleReserveDate}
+              />
+            </div>
+
+            <div>
+              <label>Return Date</label>
+              <DatePicker
+                name="dateReturn"
+                selected={returnDate}
+                minDate={reserveDate}
+                onChange={handleReturnDate}
+              />
+            </div>
+          </Form.Group>
+          {reserveDate && returnDate && (
+            <div className="container">
+              <br/>
+              <p>
+                You are renting a ride from {moment(reserveDate).format("LL")} to{" "}
+                {moment(returnDate).format("LL")}.
+              </p>
+            
+            </div>
+          )}
         
-      
-  
+
+            <Form.Group as={Col}>
+              <Form.Label>Send a message:</Form.Label>
+              <Form.Control name="message" />
+            </Form.Group>
+         <br/>
+          <Button  variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </Card>
+    </div>
+  );
+}
+
+export default BookMyRide;
+
+
+
+
+
+
+
+
+
+
+
+
 
 

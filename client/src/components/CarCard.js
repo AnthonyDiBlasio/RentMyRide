@@ -9,6 +9,13 @@ import { useNavigate } from "react-router-dom";
 export function CarCard({ data }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+function handleId(){
+  console.log(data._id);
+}
+ function handleNavigate() {
+   navigate('/book-my-ride');
+  } 
+
   return (
     <Card
       style={{
@@ -54,7 +61,10 @@ export function CarCard({ data }) {
           </div>
         </Collapse>
         <div style={{ display: "flex", justifyContent: "right" }}>
-          <Button variant="primary" onClick={() => navigate("/book-my-ride")}>
+          <Button variant="primary" onClick={() =>{
+          handleNavigate();
+          handleId();
+        }}>
             Book This Ride
           </Button>
         </div>
