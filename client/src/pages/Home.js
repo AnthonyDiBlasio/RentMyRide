@@ -11,7 +11,7 @@ const Home = () => {
         {/* header section */}
         <div className="carImgHeader">
           <div className="headerText">
-            <h1 className="heading1Home p-5">
+            <h1 className="heading1Home p-5 text-center">
               Get Into Gear and Find Your Dream Ride
             </h1>
             <h2 className="heading2Home text-center">Book Online Now</h2>
