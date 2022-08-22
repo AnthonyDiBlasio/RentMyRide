@@ -66,10 +66,7 @@ function App() {
         <UserProvider>
           <LayOut>
             <NavTabs />
-            <div
-              className="bgSiteTimber"
-              style={{ flexGrow: 1, paddingTop: "16px", paddingBottom: "16px" }}
-            >
+            <div className="bgSiteTimber" style={{ flexGrow: 1 }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/signup" element={<SignUp />} />

@@ -16,7 +16,7 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="pt-4 col-lg-3 col-md-12">
-            <img src={logo} className="logoCar" />
+            <img src={logo} className="logoCar" alt="logo" />
 
             {/* <ul className="list-inline socila-list">
               <li className="list-inline-item">

@@ -24,10 +24,9 @@ const Login = () => {
     event.preventDefault();
     console.log(formState);
     await login(formState);
-   
   };
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ paddingTop: "16px" }}>
       <Card style={{ width: "30rem", padding: "20px" }}>
         <Card.Body>
           <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>

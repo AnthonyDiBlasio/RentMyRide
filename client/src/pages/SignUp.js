@@ -44,7 +44,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ paddingTop: "16px" }}>
       <Card style={{ width: "30rem", padding: "20px" }}>
         <Card.Body>
           <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
@@ -70,7 +70,6 @@ export default function SignUp() {
                   const user = tokenUser.data.createUser.user;
 
                   Auth.login(
-              
                     dispatch,
                     token,
                     {
@@ -87,9 +86,7 @@ export default function SignUp() {
                   type="text"
                   placeholder="Enter username"
                   name="username"
-                  onChange={(e) =>
-                    setData({ ...data, name: e.target.value })
-                  }
+                  onChange={(e) => setData({ ...data, name: e.target.value })}
                   isInvalid={error.name}
                 />
 
