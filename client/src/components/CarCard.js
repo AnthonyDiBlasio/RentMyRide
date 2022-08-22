@@ -25,7 +25,7 @@ export function CarCard({ data }) {
         variant="top"
         src={data.image || "http://avantgardemotorsports.com/wordpress/wp-content/uploads/2017/04/coming-soon.jpg"}
       />
-
+      {console.log(data)}
       <Card.Body>
         <Card.Title style={{ textAlign: "right" }}>
           <h3> {data.isAvailable ? "Available" : "Not Available"}</h3>

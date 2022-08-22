@@ -9,7 +9,10 @@ const carSchema = new Schema(
         carModel: {type: String, trim: true, required: true },
         carYear: { type: Number, require: true },
         color: {type: String},
-        image: {type: String},
+        image: {
+            type: String,
+            // match: [/^.*\.(jpg|JPG|png|PNG)$/, 'Must upload a PNG or JPG file']
+        },
         price: { type: Number, required: true },
         isAvailable: { type: Boolean, default: true },
         checkInDate:{type:String, default: Date},
