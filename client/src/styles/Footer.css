@@ -4,8 +4,7 @@ footer {
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    /* padding-top: 10px; */
-    
+    padding-top: 10px;
 }
 
 footer a {
@@ -70,6 +69,10 @@ footer .copyright {
 
 footer .copyright span {
     color: #0894d1;
+}
+
+.logoCar {
+    width : 225px;
 }
 
 
