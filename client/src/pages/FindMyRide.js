@@ -9,8 +9,8 @@ import Card from "react-bootstrap/Card";
 
 const FindMyRide = () => {
   const [carTypeFilter, setCarTypeFilter] = useState([]);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  // const [startDate, setStartDate] = useState("");
+  // const [endDate, setEndDate] = useState("");
 
   //create usestate hook for boolean isAvailable
   const { loading, data } = useQuery(QUERY_CAR, {
@@ -97,6 +97,13 @@ const FindMyRide = () => {
               to select multiple types hit control click
             </p>
           </Form.Group>
+          <Button
+            onClick={(e) => {
+              setCarTypeFilter([]);
+            }}
+          >
+            Reset Filter
+          </Button>
         </Card>
       </div>
       <CarCardList cars={filterCars(data.cars)} />

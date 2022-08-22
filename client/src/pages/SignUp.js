@@ -9,7 +9,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import Login from "./Login";
 
 export default function SignUp() {
   const initialState = useUser();

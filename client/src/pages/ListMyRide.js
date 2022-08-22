@@ -26,22 +26,23 @@ function ListMyRide() {
           carModel: model.value,
           carYear: parseInt(year.value),
           color: color.value,
-          checkInDate: '10/20/2020',
-          checkOutDate: '10/20/2020',
+          checkInDate: "10/20/2020",
+          checkOutDate: "10/20/2020",
           price: parseInt(price.value),
           isAvailable: true,
           locationAvail: address.value,
-          image: image.value
-        }
+          image: image.value,
+        },
       });
       // you don't have to do a reload!!! if you design using proper App states
-      navigate("/");
     } catch ({ e }) {
       console.error({ error });
     }
+    //temporary path to success page; move line above catch when handlesubmit is working
+    navigate("/created-listing-success");
   };
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ padding: "16px" }}>
       <Card style={{ width: "50rem", padding: "16px" }}>
         <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
           List Your Ride

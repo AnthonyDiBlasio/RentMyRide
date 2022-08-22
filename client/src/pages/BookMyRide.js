@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 //how do we do the math for dates selected and price per day?
 // what is this form going to say/do after submit
 
-
 function BookMyRide() {
   const [reserveDate, setReserveDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
@@ -45,14 +44,14 @@ function BookMyRide() {
           message: message.value,
         },
       });
-
-      navigate("/");
     } catch ({ e }) {
       console.error({ error });
     }
+    //temporary path; move line above catch error when handlesubmit works
+    navigate("/booked-rental-success");
   };
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ paddingTop: "16px" }}>
       <Card style={{ width: "50rem", padding: "16px" }}>
         <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
           Book Your Ride
