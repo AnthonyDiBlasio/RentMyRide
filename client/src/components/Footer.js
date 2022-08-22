@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Footer.css";
+import logo from "../images/logo.png";
 import {
   faBellConcierge,
   faHandHoldingDollar,
@@ -15,7 +16,7 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-3 col-md-6">
-            <h3>logo here</h3>
+            <img src={logo} className="logoCar" />
 
             {/* Repo/Github link here (fa icon doesn't show... yet) */}
             <ul className="list-inline socila-list">
