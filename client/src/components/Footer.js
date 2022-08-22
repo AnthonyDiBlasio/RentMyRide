@@ -15,17 +15,16 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="row">
-          <div className="col-lg-3 col-md-6">
+          <div className="pt-4 col-lg-3 col-md-6">
             <img src={logo} className="logoCar" />
 
-            {/* Repo/Github link here (fa icon doesn't show... yet) */}
-            <ul className="list-inline socila-list">
+            {/* <ul className="list-inline socila-list">
               <li className="list-inline-item">
                 <a href="https://github.com/AnthonyDiBlasio/RentMyRide.git">
                   <FontAwesomeIcon icon={["fa-brands", "fa-github"]} />
                 </a>
               </li>
-            </ul>
+            </ul> */}
           </div>
 
           <div className="col-lg-6 col-md-3">
