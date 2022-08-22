@@ -19,6 +19,7 @@ export const QUERY_CAR = gql`
       locationAvail
       carOwner {
         _id
+        name
       }
     }
   }

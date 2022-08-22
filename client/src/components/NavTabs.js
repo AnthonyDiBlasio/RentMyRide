@@ -36,13 +36,15 @@ export default function NavTabs({ currentPage, handlePageChange }) {
             >
               My Profile
             </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="/list-my-ride"
-              active={location.pathname === "/list-my-ride"}
-            >
-              List a Ride
-            </Nav.Link>
+            {userData.logged_in &&
+              <Nav.Link
+                as={Link}
+                to="/list-my-ride"
+                active={location.pathname === "/list-my-ride"}
+              >
+                List a Ride
+              </Nav.Link>
+            }
             <Nav.Link
                 as={Link}
                 to="/book-my-ride"
