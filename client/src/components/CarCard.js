@@ -23,7 +23,7 @@ export function CarCard({ data }) {
       <Card.Img
         style={{ height: "250px", width: "auto" }}
         variant="top"
-        src={data.image || "http://placekitten.com/250/250"}
+        src={data.image || "http://avantgardemotorsports.com/wordpress/wp-content/uploads/2017/04/coming-soon.jpg"}
       />
 
       <Card.Body>

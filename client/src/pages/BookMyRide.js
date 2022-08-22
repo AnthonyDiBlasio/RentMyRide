@@ -11,6 +11,9 @@ import { useMutation } from "@apollo/client";
 // Import the GraphQL mutation
 import { CREATE_BOOKING } from "../utils/mutations";
 import { useNavigate } from "react-router-dom";
+//how do we do the math for dates selected and price per day?
+// what is this form going to say/do after submit
+
 
 function BookMyRide() {
   const [reserveDate, setReserveDate] = useState(null);
