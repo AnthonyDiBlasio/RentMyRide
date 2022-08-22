@@ -40,6 +40,14 @@ export const QUERY_ME = gql`
       _id
       name
       email
+      location
+      carsRented {
+        _id
+        rentedCar {
+          _id 
+          image
+        }
+      }
     }
   }
 `;
