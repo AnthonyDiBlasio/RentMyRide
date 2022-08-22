@@ -30,7 +30,8 @@ function ListMyRide() {
           checkOutDate: '10/20/2020',
           price: parseInt(price.value),
           isAvailable: true,
-          locationAvail: address.value
+          locationAvail: address.value,
+          image: image.value
         }
       });
       // you don't have to do a reload!!! if you design using proper App states
