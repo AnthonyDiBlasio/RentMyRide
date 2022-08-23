@@ -17,7 +17,9 @@ import { useNavigate } from "react-router-dom";
 function BookMyRide() {
   const [reserveDate, setReserveDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
-
+  // console.log(window.location.href)
+  let carId = window.location.href.split('/')
+  console.log(carId[4])
   // define handler change function on check-in date
   const handleReserveDate = (date) => {
     setReserveDate(date);
@@ -34,24 +36,32 @@ function BookMyRide() {
     e.preventDefault();
     const { car_id, bill, dateReserve, message, dateReturn } =
       e.target.elements;
+    // console.log(e.target.elements)
+      // compare 2 dates to determine # of days rented and multiply by price for total bill -> parseInt
+    // bill = (getDifferenceInDays(dateReserve, dateReturn)) * price
     try {
+      
       const { data } = await createBooking({
         variables: {
-          rentedCar: car_id.value,
+          rentedCar: carId[4],
           reservDate: dateReserve.value,
           returnDate: dateReturn.value,
           totalBill: parseInt(bill.value),
           message: message.value,
         },
       });
+      // console.log(data)
+      navigate("/");
     } catch ({ e }) {
       console.error({ error });
+      // console.log(data)
     }
     //temporary path; move line above catch error when handlesubmit works
-    navigate("/booked-rental-success");
+    // navigate("/booked-rental-success");
   };
   return (
     <div className="container-fluid" style={{ paddingTop: "16px" }}>
+     
       <Card style={{ width: "50rem", padding: "16px" }}>
         <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
           Book Your Ride
@@ -61,7 +71,7 @@ function BookMyRide() {
             <div>
               <label>Reserve dates:</label>
               <DatePicker
-                name="dateReserve"
+                // name="dateReserve"
                 selected={reserveDate}
                 minDate={new Date()}
                 onChange={handleReserveDate}
@@ -71,7 +81,7 @@ function BookMyRide() {
             <div>
               <label>Return Date</label>
               <DatePicker
-                name="dateReturn"
+                // name="dateReturn"
                 selected={returnDate}
                 minDate={reserveDate}
                 onChange={handleReturnDate}

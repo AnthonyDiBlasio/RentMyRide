@@ -64,8 +64,6 @@ query booking {
  reservDate
  returnDate
  totalBill
- billingDate
- lateFee
  message
 rentedCar {
   _id
