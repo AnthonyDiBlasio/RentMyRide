@@ -62,6 +62,7 @@ export function CarCard({ data }) {
         <div style={{ display: "flex", justifyContent: "right" }}>
           {/* if user is logged in navigate to bookmyride path, else send to login path */}
           <Button
+          value={data._id}
             variant="primary"
             onClick={() => {
               if (userData.logged_in) {

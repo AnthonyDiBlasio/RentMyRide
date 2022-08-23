@@ -101,7 +101,7 @@ function BookMyRide() {
             }
           </Form.Group>
           <br />
-          <Button variant="primary" type="submit">
+          <Button value ={formState.rentedCar}variant="primary" type="submit">
             Submit
           </Button>
         </Form>
