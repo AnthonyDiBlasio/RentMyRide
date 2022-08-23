@@ -32,7 +32,7 @@ export function CarCard({ data }) {
       {console.log(data)}
       <Card.Body>
         <Card.Title style={{ textAlign: "right" }}>
-          <h3> {data.isAvailable ? "Available" : "Not Available"}</h3>
+          <h3> {data.isAvailable = true ? "Available" : "Not Available"}</h3>
         </Card.Title>
 
         <div>
