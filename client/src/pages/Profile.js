@@ -62,11 +62,11 @@ const Profile = () => {
                   <MDBCardText className="font-italic mb-0">Photographer</MDBCardText>
                 </div>
               </div> */}
-              <div className="d-flex justify-content-between align-items-center mt-5 mb-4">
-                <MDBCardText className="lead fw-normal mb-0">Cars Rented:</MDBCardText>
+              <div className="d-flex justify-content-between align-items-center mb-4">
+                <MDBCardText className="lead fw-normal mb-0">My Cars:</MDBCardText>
                 {/* <MDBCardText className="mb-0"><a href="#!" className="text-muted">Show all</a></MDBCardText> */}
               </div>
-              <MDBRow>
+              <MDBRow className="mb-3" >
                 <MDBCol className="mb-2">
                   <MDBCardImage src={img1}
                     alt="image 1" className="w-100 rounded-3" />
@@ -76,6 +76,7 @@ const Profile = () => {
                     alt="image 1" className="w-100 rounded-3" />
                 </MDBCol>
               </MDBRow>
+              <MDBCardText className="lead fw-normal mb-4">Cars Rented:</MDBCardText>
               <MDBRow className="g-2">
                 <MDBCol className="mb-2">
                   <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
