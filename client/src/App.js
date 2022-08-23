@@ -22,7 +22,7 @@ import Profile from "./pages/Profile";
 import BookMyRide from "./pages/BookMyRide";
 import BookedRentalSuccess from "./pages/BookedRentalSuccess";
 import CreatedListingSuccess from "./pages/CreatedListingSuccess";
-
+import Test from './components/Test'
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -76,6 +76,7 @@ function App() {
                 <Route path="/list-my-ride" element={<ListMyRide />} />
                 <Route path="/find-my-ride" element={<FindMyRide />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/test" element={<Test />} />
                 <Route path="/book-my-ride/:car_id" element={<BookMyRide />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route

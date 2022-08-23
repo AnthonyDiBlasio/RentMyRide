@@ -59,7 +59,7 @@ query Me {
   }
 }
 `;
-
+// TODO test this 
 export const QUERY_BOOKING = gql`
 query Booking {
   booking {
