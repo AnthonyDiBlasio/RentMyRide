@@ -99,8 +99,6 @@ const resolvers = {
           reservDate: args.reservDate,
           returnDate: args.returnDate,
           totalBill: args.totalBill,
-          billingDate: args.billingDate,
-          lateFee: args.lateFee,
           message: args.message,
         });
         

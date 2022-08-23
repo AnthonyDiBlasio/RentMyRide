@@ -51,8 +51,8 @@ mutation createCar($carType: String!, $carMake: String!, $carModel: String!, $ca
 }
 `;
 export const CREATE_BOOKING = gql`
-mutation createBooking($rentedCar: ID,$reservDate: String, $returnDate: String, $totalBill: Int, $billingDate: String, $lateFee: Int, $message: String) {
-  createBooking(rentedCar: $rentedCar, reservDate: $reservDate, returnDate: $returnDate, totalBill: $totalBill, billingDate: $billingDate, lateFee: $lateFee, message: $message) {
+mutation createBooking($rentedCar: ID,$reservDate: String, $returnDate: String, $totalBill: Int, $message: String) {
+  createBooking(rentedCar: $rentedCar, reservDate: $reservDate, returnDate: $returnDate, totalBill: $totalBill, message: $message) {
     _id
     rentedCar {
       _id
@@ -69,8 +69,6 @@ mutation createBooking($rentedCar: ID,$reservDate: String, $returnDate: String, 
     reservDate
     returnDate
     totalBill
-    billingDate
-    lateFee
     message
   }
 }
