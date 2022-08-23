@@ -51,12 +51,7 @@ export const QUERY_ME = gql`
     }
   }
 `;
-// export const QUERY_USER = gql`
-// type Query {
-//   users: [User]
 
-
-// }`
 export const QUERY_BOOKING = gql`
 query booking {
   Booking {
