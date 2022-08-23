@@ -35,44 +35,54 @@ export const QUERY_USERS = gql`
   }
 `;
 export const QUERY_ME = gql`
-  query me {
-    me {
+query Me {
+  me {
+    _id
+    name
+    email
+    location
+    carsRented {
       _id
-      name
-      email
-      location
-      carsRented {
+      rentedCar {
         _id
-        rentedCar {
-          _id 
-          image
-        }
+        carType
+        carMake
+        carModel
+        carYear
+        color
+        price
+        image
+        isAvailable
       }
     }
+    
   }
+}
 `;
 
 export const QUERY_BOOKING = gql`
-query booking {
-  Booking {
- _id
- reservDate
- returnDate
- totalBill
- message
-rentedCar {
-  _id
-  carType
-  carMake
-  carModel
-  carYear
-  color
-  price
-  image
-  isAvailable
-  locationAvail
-  carOwner
+query Booking {
+  booking {
+    _id
+    reservDate
+    returnDate
+    rentedCar {
+      _id
+      carType
+      carMake
+      carModel
+      carYear
+      color
+      price
+      image
+      isAvailable
+      locationAvail
+      carOwner {
+        _id
+        name
+        email
+        location
+      }
     }
   }
-}
-`
+}`
