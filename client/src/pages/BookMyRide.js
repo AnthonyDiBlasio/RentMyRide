@@ -15,80 +15,85 @@ import { useNavigate } from "react-router-dom";
 // what is this form going to say/do after submit
 
 function BookMyRide() {
-  const [reserveDate, setReserveDate] = useState(null);
-  const [returnDate, setReturnDate] = useState(null);
-  // console.log(window.location.href)
+  // const [reserveDate, setReserveDate] = useState(null);
+  // const [returnDate, setReturnDate] = useState(null);
+  console.log(window.location.href)
   let carId = window.location.href.split('/')
   console.log(carId[4])
   // define handler change function on check-in date
-  const handleReserveDate = (date) => {
-    setReserveDate(date);
-    setReturnDate(null);
-  };
+  // const handleReserveDate = (date) => {
+  //   setReserveDate(date);
+  //   setReturnDate(null);
+  // };
+  const [formState, setFormState] = useState({
+    rentedCar: carId[4],
+    reservDate: "",
+    returnDate: "",
+    totalBill: "",
+    message: ""
+  });
 
-  // define handler change function on check-out date
-  const handleReturnDate = (date) => {
-    setReturnDate(date);
+  // const handleReturnDate = (date) => {
+  //   setReturnDate(date);
+  // };
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
   const navigate = useNavigate();
   const [createBooking, { error }] = useMutation(CREATE_BOOKING);
-  const handleForm = async function (e) {
-    e.preventDefault();
-    const { car_id, bill, dateReserve, message, dateReturn } =
-      e.target.elements;
-    // console.log(e.target.elements)
-      // compare 2 dates to determine # of days rented and multiply by price for total bill -> parseInt
-    // bill = (getDifferenceInDays(dateReserve, dateReturn)) * price
-    try {
-      
-      const { data } = await createBooking({
-        variables: {
-          rentedCar: carId[4],
-          reservDate: dateReserve.value,
-          returnDate: dateReturn.value,
-          totalBill: parseInt(bill.value),
-          message: message.value,
-        },
-      });
-      // console.log(data)
-      navigate("/");
-    } catch ({ e }) {
-      console.error({ error });
-      // console.log(data)
-    }
-    //temporary path; move line above catch error when handlesubmit works
-    // navigate("/booked-rental-success");
-  };
+  const onFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    await createBooking(formState);
+  }
+  // const handleForm = async function (e) {
+  //   e.preventDefault();
+  //   const { car_id, bill, dateReserve, message, dateReturn } =
+  //     e.target.elements;
+
+  // console.log(e.target.elements)
+  // compare 2 dates to determine # of days rented and multiply by price for total bill -> parseInt
+  // bill = (getDifferenceInDays(dateReserve, dateReturn)) * price
+  // try {
+
+  //   const { data } = await createBooking({
+
+
   return (
     <div className="container-fluid" style={{ paddingTop: "16px" }}>
-     
+
       <Card style={{ width: "50rem", padding: "16px" }}>
         <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
           Book Your Ride
         </Card.Title>
-        <Form onSubmit={handleForm}>
+        <Form onSubmit={onFormSubmit}>
           <Form.Group>
             <div>
               <label>Reserve dates:</label>
-              <DatePicker
-                // name="dateReserve"
-                selected={reserveDate}
-                minDate={new Date()}
-                onChange={handleReserveDate}
+              <input
+                name='reservDate'
+                value={formState.reservDate}
+               
+               
+                onChange={handleChange}
               />
             </div>
 
             <div>
               <label>Return Date</label>
-              <DatePicker
-                // name="dateReturn"
-                selected={returnDate}
-                minDate={reserveDate}
-                onChange={handleReturnDate}
+              <input
+                name='returnDate'
+                value={formState.returnDate}
+                onChange={handleChange}
               />
             </div>
           </Form.Group>
-          {reserveDate && returnDate && (
+          {/* {reserveDate && returnDate && (
             <div className="container">
               <br />
               <p>
@@ -96,11 +101,18 @@ function BookMyRide() {
                 to {moment(returnDate).format("LL")}.
               </p>
             </div>
-          )}
+          )} */}
 
           <Form.Group as={Col}>
             <Form.Label>Send a message:</Form.Label>
-            <Form.Control name="message" />
+            <Form.Control onChange={handleChange} name='message' value={formState.message} />
+          </Form.Group>
+          <br />
+          <Form.Group as={Col}>
+            <Form.Label>total bill</Form.Label>
+            <Form.Control
+              name='totalBill'
+              onChange={handleChange} value={formState.totalBill} />
           </Form.Group>
           <br />
 

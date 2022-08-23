@@ -12,15 +12,15 @@ const bookingSchema = new Schema(
         // Dates have to be entered as a string.  If using the Date method on the form handler, the Date will have to be converted into a string.
         reservDate: {
             type: String,
-            required: true,
+            required: false,
         },
         returnDate: {
             type: String,
-            required: true,
+            required: false,
         },
         totalBill: {
             type: Number,
-            required: true,
+            required: false,
         },
 
 
