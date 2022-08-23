@@ -21,6 +21,7 @@ const carSchema = new Schema(
             type: String,
         },
         // Car owner ID will not always be same as the logged in User.  Only a logged in User can create a car they will own since the the logged in User ID will be added as the ID below.  Other users when logged on will be able to see the car owners since the Car query produces all cars, along with user ID , name, email and lcation.
+        // this is the person who owns car and earns money off it
         carOwner: {
             type: Schema.Types.ObjectId,
             ref: 'User'

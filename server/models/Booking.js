@@ -40,6 +40,15 @@ const bookingSchema = new Schema(
             minLength: 1,
             maxLength : 280,
         },
+        status: {
+            type: Number,
+            required: true,
+            default: 1,
+            // 1 = reserved, 
+            // 2 = reserved and in use,
+            // 3 = returned,
+            //4 = canceled
+        }
     },
 );
 

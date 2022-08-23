@@ -25,7 +25,7 @@ const resolvers = {
     },
     // *Tom's addition - add populate to pop rentedCar and execute via .exec()
     booking: async(parent, { _id }) => {
-      return await Booking.findOne({ _id: ObjectId(_id) }).populate("rentedCar").exec();
+      return await Booking.findOne({ _id: ObjectId(_id) }).populate("rentedCar")
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -90,11 +90,12 @@ const resolvers = {
         return {};
       } 
     }, 
-  
+   // TODO retest
     // create a booking between a user and a car
     createBooking: async (parent, args, context) => {
       if (context.user) {
         const booking = await Booking.create({
+          // this should be car rented _id
           rentedCar: args.rentedCar,
           reservDate: args.reservDate,
           returnDate: args.returnDate,
@@ -112,15 +113,20 @@ const resolvers = {
         },
         { new: true }
       );
-      return await Booking.findOne({ _id: ObjectId(booking._id) }).populate("rentedCar").exec();
+      return await Booking.findOne({ _id: ObjectId(booking._id) }).populate("rentedCar")
       }
       throw new AuthenticationError("You need to be logged in");
     },
 
+// TODO retest
     removeCar: async (parent, { carId, bookingId }, context) => {
       if (context.user) {
        
         const car = await Car.findOneAndDelete({ _id: carId });
+
+        // TODO remove bookings
+        // TODO remove booking from user
+
       
 
         // await User.findOneAndUpdate(
@@ -132,8 +138,10 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in")
     },
-
+// TODO retest
     cancelBooking: async (parent, { bookingId }, context) => {
+      // TODO update the status of booking as canceled
+      // TODO do not delete the record we want to see history
       // if (context.user) {
         return User.findOneAndUpdate(
           {_id: ObjectId("62fd8e9b89f5c9490c3765dc")},
