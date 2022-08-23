@@ -26,8 +26,6 @@ function ListMyRide() {
           carModel: model.value,
           carYear: parseInt(year.value),
           color: color.value,
-          checkInDate: "10/20/2020",
-          checkOutDate: "10/20/2020",
           price: parseInt(price.value),
           isAvailable: true,
           locationAvail: address.value,
