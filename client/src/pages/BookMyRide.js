@@ -68,10 +68,10 @@ function BookMyRide() {
         <div className="row">
           
         
-        <div className="col-lg-6 col-xl-12">
+        <div className="col-xl-6 col-sm-12">
           <div className="text-center">
             { car &&
-            <Card style={{ width: '18rem', padding:0 }} key={car._id}>
+            <Card style={{ width: '20rem', padding:0 }} key={car._id}>
               <Card.Img variant="top" src={car.image} title={car.carMake} alt={car.carMake} />
               <Card.Body className="text-center">
                 <Card.Title>{ car.carMake }</Card.Title>
@@ -86,7 +86,7 @@ function BookMyRide() {
           </div>
         </div>
 
-        <div className="col-lg-6 col-xl-12">
+        <div className="col-xl-6 col-sm-12">
             <Form onSubmit={onFormSubmit}>
               <Form.Group className="mx-4">
                 <div>

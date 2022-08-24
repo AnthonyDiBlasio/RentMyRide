@@ -35,7 +35,7 @@ const Profile = () => {
                 </MDBCardText>
               </div>
             </div>
-            <div className="p-4 text-black" style={{ backgroundColor: '#f8f9fa' }}>
+            <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
               <div className="d-flex justify-content-end text-center py-1">
                 <div>
                   <MDBCardText className="small text-muted mb-0">Email</MDBCardText>
@@ -45,24 +45,25 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <MDBCardBody className="text-black p-4">
+            <MDBCardBody className="p-4" style={{ color: "#823329" }}>
               <div className="d-flex justify-content-between align-items-center mb-4">
-                <MDBCardText className="lead fw-normal mb-0">My Cars:</MDBCardText>
+                <MDBCardText className="lead fw-bold mb-0">My Cars:</MDBCardText>
                 {/* <MDBCardText className="mb-0"><a href="#!" className="text-muted">Show all</a></MDBCardText> */}
               </div>
-              <div
+              <div className="d-flex justify-content-center fw-bold font-monospace"
                 style={{
                   background: '#efefef',
                   padding: '29px 30px',
                   border: '2px dashed',
                   margin: '20px 0',
                 }}>
-                Coming soon
+                COMING SOON
               </div>
-              <MDBCardText className="lead fw-normal mb-4">Cars Rented:</MDBCardText>
-              <MDBRow className="g-2">
-                {
+              <MDBCardText className="lead fw-bold mb-4">Cars Rented:</MDBCardText>
+              <div className="row g-3">
+                { 
                   user?.carsRented?.filter(car => car.rentedCar != null).map(car => (
+                    <div className="col-md-6">
                     <Card style={{ width: '18rem', padding:0 }} key={car._id}>
                       <Card.Img variant="top" src={car.rentedCar.image} title={car.rentedCar.carMake} alt={car.rentedCar.carMake} />
                       <Card.Body>
@@ -74,9 +75,10 @@ const Profile = () => {
                         </Card.Text>
                       </Card.Body>
                     </Card>
+                    </div>
                   ))
                 }
-              </MDBRow>
+              </div>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
