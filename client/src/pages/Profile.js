@@ -6,7 +6,7 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import img1 from '../images/car1.jpg';
 
 const Profile = () => {
-  
+  // need to figure out why its not updating automatically for the cars rented
   // create state for user's info
   const { data: userData } = useQuery(QUERY_ME);
 
