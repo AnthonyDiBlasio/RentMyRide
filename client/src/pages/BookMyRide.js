@@ -20,6 +20,7 @@ function BookMyRide() {
   const { loading, data: carsData } = useQuery(QUERY_CAR, {
     fetchPolicy: "no-cache",
   });
+  const [car , setCar] = useState(null)
   const [totalBill, setTotalBill] = useState(null);
   const [formState, setFormState] = useState({
     rentedCar: carId[4],
@@ -37,10 +38,11 @@ function BookMyRide() {
   };
 
   useEffect(() => {
+    const car = carsData?.cars.find(car => car._id === carId[4]);
+    setCar(car)
     if (formState.reservDate && formState.returnDate) {
       var reservDate = moment(formState.reservDate);
       var returnDate = moment(formState.returnDate);
-      const car = carsData.cars.find(car => car._id === carId[4]);
       var days = returnDate.diff(reservDate, "days")
       setTotalBill(car.price * days)
     }
@@ -104,6 +106,21 @@ function BookMyRide() {
           <Button value ={formState.rentedCar}variant="primary" type="submit">
             Submit
           </Button>
+          <div>
+            { car &&
+            <Card style={{ width: '18rem', padding:0 }} key={car._id}>
+              <Card.Img variant="top" src={car.image} title={car.carMake} alt={car.carMake} />
+              <Card.Body>
+                <Card.Title>{ car.carMake }</Card.Title>
+                <Card.Text>
+                  <div>{ car.carModel }</div>
+                  <div>{ car.carType }</div>
+                  <div><b>{ car.carYear }</b></div> 
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            }
+          </div>
         </Form>
       </Card>
     </div>

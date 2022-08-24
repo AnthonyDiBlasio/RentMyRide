@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
-
+import Card from 'react-bootstrap/Card';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import img1 from '../images/car1.jpg';
 
@@ -10,7 +10,7 @@ const Profile = () => {
   // create state for user's info
   const { data: userData } = useQuery(QUERY_ME);
 
-  const user = userData?.me || '';
+  const user = userData?.me || {};
 
   return (
     <div className="gradient-custom-2" >
@@ -43,49 +43,39 @@ const Profile = () => {
                   <a href={user.email} target="_blank">{user.email}</a>
                   </MDBCardText>
                 </div>
-                {/* <div className="px-3">
-                  <MDBCardText className="mb-1 h5">1026</MDBCardText>
-                  <MDBCardText className="small text-muted mb-0">Followers</MDBCardText>
-                </div>
-                <div>
-                  <MDBCardText className="mb-1 h5">478</MDBCardText>
-                  <MDBCardText className="small text-muted mb-0">Following</MDBCardText>
-                </div> */}
               </div>
             </div>
             <MDBCardBody className="text-black p-4">
-              {/* <div className="mb-5">
-                <p className="lead fw-normal mb-1">About</p>
-                <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                  <MDBCardText className="font-italic mb-1">Web Developer</MDBCardText>
-                  <MDBCardText className="font-italic mb-1">Lives in New York</MDBCardText>
-                  <MDBCardText className="font-italic mb-0">Photographer</MDBCardText>
-                </div>
-              </div> */}
               <div className="d-flex justify-content-between align-items-center mb-4">
                 <MDBCardText className="lead fw-normal mb-0">My Cars:</MDBCardText>
                 {/* <MDBCardText className="mb-0"><a href="#!" className="text-muted">Show all</a></MDBCardText> */}
               </div>
-              <MDBRow className="mb-3" >
-                <MDBCol className="mb-2">
-                  <MDBCardImage src={img1}
-                    alt="image 1" className="w-100 rounded-3" />
-                </MDBCol>
-                <MDBCol className="mb-2">
-                  <MDBCardImage src={img1}
-                    alt="image 1" className="w-100 rounded-3" />
-                </MDBCol>
-              </MDBRow>
+              <div
+                style={{
+                  background: '#efefef',
+                  padding: '29px 30px',
+                  border: '2px dashed',
+                  margin: '20px 0',
+                }}>
+                Coming soon
+              </div>
               <MDBCardText className="lead fw-normal mb-4">Cars Rented:</MDBCardText>
               <MDBRow className="g-2">
-                <MDBCol className="mb-2">
-                  <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-                    alt="image 1" className="w-100 rounded-3" />
-                </MDBCol>
-                <MDBCol className="mb-2">
-                  <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-                    alt="image 1" className="w-100 rounded-3" />
-                </MDBCol>
+                {
+                  user?.carsRented?.filter(car => car.rentedCar != null).map(car => (
+                    <Card style={{ width: '18rem', padding:0 }} key={car._id}>
+                      <Card.Img variant="top" src={car.rentedCar.image} title={car.rentedCar.carMake} alt={car.rentedCar.carMake} />
+                      <Card.Body>
+                        <Card.Title>{ car.rentedCar.carMake }</Card.Title>
+                        <Card.Text>
+                          <div>{ car.rentedCar.carModel }</div>
+                          <div>{ car.rentedCar.carType }</div>
+                          <div><b>{ car.rentedCar.carYear }</b></div> 
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  ))
+                }
               </MDBRow>
             </MDBCardBody>
           </MDBCard>
