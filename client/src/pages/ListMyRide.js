@@ -73,8 +73,10 @@ function ListMyRide() {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Price</Form.Label>
-            <Form.Control name="price" />
+            <Form.Label>Price Per Day </Form.Label>
+            
+           <Form.Control  name="price"/>
+           
           </Form.Group>
 
           <Form.Group className="mb-3">
