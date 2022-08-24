@@ -76,14 +76,21 @@ This is a car rental app for users to peruse cars, prices, and availability base
     - react-router-dom": "^6.3.0",
     - react-scripts: 5.0.1
   
-  
-
 ## Usage
 
 To provide a platform for users to choose from a selection of rental cars and for car owners to post their vehicles to rent out.
 
+## Wireframes and Chart
+[Link to proposal](https://docs.google.com/document/d/1D5Cq0w9Jo1kW4Pujggm2wF3VBmuCN4jDpSmqHO180ao/edit?usp=sharing)
+
+[Link to the flowchart](https://drive.google.com/file/d/1MycvUaWPEpJJteG47msUcZ8yU9hzpzVp/view?usp=sharing)
+![flow-chart](./client/src/images/chart.PNG)
+
+[Wireframes link](https://www.figma.com/file/8xRfNioMSx6lp4lSpvg7em/Diagram---Untitled?node-id=0%3A1)
+![wireframe-1](./client/src/images/rentwire.PNG)
+![wireframe-2](./client/src/images/rentwire2.PNG)
 ## License
-This application is covered by the MIT License, the terms of which can be found [here](https://opensource.org/licenses/MIT).
+This application is covered by the MIT License, the terms of which can be found [here](https://opensource.org/licenses/MIT)
 
 ## Contributing
 
