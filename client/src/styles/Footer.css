@@ -76,9 +76,15 @@ footer .copyright span {
 }
 
 
-@media (max-width: 600px){
-    footer { 
+@media (max-width: 1024px){
+    .team, .customer { 
         display : none; 
         visibility : hidden; 
     }
+    footer .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
+

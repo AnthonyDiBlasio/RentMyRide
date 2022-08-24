@@ -27,7 +27,7 @@ const Footer = () => {
             </ul> */}
           </div>
 
-          <div className="col-lg-6 col-md-12">
+          <div className="customer col-lg-6 col-md-12">
             <h3>Rent My Ride</h3>
             <ul className="list-group " style={{ listStyle: "none" }}>
               <li>
@@ -66,7 +66,7 @@ const Footer = () => {
           </div>
 
           {/* Team credits */}
-          <div className="col-lg-3 col-md-12">
+          <div className="team col-lg-3 col-md-12">
             <h3>The Team</h3>
             <ul className="list-inline">
               <li>
