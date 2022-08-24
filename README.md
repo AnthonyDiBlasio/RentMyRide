@@ -83,10 +83,10 @@ To provide a platform for users to choose from a selection of rental cars and fo
 ## Wireframes and Chart
 [Link to proposal](https://docs.google.com/document/d/1D5Cq0w9Jo1kW4Pujggm2wF3VBmuCN4jDpSmqHO180ao/edit?usp=sharing)
 
-[Link to the flowchart](https://drive.google.com/file/d/1MycvUaWPEpJJteG47msUcZ8yU9hzpzVp/view?usp=sharing)
+[Link to the flowchart](https://drive.google.com/file/d/1MycvUaWPEpJJteG47msUcZ8yU9hzpzVp/view?usp=sharing) <br/>
 ![flow-chart](./client/src/images/chart.PNG)
 
-[Wireframes link](https://www.figma.com/file/8xRfNioMSx6lp4lSpvg7em/Diagram---Untitled?node-id=0%3A1)
+[Wireframes link](https://www.figma.com/file/8xRfNioMSx6lp4lSpvg7em/Diagram---Untitled?node-id=0%3A1) <br/>
 ![wireframe-1](./client/src/images/rentwire.PNG)
 ![wireframe-2](./client/src/images/rentwire2.PNG)
 ## License
