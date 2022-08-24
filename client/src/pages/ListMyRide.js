@@ -32,7 +32,6 @@ function ListMyRide() {
           image: image.value,
         },
       });
-      // you don't have to do a reload!!! if you design using proper App states
     } catch ({ e }) {
       console.error({ error });
     }
@@ -40,12 +39,12 @@ function ListMyRide() {
     navigate("/created-listing-success");
   };
   return (
-    <div className="container-fluid" style={{ padding: "16px" }}>
-      <Card style={{ width: "50rem", padding: "16px" }}>
-        <Card.Title style={{ textAlign: "center", fontSize: "30px" }}>
+    <div className="container-fluid" style={{ paddingTop: "50px", paddingBottom: "50px", color: "#823329" }}>
+      <Card style={{ width: "50rem", padding: "50px" }}>
+        <Card.Title className="fw-bold" style={{ textAlign: "center", fontSize: "30px" }}>
           List Your Ride
         </Card.Title>
-        <Form onSubmit={handleForm}>
+        <Form className="p-5" onSubmit={handleForm}>
           <Row className="mb-3">
             <Form.Group as={Col}>
               <Form.Label>Make</Form.Label>
@@ -67,6 +66,7 @@ function ListMyRide() {
               <Form.Control name="year" />
             </Form.Group>
           </Row>
+          
           <Form.Group className="mb-3">
             <Form.Label>Color</Form.Label>
             <Form.Control name="color" />
@@ -87,9 +87,11 @@ function ListMyRide() {
               <Form.Control name="image" />
             </Form.Group>
           </Row>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
+          <div className="d-flex justify-content-end">
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </div>
         </Form>
       </Card>
     </div>
@@ -97,36 +99,3 @@ function ListMyRide() {
 }
 
 export default ListMyRide;
-
-// export default function ListMyRide() {
-//   return (
-
-//     <form>
-//       <label>
-//         Enter Your Cars Make
-//         <input type="text" name="make" />
-//       </label>
-//       <label>
-//         Enter Your Cars Model
-//         <input type="text" name="model" />
-//       </label>
-//       <label>
-//         Enter Your Cars Year
-//         <input type="text" name="year" />
-//       </label>
-//       <label>
-//         Enter Your Cars Color
-//         <input type="text" name="color" />
-//       </label>
-//       <label>
-//         Enter Your location
-//         <input type="text" name="location" />
-//       </label>
-//       <label>
-//         Enter a url link to photos of your car
-//         <input type="text" name="image" />
-//       </label>
-//       <input type="submit" value="Submit" />
-//     </form>
-//   );
-// }

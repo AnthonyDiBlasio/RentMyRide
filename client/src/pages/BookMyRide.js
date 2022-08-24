@@ -62,12 +62,11 @@ function BookMyRide() {
   return (
     <div className="container-fluid" style={{ paddingTop: "50px", paddingBottom: "50px", color: "#823329" }}>
       <Card style={{ width: "50rem", padding: "16px" }}>
-        <Card.Title className="mb-4" style={{ textAlign: "center", fontSize: "30px" }}>
+        <Card.Title className="my-4 fw-bold" style={{ textAlign: "center", fontSize: "30px" }}>
           Book Your Ride
         </Card.Title>
-        <div className="row">
+        <div className="row p-5">
           
-        
         <div className="col-xl-6 col-sm-12">
           <div className="text-center">
             { car &&

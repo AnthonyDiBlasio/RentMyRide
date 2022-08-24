@@ -106,40 +106,11 @@ const FindMyRide = () => {
           </Button>
         </Card>
       </div>
-      <CarCardList cars={filterCars(data.cars)} />
+      <div className="row g-2">
+        <CarCardList cars={filterCars(data.cars)} />
+      </div>
     </div>
   );
 };
 
 export default FindMyRide;
-
-// form saved for start and end date search; not implemented on backend yet
-//  <Form.Label style={{ marginTop: "16px" }}>Start date:</Form.Label>
-//           <Form.Control
-//             type="date"
-//             name="startDate"
-//             onChange={(e) => {
-//               setStartDate(e.target.value);
-//             }}
-//           />
-//           <Form.Label style={{ marginTop: "16px" }}>End date:</Form.Label>
-//           <Form.Control
-//             type="date"
-//             name="endDate"
-//             onChange={(e) => {
-//               setEndDate(e.target.value);
-//             }}
-//           />
-
-//           <Button
-//             style={{ marginTop: "16px" }}
-//             variant="primary"
-//             onClick={() => {
-//               console.log(
-//                 "TODO! This onclick event should query backend for cars that match the date range"
-//               );
-//               console.log(startDate, endDate);
-//             }}
-//           >
-//             Search
-//           </Button>
