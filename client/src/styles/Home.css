@@ -39,3 +39,11 @@
     color: #8a3033;
 }
 
+
+
+@media (max-width:600px){
+    .carImgHeader h1, h2{
+       font-size: 50px;
+        
+    }
+}
